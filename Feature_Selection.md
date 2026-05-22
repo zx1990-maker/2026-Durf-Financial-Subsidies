@@ -4,7 +4,7 @@
     
     $$\text{EBI/A}_t = \frac{\text{EBI}_t}{\text{Assets}_t}$$
     
-    *注：$$\text{EBI} = \text{EBIT} - \text{Taxes}$$ (息税前利润 - 税收)。*
+    注：$\text{EBI} = \text{EBIT} - \text{Taxes}$ (息税前利润 - 税收)。
 
 ---
 
