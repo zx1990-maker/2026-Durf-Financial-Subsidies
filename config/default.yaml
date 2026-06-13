@@ -1,0 +1,174 @@
+# =============================================================================
+# Three-Benchmark Counterfactual Model Configuration
+# =============================================================================
+# This file centralizes all tunable parameters.
+# Run modes:
+#   legacy  – uses existing wide-format files (backward compatible)
+#   panel   – uses new long-format panel data
+
+# === Data ===
+data:
+  # Legacy mode (existing wide-format files)
+  legacy:
+    csi_soe_path: "data_input/csi——features.csv"
+    h_ns_path: "data_input/h——features.csv"
+    csi_ns_path: "data_input/csi_ns_2024_features_2025_EBIA_二级行业HHI_结果(1).xlsx"
+    csi_ns_sheet: "计算结果_数值版"
+    # Year identifiers extracted from column suffixes
+    feature_years: [2024]       # which year(s) columns supply features (X)
+    target_year: 2025           # which year column is the target (Y)
+
+  # Yearly folder mode (wide-format files organized by year)
+  # Each year folder contains csi_features_YYYY.csv and h_features_YYYY.csv
+  yearly:
+    base_dir: "data_input"
+    file_pattern: "{year}/csi_features_{year}.csv"
+    h_file_pattern: "{year}/h_features_{year}.csv"
+    feature_year_col: "feature_year"   # year of the X features
+    target_year_col: "target_year"     # year of the Y target
+
+  # Panel mode (new long-format data)
+  panel:
+    data_dir: "data_input/panel/"
+    manifest_path: "data_input/manifest.json"
+
+  # Column mappings (used in both modes after normalization)
+  id_cols:
+    firm_id: "证券代码"
+    firm_name: "证券简称"
+  target_col: "EBI_A"           # renamed from EBI_A_YYYY in legacy
+  weight_col: "资产总计"
+  market_col: "市场"
+  soe_col: "企业所有制性质"
+  industry_l1_col: "一级行业"
+  industry_l2_col: "二级行业"
+  industry_full_col: "行业全路径"
+  soe_types: ["地方国有企业", "中央国有企业"]  # values indicating SOE in soe_col
+
+  # Ownership types to include as non-SOE benchmark (only these)
+  # Default: only 民营企业 for a clean private-enterprise benchmark
+  non_soe_types:
+    - 民营企业
+
+  # Industries to exclude (e.g. financial companies)
+  # Filtered by 二级行业 column. Common financial industries:
+  #   银行, 保险, 证券, 多元金融, 金融
+  exclude_industries:
+    - 银行
+    - 保险
+    - 证券
+    - 多元金融
+    - 金融
+    - 非银金融
+
+  # Benchmark group definitions
+  benchmark_groups:
+    soe_target: "SOE_target"
+    h_non_soe: "H_nonSOE"
+    csi_non_soe: "CSI_nonSOE"
+    pooled: "Pooled_H_plus_CSI_nonSOE"
+
+  # Prediction targets (主指标 + 稳健性指标)
+  targets:
+    EBI_A:
+      col: "EBI_A"
+      label: "EBI/A"
+      primary: true
+    ROA:
+      col: "ROA"
+      label: "ROA"
+      primary: false
+    ROE:
+      col: "ROE"
+      label: "ROE"
+      primary: false
+
+  # ROA/ROE supplementary data paths
+  roa_roe:
+    csi_roa_path: "data_input/ROA/沪深300_2015-2025ROA.csv"
+    h_roa_path: "data_input/ROA/H_2015-2025ROA.csv"
+    csi_roe_path: "data_input/ROE/沪深300_2015-2025ROE.csv"
+    h_roe_path: "data_input/ROE/H_2015-2016ROE.csv"
+
+# === Features ===
+features:
+  # Numeric features (will receive t-1 lag in panel mode)
+  numeric:
+    - FirmSize         # ln(Total Assets)
+    - MarketShare      # market share within L2 industry
+    - HHI              # Herfindahl index within L2 industry
+    - AssetTurnover    # revenue / avg(assets_t, assets_{t-1})
+    - WorkingCapitalRatio
+    - FixedAssetsRatio
+    - FinancialLeverage
+    - CurrentRatio
+    - CapexRatio
+
+  # Categorical features (not lagged — time-invariant or contemporaneous)
+  categorical:
+    - industry_l1
+    - industry_l2
+
+  # Fixed effects specification (toggle on/off)
+  fixed_effects:
+    year: true                  # Year dummies
+    industry_l1: true           # L1 industry dummies (一级行业)
+    industry_l2: true           # L2 industry dummies (二级行业)
+    industry_l1_x_year: true    # Industry-L1 × Year interactions
+    industry_l2_x_year: false   # Industry-L2 × Year interactions (sparser, default off)
+    market_dummy: true          # H vs CSI market indicator
+
+# === Model ===
+model:
+  type: "ridge"                 # "ridge" | "lasso" | "elasticnet"
+  params:
+    alpha: 10.0
+    random_state: 42
+
+# === Winsorization ===
+winsorization:
+  main: [0.05, 0.95]           # primary clipping bounds
+  robustness:                   # additional robustness checks
+    - [0.025, 0.975]
+    - [0.01, 0.99]
+
+# === Common Support ===
+common_support:
+  enabled: true
+  bounds: [0.01, 0.99]       # P1-P99: conservative, only trim extreme outliers
+  core_variables:              # variables to check (lagged names)
+    - FirmSize_lag
+    - FinancialLeverage_lag
+    - AssetTurnover_lag
+    - FixedAssetsRatio_lag
+    - CapexRatio_lag
+    - HHI_lag
+    - MarketShare_lag
+    - CurrentRatio_lag
+
+# === PSM (Propensity Score Matching) ===
+psm:
+  enabled: true                # runs PSM + CEM + EB + OW comparison
+  caliper_sd: 0.5
+  classifier: "gbm"
+  random_state: 42
+
+  # Comparison methods (all run together when psm.enabled=true)
+  methods:
+    - "psm"           # propensity score matching
+    - "cem"           # coarsened exact matching
+    - "entropy"       # entropy balancing
+    - "overlap"       # overlap weighting
+
+# === Cross-validation ===
+cv:
+  n_splits: 5
+  strategy: "group"             # "group" (firm-level) or "random" (row-level, legacy)
+  shuffle: true
+  random_state: 42
+
+# === Output ===
+output:
+  dir: "outputs"
+  encoding: "utf-8-sig"
+  include_excel: true

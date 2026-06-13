@@ -1,0 +1,4 @@
+﻿sample,n_total,n_valid_target,target_mean,target_median,target_p05,target_p95,target_min,target_max,FirmSize_mean,FirmSize_median,MarketShare_mean,MarketShare_median,HHI_mean,HHI_median,AssetTurnover_mean,AssetTurnover_median,WorkingCapitalRatio_mean,WorkingCapitalRatio_median,FixedAssetsRatio_mean,FixedAssetsRatio_median,FinancialLeverage_mean,FinancialLeverage_median,CurrentRatio_mean,CurrentRatio_median,CapexRatio_mean,CapexRatio_median
+CSI_nonSOE,1372,685,0.08129480115881982,0.073786,-0.041619393446405355,0.22631141079999997,-0.530363,0.525408,,,,,,,,,,,,,,,,,,
+H_nonSOE,2688,1139,-0.01900532541966637,0.041960075,-0.3823643139999999,0.2004442600999999,-7.534539292,0.723513364,,,,,,,,,,,,,,,,,,
+SOE_target,1652,822,0.05731290800121654,0.0460443595,0.0072369500000000015,0.16354638754999998,-1.970434396,0.415613537,,,,,,,,,,,,,,,,,,
