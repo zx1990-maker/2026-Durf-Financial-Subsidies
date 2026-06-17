@@ -1,0 +1,33 @@
+# Mac 系统自带的隐藏垃圾文件（必须忽略）
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python 运行时产生的缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# 编译或打包输出的文件夹
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+
+# IDE 代码编辑器的配置（可选，建议忽略）
+.vscode/
+.idea/
