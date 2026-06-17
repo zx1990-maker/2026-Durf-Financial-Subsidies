@@ -1,5 +1,4 @@
-# Midterm Report: Three-Benchmark Counterfactual Models for EBI/A
-
+# Midterm Report
 > **Project objective:** This project estimates the asset-side return gap between CSI300 state-owned enterprises (SOEs) and private enterprises using a counterfactual prediction framework.
 >
 > **Core idea:** Financial characteristics of private enterprises are used to train Ridge prediction models. The trained models are then applied to SOEs to estimate their counterfactual EBI/A, ROA, and ROE under the hypothetical condition that they operated as private firms. The main outcome is defined as:
