@@ -1,4 +1,4 @@
-# 三套 benchmark 反事实 EBI/A 模型代码包（Panel Data 版本）
+# Panel Data 版本
 
 比较三套 non-SOE benchmark 对 A 股 SOE 企业的反事实 EBI/A 预测：
 
