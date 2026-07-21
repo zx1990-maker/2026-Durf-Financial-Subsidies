@@ -110,9 +110,6 @@ Therefore, Asset Beta should not currently be used as a core control variable in
 
 - Retain the current baseline model as the main specification.
 - Use Asset Beta as a robustness check.
-- Obtain longer historical price series and extend Beta coverage to at least **2019–2025**, ideally longer.
-- Re-estimate the model once the Beta sample is sufficiently large.
-- Reassess whether Asset Beta improves prediction or changes the counterfactual gap.
 
 ## Final Takeaway
 
