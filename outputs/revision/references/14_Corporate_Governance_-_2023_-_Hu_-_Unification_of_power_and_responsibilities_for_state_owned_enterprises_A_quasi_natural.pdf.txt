@@ -1,0 +1,196 @@
+O R I G I N A L A R T I C L E
+Unification of power and responsibilities for state-owned
+enterprises: A quasi-natural experiment
+Ning Hu1
+|
+Shilei Yu1
+|
+Yanan Cao2
+|
+Savannah (Yuanyuan) Guo3
+|
+Yu Wang4
+1Southwestern University of Finance and
+Economics, Chengdu, China
+2Shanghai University of International Business
+and Economics, Shanghai, China
+3University of Nevada, Reno, Nevada, USA
+4Xiamen University, Xiamen, China
+Correspondence
+Yanan Cao, Shanghai University of
+International Business and Economics,
+Shanghai, China.
+Email: sufecyn@126.com
+Funding information
+National Natural Science Foundation of China,
+Grant/Award Numbers: 72002173,
+72010107001, 72102139; Finance
+Department of Sichuan Province, Grant/Award
+Number: 2021-sckjkt-026; Shanghai Municipal
+Education Commission, Grant/Award Number:
+21CGA65
+Abstract
+Research Question/Issue: Based on Property Rights Theory and Empowerment The-
+ory, this paper uses the establishment of local State-Owned Assets Supervision and
+Administration Commissions (SASACs) as a quasi-natural experiment to investigate
+whether and how SASACs improve the efficiency of state-owned enterprises (SOEs).
+Research Findings/Insights: (1) After the establishment of SASACs, and compared to
+those not supervised by the SASACs (i.e., the control group), SOEs governed by local
+SASACs (i.e., the treatment group) have experienced a significant increase in decen-
+tralization and empowerment from the government, proxied by corporate pyramid
+levels. We also find increased pay-performance sensitivity for SOE managers and
+higher productivity measured by total factor productivity (TFP). (2) SASACs adopt dif-
+ferent strategies to manage SOEs in monopolistic and competitive industries. (3) The
+above effect of the SASACs is more pronounced in SOEs supervised by high-quality
+governments that effectively protect property rights, enforce fair contracts, apply
+laws and regulations to everyone, and sufficiently refrain from expropriation.
+Theoretical/Academic Implications: Using a quasi-natural experiment, this paper
+expands the existing literature on SOE reform from the perspective of incentive
+reform at the regulatory level based on Property Rights Theory and Empowerment
+Theory.
+Practitioner/Policy Implications: (1) Privatization is not necessarily the only optimal
+solution for SOE reform. We show that the unification of power and responsibilities
+can be very effective and is perhaps less costly and more practical than privatization.
+Thus, our study provides an encouraging solution for SOE reform for other countries.
+(2) Countries experiencing SOE reform should also work on strengthening their gov-
+ernment quality in order to fully maximize the benefit of the reform.
+K E Y W O R D S
+corporate governance, Empowerment Theory, establishment of SASACs, flexible supervising
+methods, Property Rights Theory, total factor productivity
+1
+|
+INTRODUCTION
+State-owned enterprises (SOEs) are a common form of business enti-
+ties worldwide and across industries, accounting for 25 out of the top
+100
+Global
+Fortune
+companies
+(Du
+et
+al.,
+2018;
+Musacchio
+et al., 2014). Despite their undeniable importance to the world's econ-
+omy, SOEs are often perceived as less efficient than other entities,
+and SOE managers tend to be undermotivated to improve perfor-
+mance. Research finds that problems, such as ownership vacancy
+(Bradshaw et al., 2019; Gu et al., 2020; Wei, 2021), a lack of
+Received: 27 February 2022
+Revised: 3 November 2022
+Accepted: 27 December 2022
+DOI: 10.1111/corg.12514
+Corp Govern Int Rev. 2023;31:971–993.
+wileyonlinelibrary.com/journal/corg
+© 2023 John Wiley & Sons Ltd.
+971
+
+delegation of power and responsibilities (Chen et al., 2011; Du
+et al., 2018; Fan et al., 2013; Xu, 2011), and “soft budget constraint”
+(see Lin & Li, 2008, among others), result in various moral hazards and
+agency problems in SOEs. How to improve SOE efficiency has thus
+become a crucial question for researchers and practitioners in many
+economies.
+As the country with the largest scale of SOEs—one third in the
+number of firms and two thirds in market capitalization (Jiang &
+Kim, 2020)—China has introduced a series of measures since the
+1970s to improve SOE productivity. Most noticeable was the estab-
+lishment of the State-Owned Assets Supervision and Administration
+Commission (SASAC) under the State Council (i.e., the central SASAC).
+The SASAC consolidated various industry-specific ministries and
+became the direct supervisor and manager of state-owned assets.1
+After the central SASAC was established in March 2003, provincial-
+and municipal-level SASACs (i.e., local SASACs) started to develop as
+well. The formation of the SASACs arguably alleviated the free-rider
+problems that plagued SOEs when multiple administrative institutions
+shared the power and responsibilities of supervising SOEs, blaming
+each other for poor performance while SOEs went unregulated. We
+use the creation of the SASACs as a quasi-natural experiment and
+empirically investigate whether and how SASACs improve the effi-
+ciency of SOEs.
+We hypothesize that the establishment of the SASACs introduces
+a series of positive effects on SOEs. Our theoretical development is
+fostered on the foundation of Property Rights Theory and Empower-
+ment Theory. The Property Rights Theory contends that clearly
+defined ownership is the premise of realizing efficiency (Coase, 1960),
+which suggests that the creation of the SASACs as the sole responsi-
+ble governmental division for managing and supervising state-owned
+assets lays the groundwork for improving the operating efficiency of
+SOEs. The Empowerment Theory emphasizes the importance of dele-
+gating decision-making power to lower level managers with local
+information and specialized knowledge to improve firm performance
+(Hayek, 1945; Jensen & Meckling, 1992). This theory suggests that
+the SASACs are more likely to decentralize and delegate responsibili-
+ties to SOE managers, compared to the period when multiple govern-
+mental divisions jointly managed SOEs. In addition, following prior
+studies that find performance-based payment is often used in combi-
+nation with the delegation of decision rights (Baiman & Rajan, 1995;
+Bushman et al., 2000; Jensen & Meckling, 1992; Melumad &
+Reichelstein, 1987), we predict that pay-performance sensitivity will
+increase following the establishment of the SASACs to prevent SOE
+managers from abusing their private information. Lastly, SOE man-
+agers are no longer required to fulfill their social roles to serve the
+public after SASACs were created. We expect SOE productivity to sig-
+nificantly improve due to a combination of enhanced delegation to
+the local level, increased pay-performance sensitivity, and a more
+focused role for SOE managers.
+We use the establishment of the local SASACs as a quasi-natural
+experiment and construct staggered difference-in-differences (DID)
+models to empirically investigate the economic consequences of the
+creation of the SASACs. As predicted, we find that, after the
+establishment of the SASACs, and compared to those not supervised
+by the SASACs (i.e., the control group), SOEs governed by local
+SASACs (i.e., the treatment group) experience a significant increase in
+decentralization and empowerment from the government, proxied by
+corporate pyramid levels. We also find increased pay-performance
+sensitivity for SOE managers and higher productivity measured by
+total factor productivity (TFP).
+In addition, because the optimal configuration of a business's con-
+trol system requires balancing the benefits of delegating decision
+rights to lower managers against control losses from increased infor-
+mation asymmetries, we hypothesize that the SASACs will adopt dif-
+ferent strategies in managing SOEs in different industries. Our results
+show that the beneficial effects are primarily observed in SOEs oper-
+ating in competitive industries, where competition can act as a strong
+disciplinary governance mechanism (Shleifer & Vishny, 1997) to lower
+the agency costs of delegation. For monopolistic industries, however,
+we do not observe any significant increase in decentralization,
+performance-based payment, or productivity, presumably because
+monopolistic SOEs derive much of the profit from their monopolistic
+position and are not disciplined by competition. Thus, the benefits of
+delegation are likely to be much smaller than the costs, and the
+SASACs maintain tight control. Collectively, these results suggest that
+SASACs are able to apply flexible approaches to oversee firms in dif-
+ferent industries.
+In our cross-sectional analyses, we study the heterogeneous
+effect based on government quality. We define a high-quality gov-
+ernment as a government that effectively protects property rights,
+enforces fair contracts, applies laws and regulations to everyone,
+and sufficiently refrains from expropriation (Levine, 2005). Accord-
+ing to the administrative hierarchy, the central SASAC manages
+central SOEs and is a subordinate division of the central govern-
+ment. The local SASACs, which manage local SOEs, are subordinate
+divisions of the local governments and also follow the leadership
+of the central SASAC. We argue that high-quality local govern-
+ments can refrain from expropriating and intervening in local
+SASACs' management of the SOEs. Thus, high-quality governments
+provide a better institutional foundation for local SASACs to super-
+vise SOEs. Applying a widely used government quality index based
+on survey responses of corporate executives from 120 major Chi-
+nese cities (Chen, Li, Xiao, & Zou, 2014), we find that the effect of
+SASACs is more pronounced in SOEs supervised by high-quality
+governments. We interpret this result as evidence that, compared
+with low-quality governments, high-quality governments can more
+efficiently manage SOEs, presumably because they can more suc-
+cessfully enforce policies and rules and apply more appropriate
+administrative approaches that respect the difference between
+competitive and monopolistic industries. Finally, we confirm that
+our primary results are robust to a battery of analyses, including a
+parallel trend test, a falsification test, applying two alternative sam-
+ples and several key variable measurements, changing the industry
+classifications of competitive versus monopolistic industries, and
+including additional control variables and fixed effects at the
+municipal level.
+972
+HU ET AL.
+ 14678683, 2023, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/corg.12514 by NYU Medical Central Library, Wiley Online Library on [14/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

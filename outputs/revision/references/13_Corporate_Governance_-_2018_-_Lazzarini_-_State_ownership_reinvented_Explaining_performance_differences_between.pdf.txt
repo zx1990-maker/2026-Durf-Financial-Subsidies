@@ -1,0 +1,187 @@
+O R I G I N A L M A N U S C R I P T
+State ownership reinvented? Explaining performance
+differences between state‐owned and private firms
+Sergio G. Lazzarini1
+| Aldo Musacchio2
+1Insper Institute of Education and Research,
+R. Quatá, 300, São Paulo, SP 04546‐042,
+Brazil
+2Brandeis International Business School, 415
+South Street, Waltham, MA 02453, USA
+Correspondence
+Aldo Musacchio, Brandeis International
+Business School, 415 South Street, Waltham,
+MA 02453, USA.
+Email: aldom@brandeis.edu
+Funding information
+Conselho Nacional de Desenvolvimento Cien-
+tífico e Tecnológico; Harvard Business School;
+Insper Institute of Education and Research
+Abstract
+Manuscript Type:
+Empirical
+Research Question/Issue:
+This study aims to understand the implications of the
+corporate governance arrangements in state‐owned enterprises (SOEs) that are
+publicly listed in terms of firm performance relative to that of private firms.
+Research Findings/Insights:
+Using a new database of 477 large, listed SOEs
+observed between 1997 and 2012 in 66 developed and emerging countries, we use
+matching techniques to show that these firms do not underperform similar private
+firms, except when the former face shocks that prioritize their social and political
+objectives, such as during severe recessions. These findings demonstrate the need
+to revise existing theories of SOE underperformance.
+Theoretical/Academic Implications:
+We expand the traditional agency view of
+SOEs by introducing principal–principal conflicts that prevail in publicly traded firms.
+We argue that governments try to steer SOEs to pursue social and political objectives,
+which can lead to inefficiencies, but they also provide them rents and protection,
+factors that should lead them to perform as well or better than similar private firms.
+Thus, our theory of state ownership argues that their advantage or disadvantage over
+similar private firms cannot be identified from the theory and thus needs an empirical
+test.
+Practitioner/Policy Implications:
+We modify the simplistic view that SOEs are inef-
+ficient and highlight that SOEs that compete with private firms may have advantages
+that give them a competitive edge. This has implications not only for firm‐level
+strategy, but also for competition policy worldwide.
+KEYWORDS
+Corporate Governance, National Privatization, National‐Level Governance Outcomes, Ownership
+Mechanisms, State‐Owned Enterprise (SOE)
+1
+|
+INTRODUCTION
+In the last three decades, an impressive body of scholarly work has
+studied the comparative performance of state‐owned and private
+firms. The conclusion from this literature is that state‐owned enter-
+prises (SOEs) are, on average, less efficient and profitable than
+privately‐owned firms due to several factors. Based on agency logic,
+scholars have pointed out that managers of SOEs are poorly
+monitored and lack the high‐powered incentives normally found in
+private firms (Dharwadkar, George, & Brandes, 2000; La Porta &
+Lopez‐de‐Silanes, 1999). Depending on the strategic objectives of
+the government, SOEs may also pursue objectives other than
+efficiency and profitability (Bai & Xu, 2005; García‐Canal & Guillén,
+2008; Shirley & Nellis, 1991; Stan, Peng, & Bruton, 2014). For
+Received: 19 October 2017
+Revised: 2 March 2018
+Accepted: 4 March 2018
+DOI: 10.1111/corg.12239
+Corp Govern Int Rev. 2018;26:255–272.
+© 2018 John Wiley & Sons Ltd
+wileyonlinelibrary.com/journal/corg
+255
+
+instance, governments may require SOEs to avoid layoffs during eco-
+nomic crises or to divert their resources to support pet projects that
+directly benefit their constituencies (Shleifer & Vishny, 1998; Vickers
+& Yarrow, 1988). Consistent with these predictions, empirical work
+has detected performance gains in the transition from state to private
+ownership (for a review, see Megginson, 2005).
+Given these potential liabilities of state ownership, it is surprising
+that in more recent years we still see a pervasive presence of SOEs
+throughout the world and in a broad range of industries (Bruton, Peng,
+Ahlstrom, Stan, & Xu, 2015; Wooldridge, 2012). In 2013, among the
+top‐100 Fortune Global 500 companies, 25 were state‐owned multina-
+tional firms, directly owned by the state or indirectly through several
+state‐related investment vehicles (Musacchio & Lazzarini, 2014). And
+this phenomenon is not simply due to the rise of interventionist
+emerging economies such as China or Russia; there is vast evidence
+that SOEs remain important even in developed countries. A recent
+survey of OECD countries, for instance, found that SOEs represented
+a total equity value of US$1.4 trillion in 2011, of which 61% involved
+firms with minority stakes—that is, firms with private management and
+partial state ownership (Christiansen, 2011). Guedhami (2012) docu-
+ments how governments increased their investments in firms through
+acquisitions to record levels during the Financial Crisis of 2008–2009.
+In addition, there is also evidence that investors have not shied away
+from SOEs. A report by Morgan Stanley in May 2012 claimed that sev-
+eral SOEs have outperformed their industry peers in emerging mar-
+kets, despite the fact that they may be “targeting development
+objectives rather than shareholder returns” (Morgan Stanley, 2012:
+1). All in all, these facts raise an important question: given their fla-
+grant resilience as top global corporations and potential investment
+targets, is it possible that the intrinsic sources of performance disad-
+vantage of SOEs have disappeared? If this is the case, which condi-
+tions should improve the comparative performance of SOEs?
+To shed light on these questions, in this paper we examine firm‐
+level performance differences between SOEs and private firms based
+on a cross‐industry, cross‐country sample of 477 large, listed SOEs
+observed between 1997 and 2012 in 66 developed and emerging
+countries. These are all publicly traded SOEs that are not only owned
+by governments but also by private investors and funds. Of those firms,
+280 have minority state ownership—a form of governmental participa-
+tion that has been relatively understudied. For instance, in our database
+we have large, global SOEs such as Norway's Telenor (majority),
+Russia's Rosneft (majority), France's Renault (minority) and Brazil's Vale
+(minority). These SOEs are compared to a group of 431 listed private
+firms with no state ownership. We adopt a host of matching techniques
+(Imbens, 2004) to guarantee comparability between the observed SOEs
+and similar private firms based on key observable traits at the firm,
+industry, and country level. In some specifications, we also run differ-
+ences‐in‐differences estimations to remove the effect of unobserv-
+ables (Heckman, Ichimura, & Todd, 1997), as well as dynamic panel
+regressions to control for adjustment processes (Arellano & Bover,
+1995; Blundell & Bond, 1998). Given our interest in studying SOEs as
+vehicles for investment in equity markets, we focus on two key
+profitability indicators: ROA and Tobin's q, which have also been widely
+used in previous research examining sources of firm‐level performance
+heterogeneity (e.g. McGahan, 1999; Villalonga, 2004).
+We contribute to the literature on performance differences
+between SOEs and private firms by arguing that these differences
+increase subject to environmental factors that expose their inherent
+constraints to adjust and optimize. The literature on privatization has
+actually found that some of the differences in performance between
+pre‐ and post‐privatization performance depended on a variety of
+conditions such as residual state ownership, the prevailing institutional
+and macroeconomic environments at the time of privatization,
+whether foreign investors were involved and how much corporate
+restructuring there was (Boubakri, Cosset, & Guedhami, 2005). More-
+over, there is a literature that finds that post‐privatization residual
+ownership affects corporate governance (Borisova, Brockman, Salas,
+& Zagorchev, 2012; Guedhami, Pittman, & Saffar, 2009), the cost of
+capital (Borisova & Megginson, 2011), valuation (Boubakri, El Ghoul,
+Guedhami, & Megginson, 2018), and innovation (Cao, Cumming, Zhou,
+& Zhou, 2016; Lazzarini, Mesquita, Monteiro, & Musacchio, 2016;
+Zhou, Gao, & Zhao, 2017). Beuselinck, Cao, Deloof, and Xia (2017)
+explore the impact that the Financial Crisis of 2008–2009 had on
+the valuation and stock returns of European SOEs relative to similar
+private firms. They find that SOEs experienced a less severe fall in
+stock prices and market‐to‐book value than private firms, but only in
+countries with strong investor protections.
+In contrast to the existing literature, in this paper we examine the
+performance gaps between SOEs and private firms in a large sample of
+global firms from 70 countries. We propose and find that performance
+gaps between SOEs and private firms are stronger during times of eco-
+nomic recession across the board. For instance, while private firms can
+downsize and adjust during severe economic downturns, governments
+may require SOEs to avoid layoffs and invest in unprofitable projects
+as a way to attenuate the political cost of those shocks (Musacchio
+& Lazzarini, 2014; Shirley & Nellis, 1991). We also propose that these
+increased gaps should be less likely observed in minority‐owned SOEs,
+which tend to be less directly influenced by their home governments,
+and that their magnitude should be critically influenced by local insti-
+tutions. Namely, building on Henisz (2000, 2002), we hypothesize
+and find that when governments are more constrained in their ability
+to intervene and change policies, SOEs appear to behave more like pri-
+vate firms in the way they respond to negative shocks.
+Our findings improve our understanding of the firm‐level implica-
+tions of state capitalism, a topic that has been relatively understudied
+in strategic management (Bruton et al., 2015; Cuervo‐Cazurra, Inkpen,
+Musacchio, & Ramaswamy, 2014; Wood & Wright, 2015). We submit
+that performance differences between SOEs and private firms are not
+static but greatly vary depending on contingencies affecting the likeli-
+hood of government intervention. In other words, our study shows
+that the key question is not whether SOEs underperform private firms,
+but when and where. Thus, instead of looking for generic differences
+between SOEs and private firms, scholars should pay more attention
+to changes that increase the temptation of governments to intervene,
+as well as local institutional constraints on their ability to influence
+SOEs. This findings are consistent with those of the recent literature
+looking at valuation and stock returns in SOEs in Asia and Europe dur-
+ing the financial crisis in that minority SOEs seem to fare better than
+private firms during times of crisis, especially in countries with institu-
+tions that prevent government intervention in SOEs (Beuselinck et al.,
+256
+LAZZARINI AND MUSACCHIO
+ 14678683, 2018, 4, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/corg.12239 by NYU Medical Central Library, Wiley Online Library on [14/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

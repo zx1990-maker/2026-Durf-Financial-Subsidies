@@ -1,0 +1,63 @@
+NBER WORKING PAPER SERIES
+PRIVATIZATION'S IMPACTS ON STATE-OWNED ENTERPRISES:
+A TALE OF ZOMBIE VERSUS HEALTHY FIRMS
+Ruiting Wang
+Xue Wang
+Gang Xu
+Tao Zha
+Working Paper 32795
+http://www.nber.org/papers/w32795
+NATIONAL BUREAU OF ECONOMIC RESEARCH
+1050 Massachusetts Avenue
+Cambridge, MA 02138
+August 2024
+We thank Camelia Minoiu, Wei Xiong, and Daniel Xu for helpful comments. The views 
+expressed herein do not necessarily reflect the views of the Federal Reserve Bank of Atlanta, the 
+Federal Reserve System, or the National Bureau of Economic Research. The views expressed 
+herein are those of the authors and do not necessarily reflect the views of the National Bureau of 
+Economic Research.
+NBER working papers are circulated for discussion and comment purposes. They have not been 
+peer-reviewed or been subject to the review by the NBER Board of Directors that accompanies 
+official NBER publications.
+© 2024 by Ruiting Wang, Xue Wang, Gang Xu, and Tao Zha. All rights reserved. Short sections 
+of text, not to exceed two paragraphs, may be quoted without explicit permission provided that 
+full credit, including © notice, is given to the source.
+
+Privatization's Impacts on State-Owned Enterprises: A Tale of Zombie versus Healthy Firms
+Ruiting Wang, Xue Wang, Gang Xu, and Tao Zha
+NBER Working Paper No. 32795
+August 2024
+JEL No. D22,L21,L33,P31
+ABSTRACT
+We estimate the effects of privatization on zombie versus healthy state-owned enterprises (SOEs) 
+in China, extending our analysis beyond TFP to a broad array of financial and economic 
+indicators. Privatizing zombie SOEs enhances labor productivity and TFP, reduces bank and 
+government subsidies, alleviates leverage and administrative expenses, improves liquidity, boosts 
+profits, and accelerates sales growth. These benefits are more pronounced than for healthy SOEs 
+and are robust across regions and industries. Our findings offer policy implications for emerging 
+markets, suggesting that prioritizing the privatization of underperforming, zombie-like entities 
+can lead to substantial economic improvements and greater efficiency.
+Ruiting Wang
+Okayama University
+wang.ruiting@okayama-u.ac.jp
+Xue Wang
+Emory University
+1080 Peachtree Street NE 
+Atlanta, Sele 30309
+wangxue1207@hotmail.com
+Gang Xu
+School of Economics
+Nankai University
+94 Weijin Road
+Tianjin 300071
+China
+xgdl2005@hotmail.com
+Tao Zha
+Department of Economics
+Emory University
+Rich Memorial Building
+1602 Fishburne Drive
+Atlanta, GA 30322-2240
+and Federal Reserve Bank of Atlanta
+and also NBER
+tzha@emory.edu

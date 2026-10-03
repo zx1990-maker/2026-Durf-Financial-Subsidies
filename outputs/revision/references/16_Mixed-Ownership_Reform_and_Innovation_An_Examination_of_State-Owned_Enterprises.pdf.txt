@@ -1,0 +1,194 @@
+14450
+IEEE TRANSACTIONS ON ENGINEERING MANAGEMENT, VOL. 71, 2024
+Mixed-Ownership Reform and Innovation: An
+Examination of State-Owned Enterprises
+Haiping Fu
+, Saixing Zeng
+, Daxin Sun
+, and Jiawei Lin
+Abstract—Prior literature on ownership suggests that in the ma-
+jority of cases, state ownership in state-owned enterprises (SOEs)
+is not an optimal structure for ﬁrm performance, especially in
+emerging economies. Mixed-ownership structures are designed to
+overcome this disadvantage. However, their impacts on innovation
+are not well understood. We examine whether and how SOEs’
+innovation efforts beneﬁt from mixed-ownership reform, using a
+sampleof375publiclylistedSOEsoperatinginChinabetween2003
+and 2019. We discuss principal–principal and principal–agent con-
+ﬂicts in SOEs and argue that the increase in managerial autonomy
+that accompanies mixed-ownership reform releases SOEs from
+state control and orients them toward engagement with market
+forces, encouraging higher levels of innovation. Our results suggest
+that both the frequency and the impact of innovation in SOEs
+are improved by mixed-ownership reform. We further ﬁnd that
+this relationship is more pronounced when SOEs are afﬁliated
+with the central government, and it is strengthened through an
+anticorruption policy. This study provides fresh insights into the
+role of mixed-ownership reform in emerging economies.
+Index Terms—Innovation, institutional transition, mixed-owner-
+ship reform, state afﬁliation.
+I. INTRODUCTION
+I
+N EMERGING economies, infrastructure projects are in full
+swing, accompanied by a series of engineering innovations
+[1]. In the intricate tapestry of engineering construction, inno-
+vation functions as the indispensable driving force [2]. State-
+owned enterprises (SOEs) are the major vehicles in completing
+engineering projects. Take China as an example: over the past ten
+years, China, which is dubbed an “infrastructure-holic,” has pro-
+duced great achievements in infrastructure construction and has
+won many ﬁrsts in the ﬁeld of infrastructure construction, to the
+point that it is now leading the world in engineering construction.
+According to 2018 Global Best Projects Winners,1 published
+Received 24 February 2023; revised 19 June 2023 and 7 September 2023;
+accepted 29 August 2024. Date of publication 5 September 2024; date of
+current version 18 September 2024. This work was supported in part by the
+National Natural Science Foundation of China under Grant 72394370 and Grant
+72401126 and in part by the Humanities and Social Sciences Research Project
+of the Ministry of Education of China under Grant 23YJC630152. Review of
+this article was arranged by Department Editor Y. Zhou. (Corresponding author:
+Saixing Zeng.)
+Haiping Fu, Saixing Zeng, and Jiawei Lin are with the Antai College
+of Economics and Management, Shanghai Jiao Tong University, Shang-
+hai 200230, China (e-mail: haiping-fu@sjtu.edu.cn; zengsaixing@sjtu.edu.cn;
+ljw1996@sjtu.edu.cn).
+Daxin Sun is with the School of Management and Engineering, Nanjing
+University, Nanjing 210093, China (e-mail: sundaxin@nju.edu.cn).
+Digital Object Identiﬁer 10.1109/TEM.2024.3454715
+1[Online].
+Available:
+https://www.enr.com/blogs/13-critical-path/post/
+44866-mind-bendingly-complex-efforts-rewarded-as-enr-2018-global-best-
+projects-winners
+by the magazine Engineering News-Record, four megaprojects
+completedbyChineseSOEshavereceivedawards.Furthermore,
+71.25% of the ﬁrms in the 2017 Top Chinese Contractors list,2
+again published by the Engineering News-Record, were SOEs
+and were responsible for most of the construction projects.
+Facing great uncertainty and technological change in the ﬁeld of
+engineering construction, governments in emerging economies,
+such as those of China, India, and Brazil, are making signiﬁcant
+efforts to improve their SOEs’ capabilities and especially their
+capability for innovation [3], [4], [5], [6]. However, propo-
+nents of agency theory, highlighting principal–principal (PP)
+and principal–agent (PA) conﬂicts in SOEs, have argued that
+unclear property rights and a lack of incentives often lead to
+inefﬁciency in SOEs’ engineering practices, in terms of both
+their proﬁtability and their technological innovation [7], [8], [9],
+[10]. Those advisers, therefore, recommend full privatization of
+SOEs to solve the PP and PA conﬂicts [7]. Other scholars support
+partial privatization and believe that residual state ownership
+is necessary because it gives ﬁrms access to scarce resources
+and information about national policy aims, and it beneﬁts the
+decision-making process [11], [12], [13]. In recent decades,
+therefore, governments in emerging economies have conducted
+widespread mixed-ownership reforms aimed at improving their
+SOEs’ proﬁtability, adaptability, and capacity for innovation
+[14]. The results have varied, and the relationship between such
+reforms and innovation in SOEs’ engineering practices remains
+unclear [12], [14], [15], [16].
+In this study, we develop the theory of an extended agency
+framework and test empirically whether and how mixed-
+ownership reform encourages innovation in SOEs’ engineering
+practices. Studies on innovation often take patents as an impor-
+tant embodiment and achievement of innovation and research
+and development (R&D) activities [17], [18]. In early studies,
+scholars focused on the quantity of innovations and used the
+patent count as the important index for innovation quantity
+[19]. More recently, many studies have used patent citations to
+evaluate patent quality, which again represents the inﬂuence of
+innovations [20]. Following the literature, we, therefore, explore
+two distinct ways in which innovation is manifest in organiza-
+tions: innovation frequency (i.e., the quantity of innovations) and
+impact (i.e., the inﬂuence of an innovation in its domain). Our
+extended agency framework builds on the instrumental tradition
+of agency theory to offer perspectives on both the PP and PA
+2[Online].
+Available:
+https://www.enr.com/toplists/2017-Top-Chinese-
+Contractors
+1558-0040 © 2024 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: New York University. Downloaded on August 14,2026 at 14:30:15 UTC from IEEE Xplore. Restrictions apply. 
+
+FU et al.: MIXED-OWNERSHIP REFORM AND INNOVATION
+14451
+TABLE I
+DESCRIPTIVE STATISTICS AND CORRELATION MATRIX
+relationships [7], [21]. Speciﬁcally, we analyze how and why
+introducing nonstate ownership can mitigate the conﬂicts of both
+PP and PA. Whereas SOEs are widely understood to be superior
+to privately owned enterprises (POEs) in terms of innovation
+frequency, they are also considered to be inferior to POEs in
+terms of innovation impact [21], [22]. The present study seeks
+to add to the current knowledge regarding the role of mixed-
+ownership reform in SOEs’ innovation activities, by providing a
+more nuanced understanding of the ownership changes involved
+and the corresponding changes in the PP and PA relationships
+that accompany such changes [21].
+We furthermore contextualize our analysis by focusing on
+China, where SOEs and engineering innovation are particularly
+salient. To capture the character of SOEs’ innovation activities,
+we employ the concepts of innovation frequency and innovation
+impact, which refer, respectively, to the quantity and the quality
+of innovation activities [18], [21], [22].
+In this article, we argue that the typical effect of mixed-
+ownership reform in SOEs is to reduce innovation frequency
+while increasing innovation impact. We further investigate the
+inﬂuence of institutional environment and institutional change.
+Previous research has demonstrated how the institutional en-
+vironment, and especially governmental priorities, can shape
+the behavior of SOEs [23], [24]. In our study, we address
+explicitly the different institutional environments of SOEs under
+the control of the central government versus those under local
+government control, and we examine the different priorities
+that those environments give rise to during mixed-ownership
+reform. We also examine the role of institutional change—in
+the form of an anticorruption campaign—in mixed-ownership
+reform. As we will discuss later, centrally governed SOEs assign
+priority to key strategic sectors and national technological plans,
+thereby counteracting the effect of mixed-ownership reform
+[25], whereas local SOEs focus on commercial proﬁt, thus
+enhancing the effect of mixed-ownership reform. An anticorrup-
+tion campaign effectively addresses the problems of bribery and
+embezzlement that tend to afﬂict SOEs, and thus, it contributes
+to both the frequency and the impact of their innovations.
+This article contributes to the literature in two respects. First,
+prior studies have regarded the SOE as an unchanging institu-
+tional environment in which the government plays a dominant
+role externally and managers behave like politicians internally
+[5]. By exploring the effects of mixed-ownership reform and its
+institutional context, we reveal how institutional change does
+occur within SOEs. During the reform process, the government
+actively relinquishes its dominant position and introduces non-
+state shareholders, who in turn force the SOEs to adapt to the
+market economy and transform them into pioneering dynamos
+of engineering innovation.
+Wealsocontributetotheliteratureontheinstitutionalenviron-
+mentofSOEs,includinginregardtotheeffectsofstateafﬁliation
+and an anticorruption policy. Previous research focused on the
+arm’s-length role of state afﬁliation, as exercised in actions
+such as the nomination of external board members and advisors
+[26]. We further prove that central and local governments have
+differing priorities when they are carrying out mixed-ownership
+reform. Central governments transform their SOEs into pio-
+neering vehicles for technological innovation in engineering
+construction, while local governments remold their SOEs into
+enterprises that are geared toward proﬁtability [27]. In exploring
+the puriﬁcatory effect of an anticorruption policy on SOEs, we
+further reveal the liability of SOEs in mixed-ownership reform
+and, thus, the key contingencies that are related to the asso-
+ciations among an anticorruption campaign, mixed-ownership
+reform, and innovation efﬁciency in an emerging market.
+Second, we contribute to the literature on state ownership.
+Prior scholars of agency theory have focused on the inher-
+ent ﬂaws of state ownership, arguing that state ownership in
+emerging economies leads to both the PP and PA conﬂicts [5],
+[28] and suggesting full privatization as the optimal solution
+[8]. In this article, we argue that mixed-ownership reform, or
+partial privatization, should be preferred, and we present an
+empirical examination of the effects of mixed-ownership reform
+on SOEs’ engineering innovation. We also offer a framework
+of PP and PA relationships to use in interpreting the effects of
+mixed-ownership reform on SOEs’ innovations.
+Authorized licensed use limited to: New York University. Downloaded on August 14,2026 at 14:30:15 UTC from IEEE Xplore. Restrictions apply.

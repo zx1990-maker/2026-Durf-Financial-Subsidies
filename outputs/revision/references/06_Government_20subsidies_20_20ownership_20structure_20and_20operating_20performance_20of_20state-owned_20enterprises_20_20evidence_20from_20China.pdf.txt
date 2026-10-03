@@ -1,0 +1,100 @@
+Applied Economics
+ISSN: 0003-6846 (Print) 1466-4283 (Online) Journal homepage: www.tandfonline.com/journals/raec20
+Government subsidies, ownership structure
+and operating performance of state-owned
+enterprises: evidence from China
+Siqi Li & Yunjie Wu
+To cite this article: Siqi Li & Yunjie Wu (2022) Government subsidies, ownership structure and
+operating performance of state-owned enterprises: evidence from China, Applied Economics,
+54:56, 6480-6496, DOI: 10.1080/00036846.2022.2069671
+To link to this article: https://doi.org/10.1080/00036846.2022.2069671
+Published online: 16 May 2022.
+Submit your article to this journal 
+Article views: 1004
+View related articles 
+View Crossmark data
+Citing articles: 30 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=raec20
+
+Government subsidies, ownership structure and operating performance of 
+state-owned enterprises: evidence from China
+Siqi Li and Yunjie Wu
+China Institute for WTO Studies, University of International Business and Economic, Beijing, China
+ABSTRACT
+Government subsidies have been used as a policy tool by many countries. Given the importance of 
+government subsidies in the context of Chinese economy and state-owned enterprises (SOEs), this 
+study seeks to understand the role played by government subsidies in the operating performance 
+of Chinese SOEs. Using panel data on Chinese SOEs to construct the fixed-effects regression 
+models, this study examines the effects of government subsidies and explores the moderating 
+role of ownership structure in the correlation between government subsidies and operating 
+performance of SOEs. Government subsidies have improved the operating performance of SOEs 
+through easing financial constraints and stimulating research investment. However, high propor­
+tion of state-owned shares is not conducive to the positive effect of subsidies. The heterogeneous 
+analyzes show, for SOEs located in eastern China, at the local level or with a higher R&D level, an 
+increase in state-owned shares is more detrimental to the positive effect of subsidies on their 
+performance. Tax-based-subsidies have significantly positive effect on the operating performance 
+of SOEs, with the state-owned shares exerting a negative moderating effect on this positive 
+correlation. Based on the empirical findings, we propose some policy suggestions for the mixed 
+ownership reform of Chinese SOEs and reasonable allocation of government subsidies.
+KEYWORDS 
+Government subsidies; 
+ownership structure; Chinese 
+state-owned enterprises; 
+operating performance
+JEL CLASSIFICATION 
+D21; G32; H71; L25; L32
+I. Introduction
+An essential element of China’s development strat­
+egy is engagement of the State in the operation of 
+the economy through SOEs. SOEs may be used to 
+provide public goods and services, correct market 
+failures, and pursue certain social and development 
+strategies. Meanwhile, having SOEs as one of the 
+dominant market participants, the motivation of 
+and the pressures for the reform of Chinese SOEs 
+coexist. In 2015, the Central Committee of the 
+Communist Party of China and the State Council 
+issued the ‘Guiding Opinions on Deepening the 
+Reform of State-Owned Enterprises’. The report 
+of the 19th National Congress of the Communist 
+Party of China further emphasized on ‘deepening 
+the reform of SOEs and developing the economy 
+with a mixed ownership’. On the one hand, China 
+has been emphasizing the vitality of private capital 
+and promoting mixed ownership reform of SOEs. 
+On the other hand, China has been optimizing 
+government subsidy regime to play the positive 
+role of subsidies in correcting market failure and 
+providing public goods, while trying to avoid mis­
+allocation and low efficiency of state resources.
+In existing literature, scholars mainly study the 
+effect of government subsidies or ownership struc­
+ture on the operating performance of enterprises, 
+respectively. Research findings on the relationship 
+between government subsidies and the operating 
+performance of enterprises are diverse and incon­
+sistent. Some studies suggest that government sub­
+sidies 
+promote 
+operating 
+performance 
+of 
+enterprises (Liu 2017; Deng et al. 2019) by easing 
+financial constraints, bringing along reputational 
+benefits (Kleer 2010), and stimulating research 
+and development (R&D) activities (Hewitt- 
+Dundas and Roper 2010; Takalo and Tanayama 
+2010; Shao and Bao 2012; Czarnitzki and Lopes- 
+Bentoac 2014). Besides, some scholars find that tax- 
+based-subsidies have larger positive effect on the 
+operating performance of enterprises than non-tax 
+-based subsidies (Lee, Walker, and Zeng 2014;) 
+CONTACT Yunjie Wu 
+lisiqi_uibe@126.com 
+University of International Business and Economics, Keyan Building 504, No.10 Huixin Dongjie, Chaoyang 
+District, Beijing 100029, China
+APPLIED ECONOMICS 
+2022, VOL. 54, NO. 56, 6480–6496 
+https://doi.org/10.1080/00036846.2022.2069671
+© 2022 Informa UK Limited, trading as Taylor & Francis Group

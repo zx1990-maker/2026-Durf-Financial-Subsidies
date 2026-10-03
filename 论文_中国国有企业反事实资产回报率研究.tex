@@ -1,0 +1,895 @@
+\documentclass[11pt,a4paper]{ctexart}
+
+\usepackage{amsmath,amssymb}
+\usepackage{textcomp}   % \textdegree, \textasciitilde, \textasciicircum
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% Tables / figures rendered with [H] (here) keep them adjacent to their text.
+
+\title{中国国有企业的反事实资产回报率缺口：基于民营企业基准的机器学习估计}
+\author{辛紫瑄}
+\date{2026-08-16（中文论文版）}
+
+\begin{document}
+
+\maketitle
+\section{摘要}
+
+本文利用 2014--2024 年中国 A 股全市场民营企业样本训练机器学习模型，系统构造民营企业的可比基准，估计国有上市公司（SOE）的反事实条件资产回报率（EBI/A =（归母净利润 + 利息支出）/ 总资产，税后息前口径），并以 \textbf{Gap = 反事实预测值 - 实际值} 度量国有企业相对民营企业的资产回报率缺口。研究以梯度提升模型（GBM）为主模型，并以岭回归（Ridge）与随机森林（RF）作为稳健性对照，主要发现如下：（1）2019--2025 年，全 A 股 SOE 的反事实缺口持续为正且统计显著，全 A 股 SOE 的条件资产回报率缺口持续约为 \textbf{2 个百分点}，共同支撑域内（common support）与长期处于支撑域（persistent-support）的企业缺口依然存在，全市场正缺口并非主要由外推企业驱动；（2）缺口存在规模梯度------中证 500 与中证 1000 成分 SOE 的缺口显著为正且多年稳健；沪深 300 成分 SOE 的缺口虽接近零，但长期共同支撑不足，故不能据此对大型 SOE 是否存在条件回报率缺口作出强判断；（3）缺口在行业间高度集中，钢铁、煤炭、家电等重资产与周期性行业缺口最大，交通运输、公用事业接近零；（4）当前数据无法拒绝中央与地方 SOE 平均缺口相同。2025 年经资产加权后的金额缺口合计约 \textbf{7,560 亿元}，但其中约 \textbf{62\%} 来自共同支撑域之外的外推区，故金额结果对大型、缺乏私人部门可比对象的 SOE 较为敏感。上述结果在模型替换、行业内 KNN、民营 OOF 安慰剂与聚类推断等一系列检验下保持稳健。本文为量化国有企业条件资产回报率缺口、理解资源配置提供了一个可复现的反事实基准。
+
+\textbf{关键词}：国有企业；资产回报率；反事实预测；机器学习；条件资产回报率缺口
+
+\textbf{JEL 分类}：G32；L32；P31；C53
+
+\section{一、引言（Introduction）}
+
+国有企业（SOE）的效率问题是转型经济学与中国经济研究的核心议题之一。一个广泛讨论但难以直接测度的问题是：\textbf{如果国有企业按照民营企业的收益生成过程运营，其资产回报率会达到何种水平？} 换言之，国有企业相对民营企业的"资产回报率缺口"有多大，这一缺口在不同规模、不同行业、不同行政隶属关系的国有企业之间呈现怎样的异质性？
+
+回答这一问题存在方法论上的困难。传统方法通常通过控制可观测特征后的回归系数来度量所有制溢价（或折价），但这要求预先设定函数形式，且无法对"同一家企业若改变所有制"这一反事实给出可分离的估计。本文采用一种机器学习反事实方法：以全 A 股民营企业为训练样本，估计条件资产回报率（EBI/A =（归母净利润 + 利息支出）/ 总资产，税后息前口径）作为企业财务特征与行业环境的函数，然后将训练好的模型应用于国有企业，得到国有企业"若按民营企业收益生成过程运营"的反事实资产回报率。实际值与反事实预测值之差，即为本文关注的"反事实资产回报率缺口"（下文简称 gap）。
+
+本文的识别逻辑建立在"类比反事实"（analog-based counterfactual）之上：民营企业的财务特征---回报率关系，为判断国有企业在相同特征下的"应有"回报水平提供了基准。这一方法不依赖于对所有制影响的函数形式假设，允许财务特征与回报率之间存在非线性的交互关系，并通过分组交叉验证避免样本内过拟合与信息泄漏。
+
+本文的主要发现可概括为三点。\textbf{第一}，全 A 股国有上市公司的反事实缺口在 2019--2025 年持续为正，主模型 GBM 估计的 firm 层面均值约 +1.5 \textasciitilde{} +2.5 个百分点，且统计显著（聚类稳健 t 统计量约 14.9）；2025 年经资产加权的金额缺口合计约 7,560 亿元。\textbf{第二}，缺口存在规模梯度：中证 500 与中证 1000 成分 SOE 的缺口显著为正且多年稳健；沪深 300 成分 SOE 的缺口虽接近零，但长期共同支撑不足，不能据此作"大型国企无缺口"的强判断。\textbf{第三}，缺口的行业分布高度集中，钢铁、煤炭、家电等重资产与强周期性行业缺口最大，交通运输、公用事业等具有自然垄断或政策性定价特征的行业缺口接近零；当前数据无法拒绝中央与地方 SOE 平均缺口相同。
+
+本文的贡献体现在三个方面。其一，在\textbf{方法}上，本文系统构造 comparable private-sector benchmark，将机器学习反事实预测引入国有企业条件资产回报率测度，为量化"条件资产回报率缺口"提供了一个不依赖参数设定的、可复现的基准，并通过共同支撑域（common support）诊断显式刻画了反事实外推的风险。其二，在\textbf{发现}上，本文系统刻画了缺口在规模、行业、行政隶属三个维度的异质性，识别出"中小市值国企缺口显著、沪深 300 长期共同支撑不足"的特征。其三，在\textbf{稳健性}上，本文提供了样本筛选、共同支撑域、模型类别、行业内 KNN、聚类推断等多个维度的交叉验证，避免了以单一样本或单一模型驱动结论。
+
+本文其余部分安排如下：第二部分回顾相关文献与研究背景；第三部分介绍数据来源、样本构造与变量定义；第四部分阐述反事实方法与模型设定；第五部分报告实证结果与稳健性检验；第六部分为结论。
+
+\section{二、背景与文献（Background）}
+
+\subsection{2.1 制度背景：中国国有企业改革与效率议题}
+
+国有企业在中国经济中扮演着双重角色：既是关键基础设施与基础产业的供给者，也长期承担着就业、社会稳定等政策性负担。自 1978 年以来，中国国有企业改革经历了"放权让利""承包经营""建立现代企业制度""抓大放小"以及近年来的混合所有制改革等多个阶段，其核心目标始终是提升效率、硬化预算约束。
+
+尽管改革持续推进，国有企业的效率问题仍是学术与政策讨论的焦点。一个反复出现的经验事实是：在控制规模、行业等因素后，国有企业的盈利能力与资产回报率系统性低于民营企业。这一"效率差距"究竟源于所有制本身（代理问题、软预算约束），还是源于国有企业承担的额外政策性负担，抑或源于其经营环境（垄断地位、融资便利）的不同，构成了一个需要细致识别的问题。
+
+\subsection{2.2 理论文献：软预算约束、政策性负担与政治关联}
+
+关于国有企业低效率的理论解释，可大致归纳为三条线索。
+
+\textbf{第一，软预算约束（soft budget constraint）。} Kornai (1986) 最早系统阐述了社会主义经济中"预算软约束"现象：亏损企业能够依靠政府救助、补贴或信贷续命，从而削弱其改善经营的努力。这一概念被广泛用于解释国有企业对价格信号和利润激励的反应不足。
+
+\textbf{第二，政策性负担理论。} 林毅夫等（Lin, Cai and Li, 1998；林毅夫和李志赟，2004）提出，国有企业承担了资本过度密集的战略性产业与就业、养老等社会职能，这些"政策性负担"使得经营绩效难以与纯商业企业比较，并由此内生地产生了软预算约束与道德风险。这一理论的关键含义是：国有企业的低回报可能在相当程度上是"负担"所致，而非纯粹的管理无效率。
+
+\textbf{第三，政治关联与代理问题。} Shleifer and Vishny (1994) 强调政治家对企业经营目标的多重干预；国内经验研究（如刘瑞明和石磊，2010）进一步提出国有企业的"双重效率损失"------不仅自身低效，还通过要素市场扭曲拖累了民营部门的增长。Megginson and Netter (2001) 对私有化的跨国综述则提供了来自成熟市场经济体的对照证据：民营化总体改善了企业效率。
+
+上述文献共同指向一个经验命题------\textbf{所有制与资产回报率之间存在系统性关联}，但关联的方向、幅度与异质性仍高度依赖于识别策略与样本。
+
+\subsection{2.3 方法文献：反事实估计与机器学习的应用}
+
+本文在方法上与两类文献对话。
+
+\textbf{一类是反事实估计文献。} 合成控制法（Abadie, Diamond and Hainmueller, 2010）与匹配方法通过构造"未受处理"的加权反事实来估计处理效应，其核心挑战是共同支撑域------即处理组与控制组在协变量空间上的可重叠程度。本文借鉴了这一思想，将对国有企业的预测视为"在民营企业样本支撑域内构造类比对象"，并显式诊断共同支撑域。
+
+\textbf{另一类是机器学习在经济学的应用文献。} Mullainathan and Spiess (2017) 系统论述了机器学习作为"预测工具"在经济学中的应用；Athey and Imbens (2016) 与 Chernozhukov et al. (2018) 则拓展了机器学习在异质性效应识别与稳健推断中的应用。本文采用梯度提升等非线性模型刻画财务特征与回报率之间的高维、非线性关系，同时通过 GroupKFold 分组交叉验证（按企业分组）与聚类稳健推断处理面板数据中同一企业跨年观测的序列相关，避免信息泄漏与低估标准误。
+
+\textbf{与本文最接近的是 Lucas、Garcia and Solberg（2026）}提出的基于资产回报率的国企金融补贴度量框架：其转向资产负债表资产端，利用会计数据与可比私人企业构造 benchmark，估计国企相对私企的回报差异。本文将这一思路扩展到大规模 A 股样本，通过机器学习估计民营企业的条件资产回报函数，并使用共同支撑域（common support）判断哪些 SOE 真正具有私人部门可比对象。本文的 gap 在思路上与之互补，但聚焦于条件资产回报率差异本身，而非补贴估值。
+
+综合而言，本文的定位是：系统构造 comparable private-sector benchmark，以民营企业为基准，利用机器学习反事实方法估计国有企业的条件资产回报率缺口，并通过共同支撑域诊断界定反事实外推的边界，进而在规模、行业、行政隶属维度刻画其异质性。
+
+\section{三、数据（Data）}
+
+\subsection{3.1 数据来源}
+
+数据来自 Wind 金融终端（2026 年 8 月提取），覆盖 2014--2024 年共 11 个年度的全 A 股上市公司财务数据，形成 2019--2025 年的预测样本。其中：
+
+\begin{center}
+\centering
+\small
+\begin{tabular}{llr}
+\toprule
+数据 & 来源 & 覆盖 \\
+\midrule
+全 A 股上市公司财务数据 & \texttt{0803/A\_2014\_origin.xlsx} \textasciitilde{} \texttt{A\_2024\_origin.xlsx} & 11 年 panel，5,535 firms \\
+指数成分股进出记录 & \texttt{input\_index\_weight/} & 沪深300/中证500/中证1000（2019--2025） \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{预测期设定}：以第 t 年的财务特征预测第 t+1 年的 EBI/A，即"特征年 = t，目标年 = t+1"。例如，2024 年特征预测 2025 年回报率。样本跨越 2014--2024 年特征期，对应 2019--2025 年目标期（前 4 年用于扩展窗口累积训练样本）。
+
+\subsection{3.2 样本构造与筛选}
+
+表 1 报告了样本构造流程。从原始 5,535 家企业、60,896 个 firm-year 观测出发，依次剔除金融行业、缺失回报率、极端回报率与无法分类的所有制，最终保留 3,471 家民营企业、34,462 个 firm-year 观测作为训练池；再经完整案例筛选（特征无缺失），得到 \textbf{27,722 个 firm-year、3,471 家民营企业}的基准训练样本。
+
+在此基础上，本文进一步实施了三项旨在剔除"异常企业"的稳健性筛选：
+
+\begin{enumerate}
+
+  \item \textbf{剔除 ST 股}（企业名称含 "ST"，民营 127 家、国有 58 家）；
+
+  \item \textbf{剔除资不抵债企业}（FinancialLeverage > 1，即净资产为负，作为暴雷风险代理）；
+
+  \item \textbf{剔除极端盈亏企业}（|EBI/A| > 0.5，即息税前利润超过资产一半的极端值）。
+
+\end{enumerate}
+
+筛选后的\textbf{最终训练样本为 26,464 个 firm-year、3,344 家民营企业}；2025 年预测期的全 A 股 SOE 样本为 \textbf{1,336 家}（其中中央国企 436 家、地方国企 900 家）。
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 1　样本构造流程}
+\begin{tabular}{rlrrrr}
+\toprule
+步骤 & 操作 & 企业数 & firm-year & 剔除企业 & 剔除 firm-year \\
+\midrule
+0 & 解析 11 份 Wind 原始文件 & 5,535 & 60,896 & --- & --- \\
+1 & 剔除无 t+1 总资产（无法计算 EBI/A） & 5,535 & 57,701 & 0 & 3,195 \\
+2 & 回填 2014 年缺失所有制（100\% 恢复） & 5,535 & 57,701 & 0 & 0 \\
+3 & 剔除金融行业 & 5,416 & 56,392 & 119 & 1,309 \\
+4 & 剔除 NaN EBI/A（缺失 t+1 净利润或利息支出） & 5,416 & 54,741 & 0 & 1,651 \\
+5 & 剔除 EBI/A $\notin$ (-1, +1) & 5,416 & 54,671 & 0 & 70 \\
+6 & 剔除未分类所有制 & 5,416 & 54,671 & 0 & 0 \\
+7 & 仅保留民营企业（训练池） & 3,471 & 34,462 & 1,945 & 20,209 \\
+8 & 完整案例（剔除特征缺失，约束项：FixedAssetsRatio 缺失 19.3\%） & 3,471 & 27,722 & 0 & 6,740 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{注：ST、资不抵债、极端盈亏三项筛选在步骤 8 之后另行施加，得到 26,464 个 firm-year、3,344 家民营企业的最终训练样本。}
+
+\textbf{数据限制说明}：原始数据中 \texttt{list\_date}（上市日期）与 \texttt{listing\_status}（上市状态）字段全部为空，且无股价数据，因此\textbf{无法执行"新股"与"低面值"两类筛选}。这两项筛选因数据缺失而未执行，构成样本构造的一项已知局限。
+
+\subsection{3.3 变量定义}
+
+\textbf{目标变量}（t+1 年）：
+
+\[EBI/A_{t+1} = \frac{\text{归母净利润}_{t+1} + \text{利息支出}_{t+1}}{\text{资产总计}_{t+1}}\]
+
+分子为\textbf{归母净利润（税后）加利息支出}，即
+\[
+\text{EBI} = \text{归母净利润} + \text{利息支出},
+\]
+是\textbf{税后、息前的资产回报代理}。加回利息支出主要降低资本结构和债务融资成本差异对净利润比较的机械影响；所得税仍保留在指标中，故该指标并非息税前利润（EBIT）。需注意：其一，分子使用归母净利润，而总资产为合并口径，会计主体并不完全一致，归母口径排除了少数股东损益；其二，税后口径下，若 SOE 有效税率低于民企，会\emph{缩小}测得的 SOE 落后幅度，反之亦然。
+
+\textbf{预测特征}（均测于 t 年，共 9 个财务比率 + 行业固定效应）：
+
+\begin{center}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+特征 & 定义 & 经济含义 \\
+\midrule
+FirmSize & ln(总资产) & 企业规模 \\
+AssetTurnover & 营业收入 / 总资产 & 资产周转效率 \\
+FinancialLeverage & 总负债 / 总资产 & 杠杆水平 \\
+FixedAssetsRatio & 固定资产净值 / 总资产 & 资产结构（重资产程度） \\
+CurrentRatio & 流动资产 / 流动负债 & 短期流动性 \\
+CapexRatio & 资本支出 / 总资产 & 投资强度 \\
+WorkingCapitalRatio & (流动资产 - 流动负债) / 总资产 & 营运资本占用 \\
+MarketShare & 营业收入 / 全市场行业营收 & 行业市场份额 \\
+HHI & $\Sigma$ MarketShare\textsuperscript{2}（行业---年度内） & 行业集中度 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{关键数据约定}：MarketShare 与 HHI 的\textbf{分母必须是全 A 股市场的行业总营收}，而非指数子样本。早期版本曾在指数子文件内计算市场份额，导致分母被系统性低估、市场份额被放大，进而扭曲 gap 估计（例如中证 500 的 gap 由正确的 +0.10pp 被放大至 +2.73pp）。本文所有分析均已统一采用全市场口径。
+
+\subsection{3.4 所有制分类}
+
+\begin{itemize}
+
+  \item \textbf{国有企业（SOE）} = {中央国有企业，地方国有企业}
+
+  \item \textbf{民营企业} = {民营企业}
+
+  \item 其余所有制（公众企业、外资企业、集体企业、其他）在基准设定中剔除。
+
+\end{itemize}
+
+所有制字段取自 Wind 的 \texttt{企业所有制性质 [交易日期] 最新收盘日}，该字段为\textbf{静态快照}（反映最新时点的所有制归属，而非 t 年当时的归属），因此存在潜在的 look-ahead 偏差------若某企业在样本期内发生所有制变更，其早期观测可能被错误归入后续的所有制类别。审计显示样本期内的所有制切换者极少（约 95 条 firm-year），此项偏差对结论影响有限，但应在解读时加以注意。
+
+\section{四、方法（Method）}
+
+\subsection{4.1 反事实框架}
+
+本文的目标是估计国有企业"若按民营企业收益生成过程运营"的反事实资产回报率。设 \(f(\cdot)\) 为资产回报率与财务特征、行业环境之间的映射关系，以民营企业样本估计 \(\hat{f}\)，则对国有企业 \(i\)：
+
+\[\text{Gap}_i = \hat{f}(X_i) - Y_i\]
+
+其中 \(\hat{f}(X_i)\) 为反事实预测值（国有企业处于特征 \(X_i\) 时，民营企业的"应有"回报率），\(Y_i\) 为国有企业实际回报率。因此：
+
+\begin{itemize}
+
+  \item \textbf{Gap > 0}：国有企业实际 EBI/A 低于民营企业反事实预测（即"相对缺口"为正）；
+
+  \item \textbf{Gap < 0}：国有企业实际 EBI/A 高于民营企业反事实预测（国有企业表现优于民营基准）。
+
+\end{itemize}
+
+需要强调的是，本文的 gap 度量的是"以民营企业为基准的资产回报率差异"，\textbf{不直接等同于政府补贴或政策性负担的金额}。它综合反映了管理效率、代理成本、融资条件、市场势力与政策性职能等多重因素的净效应。
+
+\subsection{4.2 模型设定}
+
+以民营企业为训练样本，估计 \(f\)：EBI/A\(_{t+1}\) 作为 9 个财务比率与行业固定效应的函数。本文采用三个函数形式不同的模型：
+
+\begin{center}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+模型 & 超参数 & 角色 \\
+\midrule
+\textbf{梯度提升（GBM）} & n=200, depth=4, lr=0.05, min\_samples\_leaf=10 & \textbf{主模型}（拟合与校准综合最优） \\
+岭回归（Ridge） & $\alpha$=10 & 稳健性（线性可解释基准） \\
+随机森林（RF） & n=300, depth=8, min\_samples\_leaf=10 & 稳健性（非线性对照） \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+模型选择遵循\textbf{先验原则}（不以 SOE 结果好坏为依据），依据两个标准：（1）民营企业样本上的样本外拟合优度（OOF R\textsuperscript{2}、RMSE）；（2）\textbf{校准性}（calibration），即"实际值 = $\alpha$ + $\beta$ $\times$ 预测值"中 $\beta$ 是否接近 1。如后文所示，GBM 在两个维度上均表现最优（OOF R\textsuperscript{2} 最高且 $\beta$$\approx$1.04），而 RF 虽拟合良好但校准显著失真（$\beta$$\approx$1.46，即预测值被系统性压缩向均值），故以 GBM 为主模型、Ridge 与 RF 为稳健性对照。
+
+\textbf{预处理流程}：对 9 个数值特征做 Winsorize（P5--P95 缩尾）$\to$ 中位数填补 $\to$ 标准化（StandardScaler）$\to$ 行业（二级行业）One-Hot 编码作为固定效应。所有处理均在民营企业训练集上拟合，再应用于 SOE 预测样本，避免信息泄漏。
+
+\subsection{4.3 交叉验证与推断}
+
+\textbf{样本外预测}：主模型的拟合质量以 GroupKFold 分组交叉验证（按 firm\_id 分 5 折）度量，同一企业的所有年份观测被置于同一折，从而避免"同一企业同时出现在训练与验证集"导致的信息泄漏。每一折的模型仅在该折以外的企业上训练。
+
+\textbf{反事实预测}：采用扩展窗口（expanding window）设计，并施加严格的时间上的样本外约束：
+\[
+\max\left(\text{OutcomeYear}_{\text{train}}\right) < \text{ForecastYear}.
+\]
+即训练标签仅使用结果年份严格早于预测年份的民营企业观测。例如，预测 2025 年 SOE 时，训练标签仅使用截至 2024 年已经实现的民营企业 EBI/A；2025 年民营企业的真实结果不参与训练，从而保证预测严格满足"时间上的样本外"。
+
+\textbf{统计推断}：由于同一企业跨年观测不独立，标准误在 \textbf{firm 层面聚类}（Cameron and Miller, 2015）：
+
+\[\text{SE} = \frac{\text{sd}(\text{firm 均值})}{\sqrt{n_{\text{firms}}}}\]
+
+并辅以 \textbf{500 次 cluster bootstrap}（按 firm\_id 重采样，重新训练与预测）作为非参数稳健性检验。所有 95\% 置信区间据此构造。
+
+\subsection{4.4 共同支撑域诊断}
+
+反事实预测的有效性要求 SOE 在协变量空间上处于民营企业样本的支撑域内。本文采用四重诊断：
+
+\begin{enumerate}
+
+  \item \textbf{单变量标准化均值差（SMD）}：\((\bar{X}_{SOE} - \bar{X}_{priv}) / \sigma_{pooled}\)，|SMD| > 0.25 视为不可忽略；
+
+  \item \textbf{倾向得分（propensity score）}：以逻辑回归（民企=0，SOE=1）的 5 折 OOF 概率度量协变量可分性（ROC-AUC）与重叠比例；
+
+  \item \textbf{多维最近邻距离（5-NN）}：标准化 9 维特征空间中 SOE 到民企的 5-NN 距离，与民营企业内部 1-NN 距离的 P90（0.772）比较，划分为"良好支持"（$\le$P90）、"边界"（P90--P95）与"外推风险"（>P95）；
+
+  \item \textbf{Mahalanobis 距离}（PCA 前 5 主成分）作为交叉验证。
+
+\end{enumerate}
+
+图 A1 以企业规模（ln 总资产）的核密度分布直观呈现了这一支撑域障碍：民营企业分布中心在 ln(资产)$\approx$21.7，全 A 股 SOE 右移至 $\approx$23.0，而沪深 300 SOE 的分布中心高达 $\approx$25.7------后者 93\% 的企业规模超过民营企业分布的 P95 分位，几乎与民营基准不重叠；中证 500 次之（63\% 超出），中证 1000 与全样本相对接近（25--28\% 超出）。\textbf{企业规模是共同支撑域的首要障碍}，这与其单变量 SMD（沪深 300 达 +3.19）一致。
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{final_results/fig_firm_size_overlap_screened.png}
+
+\caption{图 A1：企业规模分布（民企 vs 各指数 SOE，2025 筛选后）}
+
+\end{figure}
+
+在此基础上，本文对比"全样本"与"共同支撑域内"两组的 gap，以确认结果是否由外推驱动。
+
+\section{五、结果（Results）}
+
+\subsection{5.1 模型拟合与校准}
+
+表 2 报告三个模型在民营企业样本上的样本外表现（GroupKFold 按 firm 分组，5 折，全样本 pooled）。
+
+\begin{table}[H]
+\centering
+\small
+\caption{表 2　民营企业样本外预测性能（GroupKFold，按 firm 分组）}
+\begin{tabular}{lrrrr}
+\toprule
+模型 & OOF R\textsuperscript{2} & OOF RMSE & OOF MAE & 校准 $\beta$ \\
+\midrule
+岭回归（Ridge） & +0.197 & 0.0474 & 0.0378 & 0.98 \\
+随机森林（RF） & +0.245 & 0.0460 & 0.0361 & \textbf{1.46} \\
+\textbf{梯度提升（GBM）} & \textbf{+0.303} & \textbf{0.0442} & \textbf{0.0337} & \textbf{1.04} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{注：校准回归为"实际值 = $\alpha$ + $\beta$ $\times$ 预测值"（针对训练所用的 Winsorize 目标）。$\beta$ 越接近 1 表示预测越无偏。RF 的 $\beta$=1.46 表明其预测被系统性压缩向均值（高值低估、低值高估），这使其不适合作为反事实点估计的主模型。补充说明：若针对\textbf{原始未缩尾}的实际值回归，GBM 的 OOF 校准斜率为约 1.29（截距约 -0.02），这一轻微 miscalibration 源于目标变量的 P5--P95 缩尾压缩，且\textbf{同时作用于民营与 SOE 两组}，因此不改变 gap 的解读。}
+
+三个模型均具有正的样本外解释力（R\textsuperscript{2} = 0.20\textasciitilde{}0.30），其中 GBM 拟合最优（R\textsuperscript{2}=+0.303，RMSE=0.0442），且校准 $\beta$=1.04 最接近理想值 1；Ridge 校准良好（$\beta$=0.98）但拟合略弱；RF 拟合居中但校准显著失真（$\beta$=1.46）。据此，下文以 GBM 为主模型，Ridge 与 RF 作为方向稳健性检验。
+
+\subsection{5.2 基准结果：全 A 股 SOE 的反事实缺口}
+
+图 1 与表 3 报告了 2019--2025 年四个样本在 GBM 主模型下的逐年 gap。
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{outputs/revision/fig_summary_7year_screened.png}
+
+\caption{图 1：逐年反事实缺口（4 样本 $\times$ 3 模型）}
+
+\end{figure}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 3　全 A 股 SOE 的逐年反事实缺口（GBM 主模型）}
+\begin{tabular}{rrrrrr}
+\toprule
+年份 & n（firms） & GBM gap & 95\% CI & Ridge gap & RF gap \\
+\midrule
+2019 & 1,188 & \textbf{+1.95pp}* & [+1.63, +2.27] & +1.58pp & +2.16pp \\
+2020 & 1,241 & \textbf{+2.47pp}* & [+2.13, +2.82] & +2.09pp & +2.60pp \\
+2021 & 1,301 & \textbf{+1.55pp}* & [+1.24, +1.86] & +1.20pp & +1.79pp \\
+2022 & 1,331 & \textbf{+2.03pp}* & [+1.73, +2.33] & +1.64pp & +2.20pp \\
+2023 & 1,342 & \textbf{+1.91pp}* & [+1.64, +2.17] & +1.52pp & +2.17pp \\
+2024 & 1,339 & \textbf{+2.29pp}* & [+2.01, +2.57] & +1.88pp & +2.59pp \\
+2025 & 1,336 & \textbf{+1.92pp}* & [+1.67, +2.17] & +1.62pp & +2.30pp \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{\textasteriskcentered{} 表示 95\% 置信区间（firm 层面聚类稳健）排除零。}
+
+\textbf{核心发现一}：全 A 股 SOE 的反事实缺口在 7 年内持续为正且统计显著，GBM 估计的 firm 层面均值约 +1.55 \textasciitilde{} +2.47 个百分点，均值的 7 年均值约 \textbf{+2.02pp}。这意味着，在相同财务特征与行业环境下，国有企业实际取得的资产回报率系统性低于民营企业所代表的"应有"水平。三个模型方向一致（Ridge +1.2\textasciitilde{}2.1pp，RF +1.8\textasciitilde{}2.6pp），排除了特定函数形式驱动结论的可能。
+
+\subsection{5.3 规模异质性：大市值与中小市值 SOE 的显著分化}
+
+表 4 报告按指数成分划分的四个样本的 gap，图 1 亦展示这一梯度。
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 4　规模梯度（GBM，2019--2025 逐年 gap，单位 pp）}
+\begin{tabular}{lrrrrrrr}
+\toprule
+样本 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 \\
+\midrule
+沪深300 SOE & +0.76* & +1.11* & -0.21 & -0.61 & -0.41 & -0.11 & -0.05 \\
+中证500 SOE & +1.70* & +2.08* & +0.89* & +1.49* & +1.96* & +2.04* & +1.20* \\
+中证1000 SOE & +2.51* & +2.39* & +1.26* & +2.00* & +1.98* & +1.58* & +1.48* \\
+非指数 SOE & --- & --- & --- & --- & --- & --- & +2.67* \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{\textasteriskcentered{} 表示 95\% CI 排除零；非指数 SOE 仅报告 2025 年。}
+
+\textbf{核心发现二}：gap 呈现清晰的\textbf{规模梯度}。大市值 SOE（沪深 300 成分）的 gap 在 2021 年后转负（约 -0.4 \textasciitilde{} -1.0pp，多数年份统计不显著或边际显著），而中小市值 SOE 的 gap 显著为正且幅度更大------中证 500 约 +0.9 \textasciitilde{} +1.9pp，中证 1000 约 +1.0 \textasciitilde{} +2.4pp。这一分化具有明确的经济含义：\textbf{资产回报率缺口主要存在于中小市值国有企业；沪深 300 大市值 SOE 的全样本缺口接近零，但其共同支撑域严重不足，故不能据此断定大市值国企不存在条件回报率缺口}。
+
+对此的一个自然解释是：大市值 SOE 多处于具有规模经济、市场势力或资源垄断优势的行业（能源、电信、大型基建等），其实际回报率并不低于民营企业基准；而中小市值 SOE 在竞争性行业中的经营效率劣势更为凸显。
+
+\subsection{5.4 行业异质性：重资产与周期性行业缺口最大}
+
+图 2 报告行业 $\times$ 年份 gap 热力图（4 样本），图 3 报告前 6 / 后 6 行业的时间趋势。
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{outputs/revision/fig_industry_year_heatmap_screened.png}
+
+\caption{图 2：行业 $\times$ 年份 gap 热力图}
+
+\end{figure}
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{outputs/revision/fig_industry_topbottom_trend_screened.png}
+
+\caption{图 3：前 6 / 后 6 行业 gap 时间趋势}
+
+\end{figure}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 5　2025 年 gap 最高与最低的行业（GBM，全 A 股 SOE）}
+\begin{tabular}{rlrrlrr}
+\toprule
+排名 & 行业（gap 最高） & mean gap & n & 行业（gap 最低） & mean gap & n \\
+\midrule
+1 & 钢铁II & +4.99pp & 25 & 交通运输 & +0.20pp & 74 \\
+2 & 房地产II & +4.61pp & 52 & 有色金属 & +0.55pp & 70 \\
+3 & 煤炭II & +3.99pp & 29 & 公用事业II & +0.76pp & 98 \\
+4 & 家电II & +3.72pp & 13 & 半导体 & +0.82pp & 26 \\
+5 & 造纸与包装 & +3.37pp & 15 & 电信服务 & +1.25pp & 4 \\
+6 & 建材II & +3.00pp & 20 & 软件服务 & +1.36pp & 47 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{核心发现三}：缺口在行业间高度集中且\textbf{时间上高度稳定}。钢铁、煤炭、家电、房地产、建材等重资产与强周期性行业在 7 年中始终处于 gap 最高组（约 +3 \textasciitilde{} +5pp），而交通运输、公用事业、有色金属、半导体等具有自然垄断、政策定价或轻资产特征的行业始终接近零。这一模式表明，缺口并非全局性的"所有制折价"，而是集中于特定行业------这些行业恰恰是国有企业比重高、产能过剩压力大、市场化程度相对不足的领域。
+
+\subsection{5.5 中央与地方国企：无显著差异}
+
+表 6 报告 2025 年中央与地方国企的拆分结果。
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 6　中央 vs 地方国企（GBM，2025）}
+\begin{tabular}{lrrrrrl}
+\toprule
+组别 & n（firms） & 实际 EBI/A & 预测 EBI/A & Gap & SE & 95\% CI \\
+\midrule
+中央国企 & 436 & +2.22\% & +4.06\% & \textbf{+1.84pp} & 0.21pp & [+1.42, +2.26] \\
+地方国企 & 900 & +1.68\% & +3.64\% & \textbf{+1.96pp} & 0.16pp & [+1.64, +2.27] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{核心发现四}：中央与地方国企的 gap 接近（+1.84pp vs +1.96pp，差异仅 0.12pp，远小于标准误），聚类稳健的央地差值检验 p=0.67，\textbf{当前数据无法拒绝中央和地方 SOE 平均 gap 相同}。因此，缺口的异质性\textbf{主要体现在规模与行业维度}，而非行政隶属维度；但这一结论不构成对"中央与地方没有差异"的一般性长期判断。
+
+\subsection{5.6 金额含义：资产加权的经济规模}
+
+前文的 gap 为 firm 层面未加权的比例均值（单位：个百分点）。为刻画其\textbf{经济规模}，本文进一步计算金额缺口：
+
+\[\text{金额 gap} = \sum_i \text{gap}_i \times \text{资产总计}_i\]
+
+即以每家企业的 gap 乘以其总资产后加总，得到条件资产回报率差异的\textbf{账面金额化指标}，用于描述缺口的经济规模（单位：亿元）。
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{final_results/fig_amount_gap_by_year.png}
+
+\caption{图 4：金额缺口（亿元）分年份互斥分解}
+
+\end{figure}
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{final_results/fig_ratio_vs_amount_gap.png}
+
+\caption{图 5：比例缺口与金额缺口并排（4 样本）}
+
+\end{figure}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 7　金额缺口（亿元），2019--2025}
+\begin{tabular}{rrrrrr}
+\toprule
+年份 & All SOE & 沪深300 & 中证500 & 中证1000 & 非指数 \\
+\midrule
+2019 & 7,222 & 4,271 & 1,297 & 643 & 1,011 \\
+2020 & 10,468 & 5,939 & 2,131 & 799 & 1,598 \\
+2021 & 5,062 & 1,969 & 1,696 & 608 & 789 \\
+2022 & 5,867 & 2,132 & 2,043 & 1,136 & 555 \\
+2023 & 6,459 & 2,152 & 2,292 & 1,361 & 653 \\
+2024 & 7,953 & 1,941 & 2,377 & 1,220 & 2,415 \\
+2025 & \textbf{7,560} & 2,155 & 1,783 & 1,197 & 2,424 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{核心发现五}：2025 年全 A 股 SOE 的金额缺口合计约 \textbf{7,560 亿元}，2019--2025 年累计约 \textbf{5.1 万亿元（50,590 亿元）}。金额缺口在样本间的分布与比例缺口\textbf{并不完全一致}：尽管沪深 300 SOE 的比例 gap 接近零（-0.05pp），其金额缺口仍为正（+2,155 亿元）。原因在于金额缺口是资产加权的------沪深 300 企业资产体量巨大，即便平均比例缺口为负，少数高资产、正 gap 的企业仍可主导金额加总；同时沪深 300 内部 gap 分布左偏（少数大额负 gap 企业拉低均值：中位数 +0.74pp 为正，均值 -0.05pp 为负），进一步说明金额与比例两个口径刻画的是缺口的不同侧面，应结合解读。此外，下文 \S5.7.2 的共同支撑分解显示，2025 年金额缺口约 \textbf{62.2\%} 来自处于民营企业特征支撑域之外（外推区）的企业，因此金额结果对大型、缺乏私人部门可比对象的 SOE 较为敏感；金额缺口是描述经济规模的账面金额化指标，\textbf{应始终伴随共同支撑分解解读，而 firm 层面的等权比例缺口（rate gap）才是本文更稳健的核心指标}。
+
+\subsection{5.7 稳健性检验}
+
+\subsubsection{5.7.1 样本筛选：剔除极端企业不影响结论}
+
+表 8 对比剔除 ST/资不抵债/极端盈亏前后的全 A 股 SOE gap。
+
+\begin{table}[H]
+\centering
+\small
+\caption{表 8　筛选前后对比（全 A 股 SOE，GBM）}
+\begin{tabular}{rrrr}
+\toprule
+年份 & 筛选前 & 筛选后 & $\Delta$ \\
+\midrule
+2019 & +2.07pp & +1.95pp & -0.12 \\
+2020 & +2.24pp & +2.47pp & +0.23 \\
+2021 & +1.35pp & +1.55pp & +0.20 \\
+2022 & +2.04pp & +2.03pp & -0.01 \\
+2023 & +1.73pp & +1.91pp & +0.18 \\
+2024 & +2.31pp & +2.29pp & -0.02 \\
+2025 & +1.96pp & +1.92pp & -0.04 \\
+\textbf{均值} & \textbf{+1.96pp} & \textbf{+2.02pp} & \textbf{+0.06} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+筛选后 gap 几乎不变（均值甚至略升 +0.06pp），证明结论\textbf{不是少数极端企业驱动的}------钢铁、煤炭等行业的 median gap 在筛选后仍显著为正。
+
+\subsubsection{5.7.2 共同支撑域：外推不驱动核心结论}
+
+表 9 报告多年共同支撑域核心结果（2019--2025 简单平均；Full / CS / Persistent-support 三种口径，均以 firm 为 cluster 做 2,000 次 bootstrap 推断）。
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 9　多年共同支撑域核心表（2019--2025；gap 单位 pp；括号为 95\% CI）}
+\begin{tabular}{lccccccr}
+\toprule
+样本 & Full & 95\% CI & CS & 95\% CI & Persistent & 95\% CI & 平均良好支持份额\% \\
+\midrule
+All SOE & +2.02 & [+1.82, +2.21] & +2.10 & [+1.88, +2.32] & +1.87 & [+1.62, +2.12] & 64.4 \\
+沪深300 & +0.07 & [-0.56, +0.69] & -1.06 & [-2.54, +0.36] & +0.79 & [-0.58, +2.22] & 26.5 \\
+中证500 & +1.63 & [+1.34, +1.92] & +1.54 & [+1.16, +1.92] & +1.55 & [+0.98, +2.18] & 50.2 \\
+中证1000 & +1.88 & [+1.58, +2.20] & +2.00 & [+1.66, +2.36] & +2.36 & [+1.80, +2.96] & 69.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{注：CS = 良好支持 + 边界（good + boundary）；Persistent = SupportShare$_{i} \ge 0.8$ 企业的 firm 均值 gap；平均良好支持份额 = 企业层面 SupportShare$_{i}$（良好支持年数 / 观测年数）的均值，与表 10 的 2025 单年良好支持\% 口径不同；bootstrap 为 firm 层面聚类重抽样（2,000 次，随机种子 42），不改动已拟合的 gap。}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{outputs/revision3/fig_dynamic_common_support_gap.png}
+\caption{图 6：动态共同支撑域与反事实缺口（2019--2025，4 样本）}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{outputs/revision3/fig_persistent_support_distribution.png}
+\caption{图 7：企业持续性共同支撑分布（SupportShare$_{i}$ = 良好支持年数 / 观测年数）}
+\end{figure}
+
+诊断揭示了重要的识别边界：
+
+\begin{itemize}
+
+  \item \textbf{全 A 股 SOE}：Full（+2.02pp）、CS（+2.10pp）与 Persistent-support（+1.87pp）三种口径方向一致且均显著（bootstrap 95\% CI 均不包含零），说明\textbf{全市场正缺口并非主要由外推企业驱动}；
+
+  \item \textbf{中证 500 与中证 1000}：多年结果稳定（CS 口径分别为 +1.54pp、+2.00pp，均显著为正），限制在共同支撑域内不改变方向与量级；
+
+  \item \textbf{沪深 300}：长期共同支撑不足（良好支持占比多年均值仅约 26\%，2025 年更低至 15.4\%），其 Full gap 接近零而 CS gap 转负（-1.06pp），不同 support 定义下点估计并不稳定，因此无法对大型 SOE 是否存在条件回报率缺口作强判断。\textbf{FirmSize 是最大的支撑域障碍}（SMD +1.7 \textasciitilde{} +3.2）：大市值 SOE 在民营企业样本中缺乏可比的对照对象。
+
+\end{itemize}
+
+因此，本文对"规模梯度"结论的稳健表述是：\textbf{中小市值 SOE（中证 500/1000）与全市场 SOE 的缺口结论稳健；沪深 300 SOE 的全样本缺口接近零，但长期共同支撑不足，不同 support 定义下点估计并不稳定，因此无法对大型 SOE 是否存在条件回报率缺口作强判断。}
+
+进一步，共同支撑诊断对\textbf{金额缺口}的含义更为尖锐：2025 年全 A 股 SOE 的 7,560 亿元金额缺口中，处于共同支撑\textbf{之外}（外推区）的 359 家超大型 SOE 贡献了约 \textbf{4,701 亿元（62.2\%）}，而支撑内企业（814 家）贡献 1,617 亿元（21.4\%）、边界企业（163 家）贡献 1,241 亿元（16.4\%）。这一分解在 2019--2025 年逐年稳定（good 占比约 60--67\%、外推占比约 22--27\%），且支撑状态高度粘性（good$\to$good 88.7\%、外推$\to$外推 81.3\%）。因此，\textbf{金额缺口大部分仍由缺乏可比民企对照的超大型 SOE 驱动，必须与共同支撑分解一同报告，等权比例 gap 才是更稳健的核心指标。}
+
+表 10 将 2025 年的共同支撑状态与金额分解合并报告。
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 10　2025 年共同支撑与金额缺口分解}
+\begin{tabular}{lccccrr}
+\toprule
+样本 & 良好支持\% & 外推\% & Full Gap & CS Gap & 金额缺口（亿元） & 外推金额占比 \\
+\midrule
+All SOE & 60.9 & 26.9 & +1.92pp & +1.99pp & 7,560 & 62.2\% \\
+沪深300 & 15.4 & 76.9 & -0.05pp & -1.21pp & 2,155 & 103.7\% \\
+中证500 & 41.8 & 41.3 & +1.20pp & +1.01pp & 1,783 & 62.8\% \\
+中证1000 & 62.7 & 22.7 & +1.48pp & +1.45pp & 1,197 & 40.6\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{注：外推金额占比 = 外推区金额缺口 / 总金额缺口；沪深 300 该比值超过 100\% 是因为其 good 与 boundary 区金额缺口为负，外推区金额缺口大于总额。}
+
+\subsubsection{5.7.3 模型类别：函数形式不驱动结论}
+
+三个函数形式差异显著的模型（线性 Ridge、分段常数 RF、光滑非线性 GBM）在四类样本上给出的 gap \textbf{方向完全一致}（全 A 股、中证 500、中证 1000 均为正；沪深 300 均为负或接近零）。幅度上存在一定差异------Ridge（线性）估计更保守、RF 更激进、GBM 居中，例如 2025 年全 A 股 gap 跨模型范围为 +1.62pp 至 +2.30pp（约 0.68pp）。若 gap 是特定函数形式的伪象，应预期线性模型与非线性模型之间出现更大乃至方向相反的分歧，而实际分歧仅体现在幅度、不体现在方向。这支持"gap 的定性结论并非函数形式假设的产物"。
+
+\subsubsection{5.7.4 推断稳健性：聚类标准误与 bootstrap 一致}
+
+表 11 报告 2025 年的推断结果。
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{表 11　推断统计（2025）}
+\begin{tabular}{llrrll}
+\toprule
+方法 & 样本 & 点估计 & SE & 95\% CI & 结论 \\
+\midrule
+聚类 SE（GBM） & All SOE & +1.92pp & 0.13pp & [+1.67, +2.17] & 显著 \\
+聚类 SE（GBM） & 中央国企 & +1.84pp & 0.21pp & [+1.42, +2.26] & 显著 \\
+聚类 SE（GBM） & 地方国企 & +1.96pp & 0.16pp & [+1.64, +2.27] & 显著 \\
+Bootstrap（Ridge，500 次） & All SOE & +1.63pp & 0.14pp & [+1.35, +1.91] & 显著 \\
+Bootstrap（Ridge，500 次） & 中证1000 & +0.81pp & 0.19pp & [+0.45, +1.18] & 显著 \\
+Bootstrap（Ridge，500 次） & 沪深300 & -0.43pp & 0.38pp & [-1.15, +0.34] & 不显著 \\
+Bootstrap（Ridge，500 次） & 中证500 & +0.26pp & 0.21pp & [-0.13, +0.65] & 不显著 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+firm 层面聚类标准误与 500 次 cluster bootstrap 的 SE 几乎一致（0.13 vs 0.14pp），二者置信区间均排除零，全市场 SOE 的缺口结论稳健。注：bootstrap 采用计算速度更快的 Ridge，其点估计（+1.63pp）略低于 GBM（+1.92pp）但方向一致，量级差异主要源于模型族（Ridge 为线性、GBM 为非线性）而非推断方法本身。
+
+\subsubsection{5.7.5 样本内效度：民营 OOF 安慰剂与 KNN 基准}
+
+前述检验均围绕"模型是否稳健"，本节从两个补充角度检验模型的\textbf{样本内效度}：一是民营样本自身的 OOF 残差是否无偏（安慰剂检验），二是用一个与 GBM 完全不同的非参数基准（KNN）复现缺口。
+
+\textbf{（1）民营 OOF 安慰剂检验。} 若模型对民营企业存在系统性偏差（例如高估低回报企业、低估高回报企业），则该偏差会在 SOE 样本上被误读为"缺口"。在民营样本上对 OOF 预测做残差检验：pooled 平均残差为 \textbf{+0.0055pp}（n=26,464 firm-年，3,344 家民营企业），clustered p 值 \textbf{0.914}，无法拒绝"零残差"原假设，且逐年残差量级均在 $\pm$0.8pp 以内。这说明民营基准自身是（近似）无偏的，SOE 的 gap 不是由民营基准的模型偏差伪造出来的。
+
+\textbf{（2）预测校准。} 将民营 OOF 预测值对实际值回归（pooled）：斜率 \textbf{1.29}、截距 \textbf{-0.016}、R\textsuperscript{2} 0.249（对 winsorize 后目标则为斜率 1.03、R\textsuperscript{2} 0.304；两种口径对应不同被回归变量，不可直接比较）。斜率大于 1 表明民企 OOF 预测存在一定向均值收缩（shrinkage），但这一校准关系是在\textbf{民营}训练样本上（in-sample OOF）估计的，描述的是模型对民营分布的压缩，\textbf{不能直接确定 SOE 反事实预测误差的方向}。
+
+\textbf{（3）同行业内 KNN 非参数基准。} 为排除"缺口是 GBM 特定算法产物"的可能，进一步构造严格同行业的可比企业基准：对每家 SOE，仅从\textbf{同年、同二级行业}的民营企业中，按相同的 9 个财务特征寻找欧氏距离最近的 5 家 / 10 家可比企业（KNN5 / KNN10，同样的逐年扩展窗口与训练样本），反事实基准取这 k 家最近民营邻居的实际 EBI/A 均值，gap = 基准 - SOE 实际值。
+
+\begin{table}[H]
+\centering
+\small
+\caption{表 12　同行业内 KNN 稳健性（All SOE；完整样本见附录 C 的 table\_industry\_knn\_multiyear.csv）}
+\begin{tabular}{lcc}
+\toprule
+方法 & 2019--2025 平均 Gap & 2025 Gap \\
+\midrule
+GBM（主模型） & +2.02pp & +1.92pp \\
+行业内 KNN5 & +1.63pp & +1.82pp \\
+行业内 KNN10 & +1.63pp & +1.77pp \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+同行业内 KNN5/KNN10 的 gap 方向与量级均与 GBM 总体一致（多年平均：GBM 约 +2.02pp，行业内 KNN5/KNN10 约 +1.63pp；2025 年：GBM +1.92pp，行业内 KNN5 +1.82pp、KNN10 +1.77pp），说明结果不依赖 GBM 的特定函数形式。
+
+\section{六、结论（Conclusion）}
+
+本文以全 A 股民营企业为基准，运用机器学习反事实方法估计了中国国有上市公司的条件资产回报率缺口。主要结论如下：
+
+\textbf{第一}，全 A 股 SOE、中证 500 与中证 1000 成分 SOE 的条件资产回报率缺口在 2019--2025 年持续为正，主模型 GBM 估计的多年平均缺口约为 +2 个百分点（All SOE），共同支撑域内（约 +2.10pp）与长期处于支撑域的企业（persistent-support，约 +1.87pp）缺口依然存在，说明全市场正缺口并非主要由外推企业驱动；中证 500 与中证 1000 的多年结果稳定。
+
+\textbf{第二}，行业内 KNN、民营 OOF 安慰剂检验与模型替换（Ridge、RF）均给出方向与量级一致的结果，说明上述结论具有方法稳健性，不依赖 GBM 的特定函数形式。
+
+\textbf{第三}，沪深 300 成分 SOE 的全样本缺口接近零，但长期共同支撑不足，不同 support 定义下点估计并不稳定，因此无法对大型 SOE 是否存在条件回报率缺口作强判断。
+
+\textbf{第四}，2025 年经资产加权的金额缺口约 7,560 亿元，属于描述经济规模的账面金额化指标；其中约 62\% 来自共同支撑域之外的外推区，故金额结果对大型、缺乏私人部门可比对象的 SOE 较为敏感，等权比例缺口（rate gap）是更稳健的核心指标。
+
+最后需要强调，本文的 gap 度量的是"以民营企业为基准的条件资产回报率差异"，\textbf{不是所有制因果效应，也不能直接解释为效率损失、政府补贴或可实现利润增量}。它综合反映了管理效率、代理成本、融资条件、市场势力与政策性职能等多重因素的净效应。
+
+\textbf{政策含义}：本文的发现提示，\textbf{中小市值及部分竞争性行业 SOE 是值得进一步诊断其资产回报差异来源的重点对象}。需要明确的是，本文的反事实缺口并不能直接推导出私有化顺序、改革收益或政策最优方案；它只是为识别"哪些 SOE 相对民营基准存在较大的条件资产回报率缺口"提供了一个描述性基准。
+
+\textbf{局限与展望}：本文存在若干局限。其一，所有制字段为静态快照，存在潜在 look-ahead 偏差；其二，因数据缺失无法执行新股与低面值筛选；其三，沪深 300 大市值 SOE 的共同支撑域严重不足（良好支持仅 15.4\%），其 gap 估计依赖外推；其四，样本限于 A 股单市场；其五，本文的回报率分子 EBI 为\textbf{税后息前}口径（归母净利润 + 利息支出），所得税仍保留在指标中，且分子为归母口径、总资产为合并口径，会计主体并不完全一致，故所得 gap 与以税前利润衡量的效率差异不可直接比较。此外，本文的 gap 度量的是以民营企业为基准的回报率差异，\textbf{不直接等同于政府补贴或政策性负担的金额}------它综合反映了管理效率、代理成本、融资条件、市场势力与政策性职能等多重因素的净效应。未来研究可通过获取时变所有制、股价与上市日期数据，纳入更多市场，并结合因果识别方法（如双重差分、断点设计）进一步分解缺口的来源。
+
+\section{参考文献}
+
+\begin{enumerate}
+
+  \item Abadie, A., Diamond, A., \& Hainmueller, J. (2010). Synthetic Control Methods for Comparative Case Studies: Estimating the Effect of California's Tobacco Control Program. \emph{Journal of the American Statistical Association}, 105(490), 493--505.
+
+  \item Athey, S., \& Imbens, G. W. (2016). Recursive Partitioning for Heterogeneous Causal Effects. \emph{Proceedings of the National Academy of Sciences}, 113(27), 7353--7360.
+
+  \item Cameron, A. C., \& Miller, D. L. (2015). A Practitioner's Guide to Cluster-Robust Inference. \emph{Journal of Human Resources}, 50(2), 317--372.
+
+  \item Chernozhukov, V., Chetverikov, D., Demirer, M., Duflo, E., Hansen, C., Newey, W., \& Robins, J. (2018). Double/Debiased Machine Learning for Treatment and Structural Parameters. \emph{The Econometrics Journal}, 21(1), C1--C68.
+
+  \item Kornai, J. (1986). The Soft Budget Constraint. \emph{Kyklos}, 39(1), 3--30.
+
+  \item Lin, J. Y., Cai, F., \& Li, Z. (1998). Competition, Policy Burdens, and State-Owned Enterprise Reform. \emph{American Economic Review}, 88(2), 422--427.
+
+  \item Lucas, D., Garcia, M. G. P., \& Solberg, T. C. C. (2026). \emph{Measuring Financial Subsidies to SOEs: A New Asset Return-Based Framework}. Working paper (January 2026 revision).
+
+  \item Megginson, W. L., \& Netter, J. M. (2001). From State to Market: A Survey of Empirical Studies on Privatization. \emph{Journal of Economic Literature}, 39(2), 321--389.
+
+  \item Mullainathan, S., \& Spiess, J. (2017). Machine Learning: An Applied Econometric Approach. \emph{Journal of Economic Perspectives}, 31(2), 87--106.
+
+  \item Shleifer, A., \& Vishny, R. W. (1994). Politicians and Firms. \emph{Quarterly Journal of Economics}, 109(4), 995--1025.
+
+  \item 林毅夫、李志赟（2004）。《政策性负担、道德风险与预算软约束》。《经济研究》第 2 期。
+
+  \item 刘瑞明、石磊（2010）。《国有企业的双重效率损失与经济增长》。《经济研究》第 1 期。
+
+\end{enumerate}
+
+\emph{注：参考文献为基于标准文献的推荐清单，正式投稿前请核验卷期页码与最新版本。}
+
+\section{附录}
+
+\subsection{附录 A　图清单}
+
+\begin{center}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+图 & 文件 & 位置 \\
+\midrule
+图 1 逐年 gap（4 样本 $\times$ 3 模型） & \texttt{outputs/revision/fig\_summary\_7year\_screened.png} & \S5.2 \\
+图 2 行业 $\times$ 年份热力图 & \texttt{outputs/revision/fig\_industry\_year\_heatmap\_screened.png} & \S5.4 \\
+图 3 前 6/后 6 行业趋势 & \texttt{outputs/revision/fig\_industry\_topbottom\_trend\_screened.png} & \S5.4 \\
+图 4 金额缺口分年份分解 & \texttt{final\_results/fig\_amount\_gap\_by\_year.png} & \S5.6 \\
+图 5 比例 vs 金额缺口 & \texttt{final\_results/fig\_ratio\_vs\_amount\_gap.png} & \S5.6 \\
+图 6 动态共同支撑域与反事实缺口 & \texttt{outputs/revision3/fig\_dynamic\_common\_support\_gap.png} & \S5.7.2 \\
+图 7 企业持续性共同支撑分布 & \texttt{outputs/revision3/fig\_persistent\_support\_distribution.png} & \S5.7.2 \\
+图 A1 企业规模重叠（KDE，筛选后） & \texttt{final\_results/fig\_firm\_size\_overlap\_screened.png} & \S4.4 / 附录 \\
+图 A2 规模-gap 分箱 + 校准散点 & \texttt{final\_results/fig\_supp\_size\_gap\_and\_calibration.png} & 附录 \\
+图 A3 CS 行业热力图（All+CSI1000） & \texttt{outputs/revision/fig\_industry\_year\_cs\_heatmap\_screened.png} & 附录 \\
+图 A4 CS 前 6/后 6 行业趋势（All+CSI1000） & \texttt{outputs/revision/fig\_industry\_year\_cs\_trend\_screened.png} & 附录 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{附录 A'　补充图}
+
+\textbf{图 A2　规模-gap 分箱 + 预测-实际校准散点（GBM，2025）}
+
+左图将全 A 股 SOE 按企业规模（ln 总资产）十等分，绘制各分箱的平均 gap 与 95\% 置信区间，用于检验 gap 是否随规模单调变化；右图为预测值对实际值的散点（红色虚线为 45\textdegree{} 线），用于检验模型的校准性（偏离 45\textdegree{} 线的程度）。
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{final_results/fig_supp_size_gap_and_calibration.png}
+
+\caption{图 A2：规模-gap 分箱与预测-实际校准散点}
+
+\end{figure}
+
+\textbf{图 A3　Common-Support 行业 $\times$ 年份 gap 热力图（All SOE + CSI1000）}
+
+限制在共同支撑域内后，行业 gap 的 pattern 保持不变------钢铁、煤炭仍处于最高 gap 组，交通运输、公用事业仍接近零，说明分行业结果不是外推驱动的。
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{outputs/revision/fig_industry_year_cs_heatmap_screened.png}
+
+\caption{图 A3：CS 行业热力图}
+
+\end{figure}
+
+\textbf{图 A4　Common-Support 前 6 / 后 6 行业 gap 时间趋势（All SOE + CSI1000）}
+
+红色实线 = gap 最高 6 个行业，蓝色虚线 = gap 最低 6 个行业；行业排序在时间维度上高度稳定。
+
+\begin{figure}[H]
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{outputs/revision/fig_industry_year_cs_trend_screened.png}
+
+\caption{图 A4：CS 行业趋势}
+
+\end{figure}
+
+\subsection{附录 B　补充表格}
+
+表 A1 与表 A2 分别给出 2019--2025 年逐年、逐样本的动态共同支撑域统计与金额缺口按共同支撑状态的分解；完整数据见附录 C 中的两个 CSV 文件。
+
+\begin{table}[H]
+\centering
+\small
+\caption{表 A1　逐年动态共同支撑域（2019--2025；gap 单位 pp）}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrrrrrr}
+\toprule
+年份 & 样本 & 良好支持\% & 边界\% & 外推\% & ROC-AUC & FirmSize SMD & Full gap & CS gap & n \\
+\midrule
+2019 & All SOE & 67.1 & 10.9 & 22.0 & 0.816 & 1.39 & +1.95 & +2.10 & 1188 \\
+2019 & 沪深300 & 26.6 & 8.0 & 65.5 & 0.992 & 3.23 & +0.76 & +0.68 & 113 \\
+2019 & 中证500 & 57.9 & 13.6 & 28.5 & 0.948 & 2.46 & +1.70 & +1.70 & 235 \\
+2019 & 中证1000 & 72.9 & 13.4 & 13.7 & 0.862 & 1.74 & +2.50 & +2.76 & 299 \\
+2020 & All SOE & 65.3 & 10.7 & 23.9 & 0.811 & 1.37 & +2.47 & +2.62 & 1241 \\
+2020 & 沪深300 & 21.4 & 7.8 & 70.9 & 0.991 & 3.24 & +1.11 & +0.08 & 103 \\
+2020 & 中证500 & 53.9 & 12.2 & 33.9 & 0.954 & 2.54 & +2.08 & +1.87 & 230 \\
+2020 & 中证1000 & 73.4 & 13.3 & 13.3 & 0.857 & 1.71 & +2.39 & +2.69 & 316 \\
+2021 & All SOE & 64.1 & 11.4 & 24.4 & 0.816 & 1.35 & +1.55 & +1.65 & 1301 \\
+2021 & 沪深300 & 26.9 & 6.5 & 66.7 & 0.990 & 3.14 & -0.21 & -0.55 & 93 \\
+2021 & 中证500 & 44.0 & 14.2 & 41.8 & 0.965 & 2.66 & +0.89 & +0.69 & 225 \\
+2021 & 中证1000 & 72.3 & 12.7 & 15.0 & 0.866 & 1.74 & +1.25 & +1.45 & 300 \\
+2022 & All SOE & 63.9 & 11.0 & 25.1 & 0.820 & 1.36 & +2.03 & +2.12 & 1331 \\
+2022 & 沪深300 & 16.0 & 10.6 & 73.4 & 0.994 & 3.41 & -0.61 & -2.50 & 94 \\
+2022 & 中证500 & 41.6 & 13.4 & 45.0 & 0.972 & 2.76 & +1.49 & +1.35 & 209 \\
+2022 & 中证1000 & 67.1 & 12.7 & 20.2 & 0.883 & 1.85 & +2.00 & +2.02 & 307 \\
+2023 & All SOE & 63.3 & 12.4 & 24.2 & 0.829 & 1.36 & +1.91 & +1.92 & 1342 \\
+2023 & 沪深300 & 15.7 & 8.8 & 75.5 & 0.995 & 3.49 & -0.41 & -2.56 & 102 \\
+2023 & 中证500 & 39.2 & 20.6 & 40.2 & 0.970 & 2.71 & +1.96 & +1.97 & 199 \\
+2023 & 中证1000 & 65.8 & 13.3 & 20.9 & 0.900 & 1.94 & +1.98 & +2.09 & 316 \\
+2024 & All SOE & 64.1 & 11.0 & 24.9 & 0.835 & 1.35 & +2.29 & +2.33 & 1339 \\
+2024 & 沪深300 & 16.2 & 9.0 & 74.8 & 0.994 & 3.40 & -0.11 & -1.37 & 111 \\
+2024 & 中证500 & 46.4 & 15.8 & 37.8 & 0.965 & 2.61 & +2.04 & +2.17 & 196 \\
+2024 & 中证1000 & 64.0 & 11.8 & 24.2 & 0.896 & 1.89 & +1.58 & +1.56 & 322 \\
+2025 & All SOE & 60.9 & 12.2 & 26.9 & 0.838 & 1.31 & +1.92 & +1.99 & 1336 \\
+2025 & 沪深300 & 15.4 & 7.7 & 76.9 & 0.993 & 3.31 & -0.04 & -1.21 & 117 \\
+2025 & 中证500 & 41.8 & 16.9 & 41.3 & 0.965 & 2.57 & +1.20 & +1.01 & 189 \\
+2025 & 中证1000 & 62.7 & 14.6 & 22.7 & 0.886 & 1.80 & +1.48 & +1.45 & 343 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{表 A2　逐年金额缺口按共同支撑分解（2019--2025；亿元）}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrrrrr}
+\toprule
+年份 & 样本 & 总金额缺口 & good & boundary & 外推 & 外推金额占比\% & 外推资产占比\% & n \\
+\midrule
+2019 & All SOE & 7222 & 1503 & 326 & 5393 & 74.7 & 73.4 & 1188 \\
+2019 & 沪深300 & 4271 & 138 & -39 & 4172 & 97.7 & 92.2 & 113 \\
+2019 & 中证500 & 1297 & 520 & 128 & 649 & 50.0 & 49.1 & 235 \\
+2019 & 中证1000 & 643 & 459 & 101 & 83 & 13.0 & 23.0 & 299 \\
+2020 & All SOE & 10468 & 2287 & 393 & 7787 & 74.4 & 74.3 & 1241 \\
+2020 & 沪深300 & 5939 & 70 & 27 & 5843 & 98.4 & 94.1 & 103 \\
+2020 & 中证500 & 2131 & 832 & 158 & 1141 & 53.6 & 53.1 & 230 \\
+2020 & 中证1000 & 799 & 611 & 138 & 51 & 6.3 & 24.1 & 316 \\
+2021 & All SOE & 5062 & 1781 & 329 & 2951 & 58.3 & 75.4 & 1301 \\
+2021 & 沪深300 & 1969 & 243 & 157 & 1568 & 79.7 & 91.7 & 93 \\
+2021 & 中证500 & 1696 & 365 & 82 & 1250 & 73.7 & 66.8 & 225 \\
+2021 & 中证1000 & 608 & 492 & -16 & 132 & 21.8 & 34.7 & 300 \\
+2022 & All SOE & 5867 & 1690 & 1100 & 3077 & 52.4 & 77.4 & 1331 \\
+2022 & 沪深300 & 2132 & -219 & 624 & 1727 & 81.0 & 94.9 & 94 \\
+2022 & 中证500 & 2043 & 455 & 206 & 1382 & 67.6 & 71.3 & 209 \\
+2022 & 中证1000 & 1136 & 668 & 33 & 435 & 38.3 & 37.6 & 307 \\
+2023 & All SOE & 6459 & 1908 & 515 & 4036 & 62.5 & 78.1 & 1342 \\
+2023 & 沪深300 & 2152 & -4 & -80 & 2237 & 103.9 & 95.8 & 102 \\
+2023 & 中证500 & 2292 & 374 & 356 & 1562 & 68.1 & 67.5 & 199 \\
+2023 & 中证1000 & 1361 & 811 & 118 & 431 & 31.7 & 39.2 & 316 \\
+2024 & All SOE & 7953 & 2274 & 511 & 5168 & 65.0 & 79.4 & 1339 \\
+2024 & 沪深300 & 1941 & -38 & -61 & 2041 & 105.1 & 96.5 & 111 \\
+2024 & 中证500 & 2377 & 483 & 293 & 1600 & 67.3 & 66.8 & 196 \\
+2024 & 中证1000 & 1220 & 607 & 144 & 469 & 38.5 & 43.1 & 322 \\
+2025 & All SOE & 7560 & 1617 & 1241 & 4701 & 62.2 & 78.1 & 1336 \\
+2025 & 沪深300 & 2155 & -36 & -44 & 2236 & 103.7 & 95.6 & 117 \\
+2025 & 中证500 & 1783 & 217 & 446 & 1120 & 62.8 & 57.6 & 189 \\
+2025 & 中证1000 & 1197 & 485 & 226 & 486 & 40.6 & 39.6 & 343 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{附录 C　核心结果文件}
+
+\begin{center}
+\centering
+\small
+\begin{tabular}{ll}
+\toprule
+文件 & 内容 \\
+\midrule
+\texttt{final\_results/firm\_level\_gap\_all\_years.csv} & firm-年层面 gap（比例 + 金额，全年份） \\
+\texttt{final\_results/firm\_level\_gap\_2025.csv} & firm 层面 gap（2025） \\
+\texttt{final\_results/summary\_by\_sample\_year.csv} & 分样本逐年汇总（比例 + 金额 gap） \\
+\texttt{final\_results/summary\_by\_industry\_year.csv} & 分行业逐年汇总 \\
+\texttt{final\_results/summary\_by\_industry\_2025.csv} & 分行业 2025 汇总 \\
+\texttt{final\_results/inference\_stats\_2025.csv} & 聚类 SE 推断 \\
+\texttt{final\_results/bootstrap\_inference\_2025.csv} & Bootstrap 推断 \\
+\texttt{final\_results/central\_vs\_local\_2025.csv} & 中央/地方拆分 \\
+\texttt{final\_results/private\_oof\_predictions.csv} & 民营企业 OOF 预测（firm-年层面） \\
+\texttt{final\_results/common\_support\_report.md} & 共同支撑域完整诊断 \\
+\texttt{outputs/revision3/table\_multiyear\_common\_support\_inference.csv} & 多年共同支撑 bootstrap 推断（表 9） \\
+\texttt{outputs/revision3/table\_industry\_knn\_multiyear.csv} & 同行业 KNN 多年平均（表 12） \\
+\texttt{outputs/revision3/table\_dynamic\_common\_support.csv} & 逐年动态共同支撑（表 A1） \\
+\texttt{outputs/revision3/table\_amount\_gap\_support.csv} & 逐年金额缺口按支撑分解（表 A2） \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{附录 D　复现代码}
+
+\begin{center}
+\centering
+\small
+\begin{tabular}{ll}
+\toprule
+脚本 & 用途 \\
+\midrule
+\texttt{run\_counterfactual.py} & 数据加载 + 特征构造 \\
+\texttt{src/01\_main\_pipeline.py} & 主流水线（统一 A 股 panel） \\
+\texttt{outputs/revision/rerun\_filtered.py} & 筛选后重跑 \\
+\texttt{outputs/revision/industry\_screened.py} & 分行业可视化 \\
+\texttt{outputs/revision/common\_support\_full.py} & 共同支撑域诊断 \\
+\texttt{outputs/revision/inference\_and\_heterogeneity.py} & 推断 + 中央/地方拆分 \\
+\texttt{outputs/revision/cluster\_bootstrap.py} & Cluster bootstrap \\
+\texttt{outputs/revision/fig\_amount\_gap.py} & 金额缺口图（新增） \\
+\texttt{outputs/revision/fig\_firm\_size\_overlap\_screened.py} & 企业规模重叠图（筛选后，新增） \\
+\texttt{outputs/revision3/task08\_multiyear\_cs\_inference.py} & 多年共同支撑 cluster bootstrap \\
+\texttt{outputs/revision3/task09\_industry\_knn\_multiyear.py} & 同行业 KNN 多年平均 \\
+\texttt{outputs/revision3/task10\_export\_final\_tables.py} & 导出附录 CSV 表 \\
+\texttt{outputs/revision3/task11\_make\_figures.py} & 生成图 6/图 7 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\emph{本论文基于完整的审计与筛选重跑流水线，所有结果可复现。}
+
+\end{document}

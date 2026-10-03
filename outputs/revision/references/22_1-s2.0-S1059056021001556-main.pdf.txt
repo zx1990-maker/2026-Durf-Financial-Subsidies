@@ -1,0 +1,108 @@
+International Review of Economics and Finance 76 (2021) 767–780
+Available online 28 July 2021
+1059-0560/© 2021 Elsevier Inc. All rights reserved.
+Does public money drive out private? Evidence from government 
+regulations of industrial overcapacity governance in urban China 
+Bo Cheng a, Tom Christensen b,c, Liang Ma c,*, Junli Yu d,* 
+a School of Accountancy, Nanjing Audit University, Jiangsu, China 
+b Department of Political Science, University of Oslo, Norway 
+c School of Public Administration and Policy, Renmin University of China, Beijing, China 
+d China Institute for Urban Governance/School of International and Public Affairs, Shanghai Jiao Tong University, Shanghai, China 
+A R T I C L E I N F O 
+Keywords: 
+Industrial overcapacity 
+Policy implementation 
+Regulation 
+Ownership 
+Urban governance 
+A B S T R A C T 
+Governments are required to be fair in regulating market players, but their behaviors are often 
+distorted by political connections with firms. In this study, we use the natural experiment of 
+overcapacity reduction in China’s industrial firms to examine to what extent their ownership 
+matters in regulatory stringency. State-owned enterprises (SOEs) were significantly less likely 
+than private firms to reduce their overcapacity. Furthermore, SOEs with more personnel redun­
+dancy and less degree of diversification in more competitive industries were less likely to meet 
+central mandates. These results suggest that selective policy implementation helps to meet policy 
+purposes albeit with unintended consequences. 
+1. Introduction 
+Governments are required to be fair in regulating market players, whether public or private firms, but their behaviors are often 
+distorted by political connections with firms (Fisman, 2001). State-owned enterprises (SOEs) often have strong institutional con­
+nections with the government, and they are usually subject to more lenient regulations than private firms (Konisky & Teodoro, 2016). 
+It is thus interesting to examine how and why SOEs are regulated differently from other firms, and China is a very relevant context for 
+such a study. 
+Prior studies have documented the fact that SOEs and other firms are treated differently by governments and their allies (e.g., 
+banks). For instance, political connected firms are more likely to access to financial resources and interest rates are often cheaper 
+(Claessens et al., 2008; Li et al., 2008). SOEs are less likely to be detected and punished in environmental pollution (Konisky & 
+Teodoro, 2016). It is also found that SOEs are more likely to comply with government mandates in reducing energy consumption 
+(Liang & Ma, 2020; Ma & Liang, 2018). 
+This article relates to this strand of literature in two ways. First, we use the 2015 natural experiment of overcapacity reduction in 
+China’s industrial firms, decided by the central government, to examine to what extent the ownership matters in regulatory stringency. 
+The reduction of industrial overcapacity is an ideal context to examine the differentiation of government regulations between SOEs and 
+other firms, because governments are ambivalent in policy implementation. But, since the government has multiple goals on different 
+levels, the regulation may hurt other goals, like social stability maintenance, which are more politically salient than economic growth 
+* Corresponding authors. 
+E-mail addresses: bondcheng@vip.sina.com (B. Cheng), tom.christensen@stv.uio.no (T. Christensen), liangma@ruc.edu.cn (L. Ma), jlyuchina@ 
+sjtu.edu.cn (J. Yu). 
+Contents lists available at ScienceDirect 
+International Review of Economics and Finance 
+journal homepage: www.elsevier.com/locate/iref 
+https://doi.org/10.1016/j.iref.2021.07.012 
+Received 9 November 2020; Received in revised form 28 May 2021; Accepted 19 July 2021 
+
+International Review of Economics and Finance 76 (2021) 767–780
+768
+and green development, the core goals of overcapacity reduction. The use of experimental design by difference-in-differences (DID) 
+helps to address estimation limitations in prior studies which mainly employ regression models and are prone to endogeneity concerns. 
+Second, we not only estimate the effects of firm ownership, but also report nuanced mechanisms through which government regu­
+lations are relaxed among SOEs. 
+Accordingly, our research questions are the following: 
+• To what extent does ownership matters in the central government’s regulation of overcapacity, i.e., are SOEs favored in this 
+respect? 
+• What are the mechanisms through which this favoritism eventually happens? How are personnel redundancy, market competi­
+tiveness, and the degree of diversification important for meeting central mandates? 
+The main results show that Chinese SOEs were less likely than private firms to reduce their overcapacity. Furthermore, SOEs with 
+more personnel redundancy and less degree of diversification in more competitive industries were less likely to meet central mandates, 
+indicating the underlying motives driving governments’ leniency towards SOEs. It is discussed whether this suggests that selective 
+policy implementation helps to meet policy purposes albeit with unintended consequences, exacerbated the lingering state-private 
+divide in regulatory fairness. 
+In the rest of this paper, we first introduce the context of industrial overcapacity reduction in China, followed by theoretical review 
+and hypotheses. We then report the data and methods used in this study, and report the main empirical findings. We lastly discuss the 
+theoretical and policy implications of our findings, and conclude with future research avenues. 
+2. The context of industrial overcapacity in China 
+China has witnessed two-digit economic growth over the past four decades since the reform and opening-up in 1978, but its 
+economic structure is chronically imbalanced and unsustainable due to at least two reasons. First, economic growth is mainly boosted 
+by domestic and foreign investments, particularly fixed-assets investments dominated by governments. Investment-driven economic 
+growth is relatively isolated from domestic consumption and prone to environmental turbulence. To buffer the impact of 2008 global 
+financial crisis, for instance, the central government invested four trillions Yuan (almost 590 billion USD) to stabilize national 
+economy, but over-investment resulted in overcapacity in many industries (Chen et al., 2020). In China’s steel, coal, electric power, 
+and other industries characterized by high energy intensity and heavy pollution, there have been significant overcapacity. For 
+instance, almost all provinces have increasing risk of overcapacity in coal power (Feng et al., 2018). 
+Second, local protectionism of economic growth is a chronic challenge for the central government despite China adopts a 
+centralized unitary system, reflecting tensions between levels in their balance of different concerns. Local governments are keen on 
+protecting their firms by non-market interventions, which is running counter to the Western model of independent SOEs that China 
+promised to follow when it became a member of WTO in 2001. Local firms usually receive subsidies and other preferential policies to 
+compete with firms from other jurisdictions, which often encounter local entry barriers and other government obstructions (Wedeman, 
+2003). A recent study shows that government subsidies may intensify the overcapacity risk of wind and solar energy companies (Zhang 
+et al., 2016). Another analysis finds that zombie firms crowd out healthy enterprises and exacerbate overcapacity (Shen & Chen, 2017). 
+A game model reveals that local governments are “behind-the-scenes” controllers of coal overcapacity, and market mechanisms and 
+central supervision help to alleviate local impulse in redundant fixed-asset investment and protection of coal enterprises (Zhang et al., 
+2017). 
+To reduce industrial overcapacity, the central government mandatorily required local governments and targeted firms to imple­
+ment the de-capacity policy, which runs counter to the interests of local governments. By squeezing the approval of firm registration, 
+land use, finance access, and other channels, as well as promoting merger and acquisition among industrial enterprises, the central 
+government aimed to cut overcapacity. Such efforts in the 1998–2001 and 2003–2006 periods are fruitless due to local resistance and 
+reversal policies, and in December 2015 a new de-capacity policy was initiated by the central government. The implementation of the 
+de-capacity policy is even more urgent albeit painful for local governments than before because economic growth has been declining in 
+recent decade. Meanwhile, public grievances against environmental pollution have been intensifying, and local governments have to 
+more seriously alleviate industrial pollution. 
+Excess capacity or overcapacity refers to the fact that industrial capacity excesses market demand (Dagdeviren, 2016). Over­
+capacity means that firms’ outputs are lower than the optimum and cannot produce with the lowest cost (Chamberlin, 1933). Prior 
+studies primarily examine the antecedents and mechanisms of overcapacity (Aghion et al., 2015; Arestis & Sawyer, 2005; Blonigen & 
+Wilson, 2010), as well as how to attenuate overcapacity (Belke et al., 2015). 
+In this study, we use the 2015 de-capacity policy to examine to what extent industrial firms comply with central mandates. We are 
+particularly interested in the different responses of SOEs and other firms, as well as the varying effects of firm attributes. 
+3. Theoretical hypotheses 
+3.1. Why do local governments protect SOEs? 
+Governments as public organizations often pursue multiple and sometimes ambiguous and conflicting goals, and they have to 
+balance across different goals (Rainey, 2014), which in our study is reflected in different priorities of central and local governments 
+B. Cheng et al.

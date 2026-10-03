@@ -1,0 +1,174 @@
+291
+© The Author(s) 2021. Published by Oxford University Press on behalf of the Public Management Research Association. 
+All rights reserved. For permissions, please e-mail: journals.permissions@oup.com.
+Article
+Crowding-in or Crowding-out? How Subsidies 
+Signal the Path to Financial Independence of 
+Social Enterprises
+Patrick Reichert,*,† Marek Hudon,* Ariane Szafarz,* 
+Robert K. Christensen‡,
+*Université Libre de Bruxelles; †elea Center for Social Innovation, IMD; ‡Brigham Young University
+Address correspondence to the author at preicher@ulb.ac.be.
+Abstract
+In today’s multisector configurations, there is little clarity about whether and how public and 
+private subsidies influence social enterprises’ pursuit of financial stability. We address the 
+strategic role of donors in the social-business life cycle whereby social enterprise start-ups 
+rely on subsidies, while mature social enterprises strive for independence from donors. To ad-
+dress the “missing middle,” we develop a typology of subsidy instruments and an intermediary 
+signaling model to clarify how subsidies shape the evolution of outcomes for social enter-
+prises. We argue that source variation matters for certain instruments like corporate intangibles 
+and governmentally subsidized credit guarantees, which trigger crowding-in effects and attract 
+commercial partners, while preventing perverse crowding-out effects, such as soft budget con-
+straints. To illustrate this commercialization story, we draw upon a microfinance case study, 
+demonstrating how public and private donors can induce crowding-in and crowding-out ef-
+fects. In short, our subsidy typology helps unpack the signals that public and private subsidies 
+send to commercial funders of social enterprises and how they shape the path to future finan-
+cial independence.
+Introduction
+Social enterprises are hybrid organizations that use 
+public and private resources and commercial oper-
+ations to address social and environmental issues 
+(Santos, Pache, and Birkholz 2015). Social enter-
+prises play an increasingly important role in contem-
+porary public and nonprofit administration (Hayllar 
+and Wettenhall 2013; Kerlin 2009; Salamon 2015; 
+Tekula and Andersen 2019). As such, Choi, Berry, and 
+Ghadimi (2020) recently invited “public administra-
+tion and policy scholars … to accumulate both theor-
+etical and practical knowledge on how governments 
+shape social enterprises” (502). In engaging this invita-
+tion our aim is to extend theoretical knowledge, illus-
+trated with a practical case, Bancos Compartamos, to 
+conceptually clarify how public and private subsidies 
+shape the financial stability of social enterprises.
+Like other entrepreneurial ventures, the acquisition 
+of resources is a key challenge for social enterprises 
+since they lack experience and proven competencies 
+(Zott and Huy 2007). The double bottom line of social 
+enterprises also makes them more opaque to outsiders 
+than traditional start-ups, and thus more likely to 
+We are grateful to Marc Jegers, Valentina Hartarska, Marc Labie, and 
+Tyler Wry for their helpful comments and suggestions on this and 
+earlier drafts of the article, as well as the participants of the 6th EMES 
+Research Conference on Social Enterprise, 5th European Research 
+Conference on Microfinance, 3rd VUB-ULB Doctoral Workshop, and 
+15th Edition of the ULB-Sorbonne Research Day.
+Perspectives on Public Management and Governance, 2021, 291–308
+https://doi.org/10.1093/ppmgov/gvab014
+Article
+Advance Access publication July 27, 2021
+Downloaded from academic.oup.com/ppmg/article/4/3/291/6328968 by New York University Libraries user on 14 August 2026
+
+Perspectives on Public Management and Governance, 2021, Vol. 4, No. 3
+292
+resolve information asymmetries thorough soft infor-
+mation to attract funding (Cornée 2019). Nevertheless, 
+the pursuit of both financial and social value creation 
+appeals to public and private donors who increasingly 
+seek to leverage their limited resources and crowd-in 
+commercial private investment to scale projects that 
+serve the public good (Agranoff and McGuire 2001; Di 
+Domenico, Haugh, and Tracey 2010; Smith, Cronley, 
+and Barr 2012).
+Scaling has long been recognized as a core con-
+cept for social enterprises (Dees, Anderson, and Wei-
+Skillern 2004; Schneider 2017). Scaling impact is 
+key to evaluate the performance of social enterprises 
+(Ebrahim and Rangan 2014; Molecke and Pinkse 
+2017). To date, scholars have investigated the strategies 
+and processes to scale impact (e.g., Dees, Anderson, and 
+Wei-Skillern 2004; Dobson et  al. 2018; Hartley and 
+Benington 2006; Ni and Zhan 2017), the drivers of 
+scaling impact (e.g., Bacq and Eddleston 2018; Bloom 
+and Chatterji 2009), and the ethical and organiza-
+tional challenges of scaling impact (e.g., André and 
+Pache 2016; Bradach 2003). However, the literature is 
+relatively silent on scaling impact from a corporate fi-
+nance perspective.
+This gap is problematic since the promise of so-
+cial entrepreneurship centers in the ability to achieve 
+financial sustainability and operate independent of 
+government and philanthropic support (Di Domenico, 
+Haugh, and Tracey 2010). To date, commercial finance 
+has been unable (or unwilling) to provide the quan-
+tity of or, perhaps more importantly, the appropriate 
+mix of resources to meet the demand of this growing 
+sector (Lall, Chen, and Davidson 2019; Lall, Chen, 
+and Roberts 2020). This paradigm leads to a business 
+life cycle where social start-ups rely on public and pri-
+vate donors, while mature social enterprises strive for 
+independence from donors. This article addresses the 
+“missing middle,” that is, the transitional path leading 
+from subsidy-taking endeavors to commercial enter-
+prises. We seek to understand how public and private 
+subsidies frame the transition and help social enter-
+prises scale up and attract sustainable commercial re-
+sources for maximum social impact (Terjesen, Bosma, 
+and Stam 2016). We argue that central transitional 
+features are conditioned by subsidy features such as 
+source-sensitivity and time-sensitivity.
+To support our case, we have developed a con-
+ceptual typology that identifies how some public 
+and private subsidy instruments open access to com-
+mercialization while others make it more difficult. 
+Although the term commercialization often invokes 
+negative connotations related to a nonprofit or public 
+organization’s abandonment of its social mission to 
+pursue earned revenue, we use the term commercial-
+ization to refer to the sustainable integration into the 
+mainstream business sector (Armendáriz and Morduch 
+2010). The negative connotation of commercialization, 
+also known as “mission drift,” can be viewed as a shift 
+of hybrid organizations toward underweighting their 
+social bottom line and typically targeting better-off 
+clients (Mersland and Strøm 2010; Armendáriz and 
+Szafarz 2011). Mission drift is often associated with 
+changes in legal status, remuneration scheme, and gov-
+ernance features (Ramus and Vaccaro 2017), stemming 
+from a lower concern for altruism (Hudon, Labie, and 
+Reichert 2020; Cozarenco and Szafarz 2020).
+By contrast, this article focuses on financial inde-
+pendence, a positive consequence of commercializa-
+tion.1 We show how subsidy instruments shape the 
+path to self-sustainability for social enterprises. Our 
+typology introduces preferential debt and preferen-
+tial equity alongside the more recognizable subsidy 
+instruments of grants and procurement. Preferential 
+debt refers to concessionality along any dimension of 
+debt financing (i.e., interest rate, grace period, security 
+feature). Similarly, preferential equity refers to conces-
+sions on equity features (i.e., dividend cap, restricted 
+voting rights, etc.).
+To make the connection between subsidy instru-
+ments and financial stability, we construct a concep-
+tual framework combining signaling theory and habit 
+formation theory.
+To date, signaling theory has been underutilized in 
+the public and nonprofit administration and policy lit-
+eratures. Further, the signaling literature has prioritized 
+the recipient as the focal organization (Connelly et al. 
+2011; Lall and Park 2020; Vasudeva, Nachum, and 
+Say 2018). By contrast, we develop an intermediary 
+signaling model to examine the signals that public and 
+private donors send to commercial investors through 
+the design of subsidy instruments. In doing so, we aim 
+to increase our understanding of the factors that con-
+tribute to the achievement of public outcomes across 
+different organizational contexts (Moulton 2009). As 
+for habit formation theory, which has been developed 
+by scholars in social psychology (Verplanken 2018) 
+and applied in several field connected to managerial 
+aspects such as client loyalty and information systems 
+(Limayem, Hirt, and Cheung 2007; Liu-Thompkins 
+and Tam 2013). We extent the scope of this fruitful 
+conceptualization to subsidy-dependent managerial 
+habits that can counteract the commercial mindset.
+We argue that both public and private donors, al-
+though they face different constraints in their provision 
+of subsidy, can induce crowding-in and crowding-
+out effects on commercial capital. We suggest that 
+1 To some extent, mission drift and financial independence are opposite 
+sides of the same coin since the consequences of the push by donors 
+for social enterprises to become financially independent can trigger 
+mission drift (Augsburg and Fouillet 2013).
+Downloaded from academic.oup.com/ppmg/article/4/3/291/6328968 by New York University Libraries user on 14 August 2026

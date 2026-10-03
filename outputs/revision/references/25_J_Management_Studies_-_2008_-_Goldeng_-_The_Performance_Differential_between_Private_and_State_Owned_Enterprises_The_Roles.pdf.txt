@@ -1,0 +1,87 @@
+The Performance Differential between Private and
+State Owned Enterprises: The Roles of Ownership,
+Management and Market Structure
+Eskil Goldeng, Leo A. Grünfeld and Gabriel R. G. Benito
+BI Norwegian School of Management; MENON Business Economics; BI Norwegian School of Management
+abstract
+This article examines differences in performance between private companies
+(POEs) and state owned enterprises (SOEs), with an emphasis on the effects of market
+structure. The study uses a comprehensive panel covering in principle all registered companies
+during the 1990s in Norway, a country where SOEs play an important role in regular markets.
+Return on assets as well as costs relative to sales revenue are used as measures of performance
+in markets where SOEs and POEs compete with each other. Overall, POEs perform
+signiﬁcantly better than SOEs. The study tests the hypothesis that SOE managers may learn
+from POE managers in environments with stronger competition, but ﬁnds only weak empirical
+support for such a learning mechanism.
+INTRODUCTION
+Even though the dominant type of ownership in market-based societies is private own-
+ership, cases of state ownership are easy to ﬁnd. In the Scandinavian welfare economies,
+the presence of state owned companies in regular markets is particularly strong. Yet,
+active and deliberate liberalization and privatization policies, especially during the last
+two decades, have led to a considerable reduction in the number of state owned enter-
+prises (SOEs) in most countries (Sheshinski and López-Calva, 2003; see also Buck et al.,
+1998; Cuevas Rodríguez et al., 2007; Djankov and Murrell, 2002; Uhlenbruck and
+De Castro, 1998 for discussions of corporate governance issues related to the implemen-
+tation of privatization schemes), but many companies remain state owned. There has
+been a long-standing debate on the merits – and problems – of government control over
+business enterprises (Kay and Thompson, 1986; Megginson and Netter, 2001; Nombela,
+2001). State ownership has been defended on the grounds of various types of market
+failure, and it has been regarded as an instrument for the attainment of non-economic
+goals such as the need for public control over natural resources, regional policies,
+employment or social issues etc (Grout and Stevens, 2003). The contrasting views are
+Address for reprints: Gabriel R. G. Benito, BI Norwegian School of Management, Nydalsveien 37, N-0442
+Oslo, Norway (gabriel.r.g.benito@bi.no).
+© Blackwell Publishing Ltd 2008. Published by Blackwell Publishing, 9600 Garsington Road, Oxford, OX4 2DQ, UK
+and 350 Main Street, Malden, MA 02148, USA.
+Journal of Management Studies 45:7 November 2008
+0022-2380
+
+that state ownership is mainly used for ideological reasons, that it suits the interests of a
+ruling elite, or that it simply is retained due to institutional inertia. Also, if state ownership
+does increase the scope for deviations from proﬁt-maximizing behaviour, the economic
+performance of SOEs is likely to suffer when compared to private companies (POEs)
+(Andrews and Dowling, 1998; Boycko et al., 1996; Djankov and Murrell, 2002).
+Independent of one’s particular point of view on the issue of state ownership versus
+private ownership, most scholars agree that a core question in the privatization debate
+is whether type of ownership has an effect on the performance of companies. Recent
+research on corporate governance suggests that ownership issues, such as the concen-
+tration and identity of owners, affect the performance of companies ( Januszewski et al.,
+2002; Shleifer and Vishny, 1997; Thomsen and Pedersen, 2000). In this article, we focus
+on ownership identity. If certain ownership types consistently show superior economic
+performance relative to others, it seems reasonable to expect a move away from existing
+ownership arrangements towards the most efﬁcient ones.
+An agency theory perspective on state versus private ownership suggests that eco-
+nomic performance levels by and large are the result of the management incentives,
+costs, and exposure to disciplinary (market) forces implied by the different ownership
+structures. Traditional reasoning in industrial economics, however, suggests that ﬁrm
+performance is a result of the level of competition in a given market and the strategies
+followed by individual ﬁrms in that market. Whereas the former view proposes that
+government owned companies should be expected to display inferior performance
+because of inadequacies of that particular type of ownership, the latter view suggests
+that performance differences, if any, can largely be explained by differences in market
+structure.
+We develop a model that allows us to test the effect of both ownership type and market
+structure on ﬁrm performance. Furthermore, we explore whether the economic perfor-
+mance of ﬁrms is driven by the interaction between type of ownership and the degree of
+competition in the market. It is commonly believed that a more competitive environment
+affects the management of ﬁrms. Managers will seek to improve the competitiveness
+and performance of their ﬁrm, at least if they have incentives that are based on perfor-
+mance (Cuervo and Villalonga, 2000; Villalonga, 2000). Such improvements can be
+made through a stronger focus on innovation and cost control. Moreover, managers of
+ﬁrms that experience strong competition also face a higher potential for learning from
+their competitors (Barnett et al., 1994). This learning potential should be particularly
+relevant for ﬁrms that have not attained the best practice and that operate under softer
+budget constraints (Tan, 2002; Tan and Peng, 2003), allowing them to learn over time
+without having to exit the market.
+Because previous studies on privatization have not paid sufﬁcient attention to the
+various determinants of economic performance, it has been unclear whether and to what
+extent observed performance differences are driven by ownership or by market charac-
+teristics.[1] In their seminal contribution to the study of privatization, Vickers and Yarrow
+(1989, p. 39) give the following comment on the empirical literature: ‘. . . many studies
+focus almost exclusively upon the ownership variable and fail to take proper account of
+the effects on performance differences in market structure, regulation, and other relevant
+economic factors’. Boardman and Vining (1989) conducted one of the ﬁrst systematic
+Performance Differential
+1245
+© Blackwell Publishing Ltd 2008
+ 14676486, 2008, 7, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1467-6486.2008.00790.x by NYU Medical Central Library, Wiley Online Library on [14/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

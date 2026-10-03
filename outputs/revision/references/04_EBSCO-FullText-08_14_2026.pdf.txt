@@ -1,0 +1,204 @@
+The Real Effects of Implicit Government Guarantee: Evidence
+from Chinese State-Owned Enterprise Defaults
+Shuang Jin,a Wei Wang,b Zilong Zhangc,*
+aFinance, The Hong Kong University of Science and Technology, Clear Water Bay, Hong Kong; bFinance, Smith School of Business,
+Queen’s University, Kingston, Ontario K7L 3N6, Canada; cSchool of Economics, Zhejiang University, Hangzhou 310058, China
+*Corresponding author
+Contact: sjin@connect.ust.hk,
+https://orcid.org/0000-0003-0769-2778 (SJ); wwang@queensu.ca,
+https://orcid.org/0000-0002-7462-951X
+(WW); zilzhang@zju.edu.cn,
+https://orcid.org/0000-0002-7788-5324 (ZZ)
+Received: June 8, 2021
+Revised: November 15, 2021
+Accepted: January 10, 2022
+Published Online in Articles in Advance:
+July 20, 2022
+https://doi.org/10.1287/mnsc.2022.4483
+Copyright: © 2022 INFORMS
+Abstract. We study the effects of implicit government guarantee (IGG) on Chinese state-
+owned enterprises (SOEs). We ﬁnd that SOEs reduce their investments by 2.4% of book
+assets, on average, relative to matched non-SOEs after the ﬁrst SOE default in China’s
+onshore bond markets in 2015. The investment reduction concentrates among SOEs that
+are ﬁnancially constrained, yet SOEs ﬁnanced by large state banks are hardly affected.
+Bondholders require more stringent default protection in newly issued SOE bonds. We
+also ﬁnd that the investment reduction is more pronounced for SOEs with severe agency
+problems and that SOEs experienced more positive market reactions to acquisition
+announcements after 2015. Our results suggest that the reduction in IGG has confounding
+effects on Chinese ﬁrms. Although the weakening of IGG may help mitigate overinvest-
+ment, it exacerbates ﬁnancial constraints of those with limited access to alternative sources
+of ﬁnancing.
+History: Accepted by Lucas Schmid, ﬁnance.
+Funding: Z. Zhang acknowledges the funding support by Research Grants Council of Hong Kong
+[Project 11503318].
+Supplemental Material: The data ﬁles and online appendix are available at https://doi.org/10.1287/mnsc.
+2022.4483.
+Keywords:
+implicit government guarantee • state-owned enterprises (SOEs) • investment • corporate bonds • default • ﬁnancial constraint
+1. Introduction
+Implicit government guarantee (IGG) arises from the
+soft budget constraint phenomenon that originates
+from socialist and mixed economies and is prevalent in
+many economies around the world today (Kornai
+1979, 1986; Berglof and Roland 1998; Kornai et al. 2003;
+Faccio et al. 2006). State-owned enterprises (SOEs) and
+systematically important ﬁrms are provided with IGG
+for two primary reasons: political considerations, such
+as the government’s goal to create jobs, support strate-
+gic industries, or gain political support; and account-
+ability problems—that is, the state, instead of SOEs,
+is held accountable for failure and wrong decisions
+regarding investment or production (Lin and Tan
+1999).
+Prior work suggests that the IGG provision is a
+major source of economic inefﬁciency. Firms with IGG
+obtain favorable rates of ﬁnancing given investors’
+expectation of a government bailout in times of dis-
+tress (Moody’s 2014, Borisova et al. 2015), which leads
+to credit misallocation toward these ﬁrms (Song et al.
+2011, Cong et al. 2019). More importantly, the IGG pro-
+vision weakens the disciplinary effect of debt contracts
+because of the unenforceability of bankruptcy threats,
+creating moral hazard problems and jeopardizing in-
+vestment efﬁciency (Jensen 1986, Maskin and Xu 2001).
+Despite the appealing theoretical framework, empiri-
+cal evidence on IGG’s effect on corporations in the real
+sector is limited. Our paper intends to ﬁll this gap by
+exploiting a series of Chinese SOE defaults in China’s
+fast-developed onshore bond markets.
+The SOE defaults in China serve as a unique setting
+for our study for two reasons. First, Chinese SOEs
+shoulder important political responsibilities and have
+strong government protection for default (Zhu 2016).
+A series of SOE defaults in the massively developed
+Chinese domestic bond markets—now collectively the
+second largest bond market in the world—surprised
+the markets and generated exogenous variations in the
+provision of IGG.1 Second, China’s unique legal insti-
+tutions, economic reforms, and growing ﬁnancial mar-
+kets provide a rare opportunity to explore the impact
+of the political economy on corporate policies and the
+compounding effects of IGG on ﬁrms.
+Our empirical analysis starts with an event study
+around the ﬁrst default of an SOE in China’s bond
+3650
+MANAGEMENT SCIENCE
+Vol. 69, No. 6, June 2023, pp. 3650–3674
+ISSN 0025-1909 (print), ISSN 1526-5501 (online)
+https://pubsonline.informs.org/journal/mnsc
+
+market. On April 21, 2015, the Baoding Tianwei Group—
+a large SOE owned by the central government—
+surprised the markets by declaring default on one of its
+bonds. The markets interpreted the event as the govern-
+ment’s explicit reduction or removal of implicit guarantees
+on SOEs as Chinese leaders began to implement reforms
+to restructure troubled companies in the midst of an
+unprecedented credit boom. Consequently, a series of
+defaults by Chinese SOEs followed soon after the Tian-
+wei default.
+To show that the Tianwei default is informative to
+investors on the Chinese government’s reform of IGG
+policy, we examine the returns of 1,132 corporate
+bonds and enterprise bonds of both SOEs and non-
+SOEs that traded in the 61-day window around the
+event date. We ﬁnd that, on average, the prices of SOE
+bonds decline 1.48% more than those of non-SOE
+bonds. The percentage of decline translates to a CNY
+252 billion (approximately US $39 billion) reduction in
+the market value of SOE bonds as of 2015. To the
+extent that the Tianwei default is an informative event
+of the Chinese government’s policy in weakening
+IGG, it is not surprising that the prices of SOE bonds
+decline, whereas the prices of non-SOE bonds barely
+change around the Tianwei default event.
+Our main empirical speciﬁcations exploit the Tian-
+wei and subsequent SOE defaults in 2015 as an ex-
+ogenous reduction of IGG on SOE bonds. Our study
+sample comprises all private and public Chinese ﬁrms
+(both SOEs and non-SOEs) that accessed China’s
+domestic bond markets for ﬁnancing between 2012
+and 2019. Our baseline analysis conducts difference-
+in-differences (DID) tests on corporate investment
+around the Tianwei default with ﬁrm-level controls,
+industry and year interacted ﬁxed effects, and ﬁrm
+ﬁxed effects. We perform propensity score matching
+(PSM) to form treated and control groups for our anal-
+ysis to account for observable differences between
+SOEs and non-SOEs before the event. Our primary
+hypothesis is that managers of SOEs are incentivized
+to overinvest given the low ﬁnancing costs and the
+lack of disciplinary effects of debt. A reduction in the
+IGG provision helps mitigate the moral hazard prob-
+lem and thus, leads to a reduction in investment.
+Our baseline regressions show that SOEs reduce
+their total investments—measured by the sum of capi-
+tal expenditure, intangibles, and acquisitions—by 2.4%
+of book assets annually compared with the matched
+non-SOEs after the ﬁrst SOE default. The decline repre-
+sents an approximately 22% reduction in total invest-
+ment. The annual time series dynamics of investment
+show that the largest decline in investment occurs
+in the year immediately after the Tianwei default.
+Importantly, we observe that SOEs and non-SOEs in-
+vest similarly before the event. The evidence helps us
+not only verify the parallel trend assumption of our
+DID analysis but also, address the potential reverse
+causality concern that changes in investments may
+trigger a government policy to reduce IGG.
+We conduct a number of robustness tests. First, to
+address the concern that the Tianwei event may be cor-
+related with the government’s agenda on “decapacity”
+and “deleveraging,” we remove overcapacity indus-
+tries in which SOEs have a predominant presence and
+ﬁrms that have high leverage ratios. Second, we repeat
+our analysis by removing local government ﬁnancing
+vehicles (LGFVs) and all private companies to address
+the concern that our results may be because of the
+representation of LGFVs that are regarded to have
+the strongest government backing in our sample.
+Third, considering potential unobservable differences
+between SOEs and propensity score-matched non-
+SOEs, we compare the investment dynamics of bond
+issuers and nonissuers within SOEs. Fourth, taking
+advantage of a policy shock that weakens the IGG of
+certain LGFV bonds, we conduct a within-LGFV DID
+analysis and ﬁnd that LGFVs with a reduction in IGG
+reduce their investments more than those not affected.
+Finally, to rule out the possibility that our ﬁndings are
+driven by spurious relationships, we conduct a pla-
+cebo test in which treatment is assigned randomly and
+ﬁnd no evidence of a similar reduction in investment
+using the newly generated samples.
+To further mitigate the concern that our results are
+driven by concurrent economic or policy changes that
+may affect SOEs differently than non-SOEs after 2015,
+we adopt an alternative identiﬁcation strategy by
+exploiting staggered local SOE defaults across provin-
+ces and time. Different local governments may have
+distinct tolerance levels for failure and different incen-
+tives to back local SOEs, resulting in a more granular
+variation of the IGG reduction across provinces. We
+expect local SOEs’ investment to be most sensitive to
+the ﬁrst local SOE default within their province.
+Although the overall economic magnitude is smaller
+than the baseline result, we ﬁnd that local SOEs located
+in the province of the ﬁrst defaulted SOE experience a
+larger investment decline than local SOEs in matched
+neighboring provinces. Findings from this test provide
+additional support to those in the baseline regressions.
+The combined evidence of negative bond market
+reactions and investment dynamics suggests that the
+investment decline may be a direct result of an
+increase in ﬁnancing cost and perhaps, more scrutiny
+by bondholders after the weakening of IGG. To pro-
+vide empirical support to this important credit chan-
+nel, we examine SOEs’ ﬁnancing activities and bond
+contracting terms. First, we ﬁnd that SOEs’ bond issu-
+ance experiences a signiﬁcant decline, whereas loan
+issuance does not change signiﬁcantly, and SOEs keep
+a similar cash balance. In economic terms, SOE’s
+bond issuance amount declines by 27% compared with
+Jin, Wang, and Zhang: Real Effects of Implicit Government Guarantee
+Management Science, 2023, vol. 69, no. 6, pp. 3650–3674, © 2022 INFORMS
+3651

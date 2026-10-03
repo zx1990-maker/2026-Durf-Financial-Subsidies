@@ -1,0 +1,50 @@
+# =====================================================================
+# 项目 .gitignore —— 中国国有企业反事实资产回报率研究
+# 原则：只入库「源代码 + 论文文稿」，不入库「原始数据 + 可再生结果 + 大文件」。
+# =====================================================================
+
+# ---- 原始数据（Wind 终端导出，体积大，且不应修改/入库）----
+0803/
+input_index_weight/
+*.xlsx
+
+# ---- 生成结果（可由 代码 + 原始数据 复现）----
+final_results/
+final_results 2/
+*.csv
+*.png
+*.pdf
+*.pkl
+*.parquet
+*.feather
+*.npy
+*.npz
+
+# 注：outputs/ 目录**不整体忽略**，因为里面含有需要版本控制的脚本
+#     （outputs/revision/*.py、outputs/revision2/audit_*.py）。
+#     其中的 .csv / .png / .pdf 已由上方扩展名规则排除。
+
+# ---- 备份与压缩包 ----
+backup_*/
+archive/
+*.zip
+
+# ---- 中间产物 / 日志 ----
+*.log
+*.aux
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ---- 系统文件 ----
+.DS_Store
+Thumbs.db

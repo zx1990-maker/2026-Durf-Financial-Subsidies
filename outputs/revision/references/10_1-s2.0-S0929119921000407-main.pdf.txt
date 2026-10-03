@@ -1,0 +1,121 @@
+Journal of Corporate Finance 67 (2021) 101919
+Available online 27 February 2021
+0929-1199/© 2021 Elsevier B.V. All rights reserved.
+Varieties in state capitalism and corporate innovation: Evidence 
+from an emerging economy 
+Yongjia Lin (Rebecca)a, Xiaoqing Fu (Maggie)b,*, Xiaolan Fu c 
+a School of Business, Macau University of Science and Technology, Avenida Wai Long, Taipa, Macao, China 
+b Faculty of Business Administration, University of Macau, Avenida da Universidade, Taipa, Macao, China 
+c Department of International Development, University of Oxford, 3 Mansfield Road, Oxford, UK 
+A R T I C L E I N F O 
+JEL code: 
+D73 
+G32 
+G34 
+M14 
+O31 
+O38 
+Keywords: 
+Innovation 
+State capitalism 
+ESG 
+Economic policy uncertainty 
+Corruption 
+Ultimate controlling ownership 
+A B S T R A C T 
+This paper contributes to the literature by examining the impact of different forms of state 
+ownership on corporate innovation and the moderating effects of environmental, social, and 
+governance (ESG) practices, economic policy uncertainty (EPU), and corruption in this own­
+ership–innovation nexus. Building on both agency theory and institutional theory, we identify 
+and divide the ultimate controlling shareholders into three types: central government, local 
+government, and private shareholders. This study draws on data from 2629 listed firms in China 
+between 2007 and 2015. Our results suggest that state-owned enterprises (SOEs) controlled by 
+the central government show the strongest innovation performance in all scenarios. In addition, 
+private firms outperform local SOEs in terms of patent quantity in both manufacturing and 
+nonmanufacturing sectors and in high-economic-development regions, whereas local SOEs 
+outperform their private peers with respect to patent quality, mainly in the manufacturing sector 
+and high-economic-development regions. Such an ownership–innovation nexus is then found to 
+be more pronounced for firms engaging in more ESG practices, during periods of higher EPU, and 
+when less corruption is present. These findings demonstrate the value of diversity in state capi­
+talism in guiding SOEs’ heterogeneous innovation activities in emerging economies. 
+1. Introduction 
+State governments in emerging economies have undertaken a series of reforms to restructure their state-owned enterprises (SOEs) 
+in an attempt to improve firm competencies, including those in innovation (Stiglitz and Lin, 2013; Liang et al., 2015; Musacchio et al., 
+2015; Genin et al., 2020). These reforms have primarily led to state capitalism, a regime characterized by the co-existence of hierarchy- 
+based and market-based institutions, with the state strongly influencing firms (Bruton et al., 2015; Musacchio et al., 2015; Hu et al., 
+2019; Mariotti and Marzano, 2019; Genin et al., 2020). Whereas an increasing number of studies has investigated how these reforms 
+affect firm innovation performance in emerging economies (Ayyagari et al., 2012; Fang et al., 2017; Zhou et al., 2017; Li et al., 2018; 
+Jia et al., 2019; Cao et al., 2020; Tan et al., 2020, among others), relatively less attention has been paid to how the underlying modes of 
+control over SOEs imposed by different state government levels have shaped SOEs’ motivations, resources, and capabilities for 
+innovation through reforms that ultimately affect their innovation performance. 
+Varieties in state capitalism have important implications for corporate innovation in emerging economies because SOEs may follow 
+* Corresponding author. 
+E-mail address: maggiefu@um.edu.mo (X. Fu). 
+Contents lists available at ScienceDirect 
+Journal of Corporate Finance 
+journal homepage: www.elsevier.com/locate/jcorpfin 
+https://doi.org/10.1016/j.jcorpfin.2021.101919 
+Received 16 March 2020; Received in revised form 16 February 2021; Accepted 19 February 2021 
+
+Journal of Corporate Finance 67 (2021) 101919
+2
+different development pathways as a result of heterogeneous reform treatments. Specifically, different reform measures can be 
+implemented at different government levels, generating organizational heterogeneity in terms of resources, logic, and behavior be­
+tween SOEs controlled by central and local governments (Li et al., 2014). According to institutional theory (Scott, 2004), such 
+institutionally derived organizational differences can motivate central and local SOEs to adopt varying innovation strategies, resulting 
+in different innovation performance and providing the basis for our main research questions. What implications do the emergence of 
+varieties in state capitalism hold for SOEs’ innovation performance? What are the underlying mechanisms through which the varieties 
+in state capitalism affect corporate innovation? 
+As the largest emerging economy globally, China provides a valuable platform for investigating these critical issues. Recognizing 
+that innovation is a major driver of sustainable economic growth, the Chinese government has made the development of indigenous 
+innovation the top priority in its national development plan since 2006. A series of new policies have then been implemented for this 
+purpose (Fu, 2015). As a result, China’s average annual real growth in research and development (R&D) spending approached 20% 
+during the past decade, making it the world’s second largest R&D performer (Organization for Economic Cooperation and Develop­
+ment, 2020). Meanwhile, China has witnessed substantial growth in patent applications and has become the largest originator of 
+patent applications globally (World Intellectual Property Organization, 2019). 
+On the other hand, as indicated by Xu (2011), China’s institutional system is a regionally decentralized authoritarian regime that 
+features a combination of political centralization and economic regional decentralization. In this regime, the central government 
+maintains substantial control over political and personnel governance structures, whereas local officials have overall responsibility and 
+various resources for running the economy within their jurisdictions. Consequently, SOEs controlled by the central government 
+(hereafter referred to as “central SOEs”) have become national policy instruments for sustainable macro-level growth and social 
+welfare maximization. SOEs controlled by local governments (hereafter referred to as “local SOEs”) are relatively more market-driven 
+and equipped with strong commercial logic to pursue development goals set by local governments (Li et al., 2014). Given that 
+indigenous innovation is a national strategy put forward by the Chinese central government, central SOEs may innovate to fulfill this 
+national policy objective. However, local SOEs may innovate to primarily satisfy local fiscal needs. Their diverging motives, together 
+with heterogeneous resources and institutional logic, may result in different innovation performance. 
+In addition, as emphasized in Poon (2009), the Chinese government has promulgated its national policy to foster “national 
+champions” and indigenous core technologies since the late 1990s. Central SOEs, acting as the “national champions,” are clustered into 
+sectors of “strategic importance,” such as mining, energy, transportation, telecommunications, banking, and public utilities. Various 
+measures have been adopted by the central government to nurture these “national champions.” Through the steady provision of 
+natural resources, raw materials, technologies, and experts, these central SOEs have become vehicles accumulating independent 
+productive and technological capabilities. The ultimate goal of this “national champions” strategy is to catch up to the global tech­
+nological frontier and lay the foundations for future sustainable growth. As a result, China now has the largest number (124) of Fortune 
+Global 500 companies globally, the majority of which are central SOEs. Among the top ten, for example, three companies are Chinese 
+central SOEs, including Sinopec Group (#2), State Grid (#3), and China National Petroleum (#4).1 Therefore, China’s experiences 
+with innovation and diversity in state capitalism have become the subject of widespread interest among various stakeholders in 
+economics and politics. 
+An increasing number of studies considered the impact of state ownership on corporate innovation performance in China but 
+yielded mixed results (Jefferson et al., 2003; Li and Xia, 2008; Xu and Zhang, 2008; Guan et al., 2009; Dong and Gou, 2010; Choi et al., 
+2011; Jiang et al., 2013; Fang et al., 2017; Xu and Yano, 2017; Yi et al., 2017; Zhou et al., 2017; Li et al., 2018; Jia et al., 2019; Kroll and 
+Kou, 2019; Cao et al., 2020; Jiang et al., 2020; Kong et al., 2020; Genin et al., 2020; Tan et al., 2020; Zhang et al., 2020). In addition, 
+none of the extant research has investigated the ownership–innovation nexus from the perspective of diversity in state capitalism.2 This 
+study uses a large sample of listed firms in China for the 2007–2015 period in an attempt to fill the void by examining the impact of 
+different forms of state ownership on corporate innovation and the underlying mechanisms through which the varieties in state 
+capitalism affect corporate innovation. 
+Inspired by the advocacy of Judge (2010) on developing a theory of corporate governance that is accurate for the economy, we 
+identify ultimate controlling shareholders in China, divide them into three types—central government, local government, and private 
+shareholders—and examine whether their impacts on firm innovation performance differ.3 Meanwhile, to obtain a more compre­
+hensive picture of corporate innovation, we consider two dimensions of innovation performance, including the number of patents 
+granted to a company as a measure of patent quantity and the number of citations received by the patents granted to a company as a 
+measure of patent quality (Tan et al., 2020). In addition, we estimate the moderating effects of environmental, social, and governance 
+(ESG) practices, economic policy uncertainty (EPU), and corruption in this ownership–innovation nexus. Finally, we split our sample 
+into four paired subsamples representing manufacturing versus nonmanufacturing firms and firms in high- versus low-economic- 
+development regions with an attempt to explore whether there are any heterogeneous industry and/or regional effects in this own­
+ership–innovation nexus. 
+1 Retrieved January 13, 2021, from https://fortune.com/global500/. 
+2 Focusing on investigating the innovative efficiency of SOEs in China, Cao et al. (2020) argue that minority SOEs are more innovatively efficient 
+than non-SOEs and majority SOEs, supporting partial state ownership. They also find that central SOEs are more innovatively efficient than local 
+SOEs in the further tests presented in the online appendix. Innovation efficiency is defined as patent output per dollar of R&D spending. 
+3 Because the number of firms with foreign ultimate controlling ownership is very small (223 of the 15,436 in our sample), we do not divide 
+private ownership into domestic private ownership and foreign ownership. 
+Y. Lin et al.

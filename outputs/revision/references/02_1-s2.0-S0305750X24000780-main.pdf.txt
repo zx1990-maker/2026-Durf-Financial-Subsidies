@@ -1,0 +1,205 @@
+World Development 179 (2024) 106608
+Available online 29 March 2024
+0305-750X/© 2024 The World Bank and Elsevier Ltd. All rights reserved.
+Regular Research Article 
+State-owned enterprises as countercyclical instruments: Quasi-experimental 
+evidence from the infrastructure sector 
+Matías Herrera Dappe a, Aldo Musacchio b,*, Burak Turkgulu a, Carolina Pan c, 
+Jonathan Barboza d, Yadviga Semikolenova a 
+a World Bank, United States 
+b Brandeis University and NBER, United States 
+c Power for All, United States 
+d Mexico Economy Secretariat, Mexico 
+A R T I C L E I N F O 
+Keywords: 
+State-owned enterprises 
+Infrastructure 
+Macroeconomic shock 
+Fiscal transfers 
+A B S T R A C T 
+This paper examines the effects of a negative macroeconomic shock on the financial performance of state-owned 
+enterprises (SOEs) in infrastructure. The main aim of the paper is to explore whether SOEs serve as counter­
+cyclical instruments or whether they end up generating fiscal costs during a downturn, perhaps amplifying 
+negative shocks. The paper introduces a new measure of fiscal injections that includes subsidies, equity r­
+ecapitalizations, and loans from the government, other SOEs, or state-owned financial institutions. The empirical 
+setup uses a quasi-experimental setting that exploits the differential effects of a drastic fall in oil prices (in 
+2014–15) for SOEs in countries that experience a negative aggregate demand drop as a consequence of this shock 
+versus similar firms in countries that do not suffer a downturn from the shock. The results—based on a balanced 
+sample using coarsened exact matching and a differences-in-differences estimation—show that SOEs in treatment 
+countries received increases in fiscal injections as a percent of average assets of 3.5 percent the year after the 
+shock, equivalent to a significant recapitalization. These fiscal injections take the form of equity injections and 
+loans from the government and state-owned financial enterprises. The results also show that capital expenditure 
+as a percent of average assets in fully owned infrastructure SOEs decreased by 3.5 percentage points the year 
+after the negative shock, equivalent to a 40 percent decline relative to its average level. In sum, this paper 
+presents evidence that shows that SOEs do not serve as countercyclical tools and, in fact, may amplify negative 
+shocks by requiring fiscal injections for SOEs while also lowering their capital expenditures. 
+1. Introduction 
+A key policy question is whether state-owned enterprises (SOEs) can 
+play a countercyclical role during macroeconomic crises or whether they 
+actually amplify shocks by creating fiscal risk and requiring significant 
+funds for bailouts (Bova, Ruiz-Arranz, Toscani, & Ture, 2019). On the 
+one hand, there is the view that SOEs are helpful countercyclical tools 
+because they can reduce the pain of a negative shock by preserving 
+employment (¨Ozkaya & Askari, 1999; Ramamurti, 1997), absorbing the 
+cost of the shock by keeping employee salaries unchanged and not 
+increasing the price of products or services, or by pursuing countercy­
+clical policies, such as increasing capital expenditures during a down­
+turn (World Bank, 2023; p. 76). For instance, recent studies use 
+matching techniques to compare partially privatized SOEs (PPSOEs) and 
+private firms in a variety of sectors, finding that during severe re­
+cessions, the former have a slower rate of reduction in labor than similar 
+comparable private firms (Lazzarini & Musacchio, 2018), a pattern that 
+holds in public sector jobs in general (Kopelman & Rosen, 2016). There 
+is also evidence that state-owned banks can expand lending during 
+downturns (Coleman & Feler, 2015; Deng, Morck, Wu, & Yeung, 2015) 
+and that SOEs in the oil industry can absorb large shocks in petroleum 
+prices to prevent increases in gasoline prices to the public (Cheon, 
+Lackner, & Urpelainen, 2015). 
+On the other hand, SOEs can rely heavily on support from the gov­
+ernment during negative shocks. In that case, rather than softening a 
+negative shock, they can actually amplify it by generating fiscal risk. 
+This is because SOEs use a variety of mechanisms to cope with negative 
+shocks, including soft budget constraints (Kornai, Maskin, & Roland, 
+* Corresponding author. 
+E-mail address: aldom@brandeis.edu (A. Musacchio). 
+Contents lists available at ScienceDirect 
+World Development 
+journal homepage: www.elsevier.com/locate/worlddev 
+https://doi.org/10.1016/j.worlddev.2024.106608 
+Accepted 13 March 2024 
+
+World Development 179 (2024) 106608
+2
+2003; Ter-Minassian, 2019). That is, SOEs may have access to subsidies 
+and soft loans from other SOEs or the Treasury, which they use to 
+withstand a shock. They can borrow at below-market rates from in­
+vestors or from other SOEs or financial intermediaries, and they can 
+receive operational subsidies, tax breaks, and other forms of support 
+from the government, especially during downturns. 
+Still, the fact that these two views coexist is to a large extent a 
+consequence of two empirical challenges. The first one is that it is hard 
+to have comprehensive measures of fiscal support for SOEs. For instance, 
+Cheon, et al. (2015) show that in countries with an oil and gas SOE, 
+when petroleum prices increase there is less passthrough to the price of 
+gasoline consumers observe. Yet, they fail to track whether the SOEs that 
+absorb the shock receive fiscal transfers or other forms of fiscal in­
+jections, implying SOEs actually absorb negative shocks themselves. 
+Alternatively, researchers can track the direct operation subsidies SOEs 
+receive during a downturn (Reyes-Tagle, et al., 2022), but they may 
+have a harder time tracking all the different loans SOEs can get from 
+other state actors. Second, most of the discussions about the role of SOEs 
+during crises lack experimental or quasi-experimental settings that can 
+shed light on whether they indeed help to cushion economies from 
+negative shocks using their own resources or whether they end up 
+amplifying them by requiring fiscal resources to cope with the shock. 
+This paper alleviates this empirical vacuum using a carefully hand- 
+collected database of financial performance in infrastructure SOEs in 
+19 countries from 2009 to 2018. This dataset, proprietary to the World 
+Bank, provides us with enough cross-sectional and time-series variation 
+to use an episode of a drastic unexpected negative shock as a quasi- 
+experimental setting. Moreover, for this sample of firms the World 
+Bank collected not standard financials but a detailed account of the 
+different financing sources of SOEs, such as fiscal transfers, loans from 
+other state-owned companies or banks, equity injections, etc. That is, for 
+this sample we were able to develop a new, more comprehensive, 
+measure of fiscal injections to support the operation of the firm that adds 
+up operational subsidies, equity injections, new loans from other SOEs 
+and new loans from state-owned banks net of increases in total 
+assets—to avoid counting transfers to pay for asset acquisitions. This 
+indicator of fiscal injections can therefore shed light on the full extent to 
+which SOEs act as countercyclical policy tools buffering negative shocks 
+with their own resources or whether they require significant fiscal in­
+jections to cope with such shocks. 
+In this study, we utilize the significant decline in oil prices in 2014 as 
+the basis for our research design. Our primary aim is to construct a quasi- 
+experimental framework, wherein SOEs in countries adversely affected 
+by the oil price plunge (due to a fall in aggregate demand) serve as the 
+treatment group. These are compared against analogous SOEs in control 
+countries, where the same oil price decline left macroeconomic condi­
+tions relatively unchanged. We posit that the 2014 oil price shock is an 
+ideal case for our analysis due to its dual origins in both diminished 
+demand and bolstered supply. This combination uniquely distinguishes 
+it as a shock predominantly confined to the oil sector, rather than a 
+broader global demand downturn (Kilian, 2009). Consequently, the 
+decline in oil prices was not a result of a universal demand shock, which 
+would have uniformly affected all countries. Furthermore, Baffes, Kose, 
+Ohnsorge, and Stocker (2015; p. 4) attribute a significant role to OPEC’s 
+decision to abandon price support and the rapid increase in oil pro­
+duction from non-traditional sources in driving the price collapse post- 
+mid-2014. That is, the price of oil did not decline due to a global de­
+mand shock that could have made the negative macroeconomic shock 
+common to all countries. 
+In order to justify the use of this research design, we document that 
+there were clear asymmetric macroeconomic effects in treatment 
+countries, which had a negative macroeconomic shock, and control 
+economies, which had relatively unchanged real GDP growth. In 
+Table 2, we present evidence that shows that, in control countries there 
+is a slight decline in GDP growth after the oil price drop, but that the 
+decline is not statistically significant. In other words, in control 
+countries conditions remained relatively unchanged. In contrast, Table 2 
+shows that in treatment countries there is a steeper and highly statisti­
+cally significant decline in GDP growth in the post-shock period. 
+Now, rather than splitting countries along simple exporter/importer 
+of oil lines, we split treated nations (experiencing a negative macro­
+economic shock) and control countries (experiencing a non-negative 
+shock) by devising a simple cutoff that avoids counting re-exporters of 
+natural gas in Eastern Europe as control countries—given that they also 
+suffer a negative shock in 2014. Thus, we classify countries whose oil 
+and gas exports are above 0.5 percent of total exports and have reserves 
+of 1 million or more barrels of oil or 700 billion cubic meters of gas as 
+treated countries, including all other countries in the control group. We 
+then study the effects of the negative oil price shock of 2014 on treated 
+infrastructure SOEs relative to control SOEs (i.e., those in countries not 
+affected by the oil price drop). 
+We use detailed financial data of SOE performance and the fiscal 
+injections they receive from the World Bank Infrastructure SOEs Dataset 
+(a proprietary dataset), which tracks the financials of over 100 firms in 
+19 countries from 2000 to 2018 and includes a more balanced panel for 
+the period 2009 to 2018. We use data for the latter period for two sec­
+tors—air transport, and power—to guarantee a consistent sample and to 
+maximize intrasector variation over time and across countries. 
+Ideally, we would like to isolate the negative macroeconomic effect 
+of a drastic fall in the price of oil in treated countries from any con­
+founding effect that may come from having firms enjoy cheaper fuel 
+inputs. Finding a large sample of SOEs for which the latter effect is null 
+or insignificant is difficult, however. For that reason, we isolate the 
+positive effects stemming from the fall in the price of oil by comparing 
+firms in treatment countries and control countries matched according to 
+the ratio of fuel costs to total expenses in addition to sector, country 
+income level and firm size (log of assets). That is, we compare firms with 
+similar sensitivities to fuel costs and size within the same industry in 
+treatment countries (i.e., with a negative macroeconomic shock) and 
+control countries (i.e., with a non-negative macroeconomic shock) using 
+coarsened exact matching (CEM) and a differences-in-differences esti­
+mation. Using this research design and the CEM matching technique 
+allows us to isolate the negative effect of the macroeconomic oil shock 
+on treated SOEs as a negative shock to aggregate demand. 
+Infrastructure is a good setting in which to study the effects of large 
+macroeconomic shocks on SOEs for three reasons. First, as opposed to 
+non-financial and non-infrastructure SOEs, in infrastructure SOEs, 
+particularly in power and air transport, the government steps in to 
+support them to ensure “basic” service of electricity and the “strategic” 
+air connectivity service they provide are not interrupted during a crisis. 
+Second, infrastructure SOEs are usually large, if not the largest, em­
+ployers in the sectors and countries in which they operate. As such, their 
+workers have significant political power, making it harder for managers 
+and politicians to make painful adjustments to employment and ex­
+penses when they face a negative shock. Third, infrastructure SOEs are 
+usually strategic suppliers of inputs for companies and households, 
+making them more prone to having controlled tariffs, which can exac­
+erbate the effects of a negative shock (Galal & Shirley, 1995; Shirley, 
+1999). Thus, infrastructure SOE are good tools to support the econo­
+my—e.g., continuing with subsidized electricity and air transportation. 
+Finally, the paper investigates whether these shocks have different 
+effects on fully owned SOEs (FSOEs) and partially privatized SOEs 
+(PPSOEs). PPSOEs refer to firms that are majority-owned or controlled 
+but not fully owned by the state—we define full ownership when gov­
+ernment has control of at least 99.5 percent of the share capital. This 
+separation is important because PPSOEs tend to be more efficient and 
+tend to rely less on government support for their day-to-day operations 
+(Okten & Arin, 2006; Zhang, 2004). Still, we do not know the extent to 
+which they also rely on fiscal injections to buffer negative shocks. 
+Examining the heterogeneity of effects in FSOEs and PPSOEs is 
+important because the partial privatization of infrastructure firms is 
+usually accompanied by a full or partial liberalization of tariffs—by 
+M. Herrera Dappe et al.

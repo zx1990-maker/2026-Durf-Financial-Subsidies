@@ -1,0 +1,110 @@
+“State-owned enterprises as a political tool: The case of a Venezuelan oil
+company”
+AUTHORS
+Juan Morales
+ARTICLE INFO
+Juan Morales (2022). State-owned enterprises as a political tool: The case of a
+Venezuelan oil company. Problems and Perspectives in Management, 20(1),
+473-487. doi:10.21511/ppm.20(1).2022.38
+DOI
+http://dx.doi.org/10.21511/ppm.20(1).2022.38
+RELEASED ON
+Saturday, 02 April 2022
+RECEIVED ON
+Monday, 13 September 2021
+ACCEPTED ON
+Monday, 18 October 2021
+LICENSE
+ 
+This work is licensed under a Creative Commons Attribution 4.0 International
+License
+JOURNAL
+"Problems and Perspectives in Management"
+ISSN PRINT
+1727-7051
+ISSN ONLINE
+1810-5467
+PUBLISHER
+LLC “Consulting Publishing Company “Business Perspectives”
+FOUNDER
+LLC “Consulting Publishing Company “Business Perspectives”
+NUMBER OF REFERENCES
+44
+NUMBER OF FIGURES
+5
+NUMBER OF TABLES
+4
+© The author(s) 2022. This publication is an open access article.
+businessperspectives.org
+
+473
+Problems and Perspectives in Management, Volume 20, Issue 1, 2022
+http://dx.doi.org/10.21511/ppm.20(1).2022.38
+Abstract
+Public companies represent a valuable tool for the state to intervene in the economy by 
+correcting market failures. However, critical positions that advocate its privatization 
+continue to appear since they do not usually have great returns. This study analyzes 
+the effect that political goals have on the efficiency of a state-owned enterprise (SOE) 
+when ownership and management tend to be concentrated in the same actor. Agency 
+theory served as a reference framework, using Petróleos de Venezuela (PDVSA) as a 
+case study during the period 1995–2014. First, the period was divided into four stages 
+differentiated by changes in the SOE volumetric strategy, the exploration strategy, the 
+position regarding foreign capital, and the SOE participation in social development ac-
+tivities. Later, the SOE economic and productive efficiency was analyzed in the stages 
+to identify relevant changes. The results indicate that the interests of the principal and 
+the agent by good management of the SOE increase when the profit is reduced. It is 
+mainly due to the need of the government to benefit from these activities. However, 
+when the company surplus increase, the government tends to intensify its control to 
+obtain additional benefits, especially during electoral events.
+Juan Morales (Colombia)
+State-owned enterprises 
+as a political tool: 
+The case of a Venezuelan 
+oil company
+Received on: 13th of September, 2021
+Accepted on: 18th of October, 2021
+Published on: 2nd of April, 2022
+INTRODUCTION
+The study of state-owned enterprise (SOE) management is an issue that 
+has acquired significant relevance since the late 1970s with privatization 
+policies. Although SOEs emergence was associated with ideological fac-
+tors, its privatization stage has been driven more by economic factors 
+(Bel, 2011). In fact, one of the objectives pursued by governments with 
+the SOEs privatization has been productivity improvement since, by na-
+ture, these would be inefficient and could progress after privatization 
+(Megginson & Netter, 2001; Li et al., 2019). However, the argument for 
+the inefficiency of public ownership has not been conclusive even when 
+ideological objectives continue to weigh on SOEs management.
+Accordingly, it is interesting to know what happens with efficiency 
+when an SOE is forced to implement additional productive objectives 
+for political or ideological reasons. Undoubtedly, it is not always pos-
+sible to quantify the effect that these types of policies have on SOEs, 
+especially when they are not explicit. However, it may be useful to de-
+bug the company’s accounts from these policies (as much as possible) 
+to observe their productivity over time.
+Therefore, it is essential to use SOE management measurements ac-
+cording to the nature of their purposes. However, it is also essential to 
+© Juan Morales, 2022
+Juan Morales, Ph.D., Associate 
+Professor, Innovation and Digital 
+Department, PRIME Business School, 
+Sergio Arboleda University, Colombia.
+This is an Open Access article, 
+distributed under the terms of the 
+Creative Commons Attribution 4.0 
+International license, which permits 
+unrestricted re-use, distribution, and 
+reproduction in any medium, provided 
+the original work is properly cited.
+www.businessperspectives.org
+LLC “СPС “Business Perspectives” 
+Hryhorii Skovoroda lane, 10, 
+Sumy, 40022, Ukraine
+BUSINESS PERSPECTIVES
+JEL Classification
+D72, H21, L32, M11
+Keywords
+political goals, state-owned enterprise, agency theory, 
+efficiency, management
+Conflict of interest statement: 
+Author(s) reported no conflict of interest

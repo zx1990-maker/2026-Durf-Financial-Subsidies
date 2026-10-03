@@ -1,0 +1,108 @@
+Finance Research Letters 60 (2024) 104856
+Available online 13 December 2023
+1544-6123/© 2023 Elsevier Inc. All rights reserved.
+Governance of tax incentives: An effectiveness and differential 
+analysis based on the Chinese context 
+Zhixiong Huang , Lan Lv *, Ming Yang 
+School of Accounting, Zhejiang University of Finance & Economics, Hangzhou, 310018, Zhejiang, China 
+A R T I C L E I N F O 
+KeyWords: 
+Tax incentives 
+Policy adjustment 
+Governance 
+Effect study 
+A B S T R A C T 
+The disordered and rampant local tax incentives have interfered with regular business competi­
+tion and resource allocation. In China, the government has undertaken a new round of policy 
+adjustment to comprehensively sort out and standardize tax incentives, trying to realign value- 
+oriented tax competition among local governments. Thus, this paper examines the real effect of 
+standardizing tax incentives using China’s State Council Documents No. 62[2014] and No. 25 
+[2015], with the measurement of abnormal tax burdens and abnormal fiscal subsidies. The result 
+shows that this round of policy governance has maintained the steadiness of the overall tax 
+burden and fiscal subsidy, and only abnormal tax burdens and fiscal subsidies have been reduced 
+through structural adjustment; In addition, it has also taken into account the difference among 
+regional economic development. The governance in the Midwest is generally lighter than in the 
+East. Meanwhile, the effect of governance among different property enterprises has presented a 
+reduced tendency as "state-owned enterprises – local state-owned enterprises – private 
+enterprises". 
+1. Introduction 
+There has been a proliferation of new tax incentives to boost economic development worldwide, yet over-reliance on tax incentives 
+can be counterproductive. Some scholars have suggested that the incentive effect of tax incentives is limited, and its incremental value 
+is even much lower than the negative impact on fair competition in the market (Kaplow, 2008). There is still debate over whether tax 
+incentives should exist and whether the policy setting is justified. China is an example of a country where tax incentives are spreading 
+uncontrollably. Although the government has heavily employed tax incentives since the Reform and Opening-up, which have been 
+quite effective in attracting investment, creating jobs, and fostering regional economic growth and GDP, tax incentives are now a 
+significant unfair factor impeding structural reform and the function of the market for resource allocation. To this end, the Third 
+Plenary Session of the 18th Central Committee of the Communist Party of China (CPC) put forward the reform orientation of reviewing 
+and revising tax incentives. And at the end of 2014, the State Council issued Notice on sorting out and standardizing tax incentives. Any 
+policies that break the law or impede fair competition must be included within the purview of governance, and all pertinent agencies 
+must standardize the tax incentives offered by their respective departments in compliance with the unified requirements. Compared to 
+earlier attempts, this round of governance of tax incentives is an improved countermeasure for the central government to cope with 
+unconventional tax incentives and a crucial assurance for fostering fair competition among businesses. Therefore, it is feasible and 
+* Corresponding author. 
+E-mail address: 1617634210@qq.com (L. Lv). 
+Contents lists available at ScienceDirect 
+Finance Research Letters 
+journal homepage: www.elsevier.com/locate/frl 
+https://doi.org/10.1016/j.frl.2023.104856 
+Received 27 October 2023; Received in revised form 24 November 2023; Accepted 12 December 2023 
+
+Finance Research Letters 60 (2024) 104856
+2
+typical to study the effect of tax incentives governance in the Chinese context. 
+At present, there are two main perspectives in the study of China’s tax incentives. One is to study the economic consequences and 
+effects, including the development of high-tech industries (Li et al., 2016) and R&D investment (Dai and Liu, 2008). Another point of 
+view is to analyze the internal logic of the existence of tax incentives. This is mainly from the legal level to regulate tax incentives and 
+make reasonable arguments to define (Xiong, 2014; Xing, 2014), as well as focusing on the problems, top-level design, and specific 
+path selection of governance of tax incentives (Cai, 2016; Yang, 2017). However, the above literature has not yet conducted an overall 
+systematic examination of enterprise tax incentives at the micro level, resulting in a lack of theoretical and practical support for the 
+governance of tax incentives in enterprises in different regions and with different property rights and tiers. 
+Given this, this paper uses China’s State Council Documents No. 62[2014] and No. 25[2015] as an opportunity to examine the real 
+effect of this round of governance of tax incentives by measuring abnormal tax burdens and abnormal fiscal subsidies. The result shows 
+that this round of policy governance has maintained the steadiness of the overall tax burden and fiscal subsidy, and only abnormal tax 
+burden and fiscal subsidy have been reduced through structural adjustment; In addition, in China, the governance of tax incentives in 
+the Midwest is generally lighter than in the East which is more economically developed. Meanwhile, the difference in this round’s 
+effect between regions predominantly targets tax burdens, with the irregular fiscal subsidy showing no discernible variation. This 
+demonstrates that the impacts of tax incentives vary by region and that structural adjustments have considered variations in regional 
+economic development. What’s more, the governance effect among different property enterprises has presented a reduced tendency as 
+"state-owned enterprises – local state-owned enterprises – private enterprises". 
+This paper may contribute to the following aspects: Firstly, taking China’s governance of tax incentives as the research perspective 
+is typical, which can improve the literature on tax reform while allowing for a deeper understanding of the nature of tax incentives and 
+their long-term effects. Secondly, using document No. 62[2014] as an opportunity, we examine the implementation effects and 
+characteristics of China’s current round of tax-policy governance action to have a deeper comprehension of the local governments’ 
+subjective willingness to sort out and regulate tax incentives. Thirdly, by measuring the amount of abnormal tax burdens and abnormal 
+fiscal subsidies, the differences in tax incentives between different regions, enterprise property rights, and state-owned enterprise 
+levels are tested, which offers relevant empirical proof and backing for the following step, which will improve the direction of market 
+resource allocation and maintain the equity of tax burden across different regions. 
+2. Literature review and research hypotheses 
+2.1. Literature review 
+For now, most of the research on tax incentives in the literature focuses on the economic consequences and effects, especially the 
+development of high-tech industries and the exploration of the relationship between R&D investment. Among them, many studies 
+show that tax incentives can significantly promote firms’ R&D investment (Shapiro, 2009), stimulate labor demand in the market 
+(Eissa, 2004; Agarwal et al., 2007), attract firms to invest and open subsidiaries (Kaplow, 2008), and promote the development of new 
+energy and other emerging industries (Dharmapala, 1999; Saez, 2004). However, some studies believe that the incentive effect of 
+preferential tax policy is limited, and its incremental value is much lower than the negative impact on regular business competition 
+(Kaplow, 2008). 
+Another set of literature related to the theme of this paper is the characteristics and internal logic of tax incentives, as well as the 
+top-level design and specific path selection of tax-policy governance. First of all, in order to study the logic and features of tax in­
+centives, some researchers used nearly 100 texts about China’s tax incentives published before 2008 as their research object. They then 
+discovered that the policies follow distinct phases (Huang et al., 2011). Gao and Mao (2013) further estimated the total size of China’s 
+indirect preferential tax based on 5000 relevant data of random sampling taxpayers from the 2007 National Tax Survey and found that 
+there is a significant trend of regional inequity in tax incentives. Secondly, the majority of the remaining literature examines legal and 
+financial systems from a theoretical standpoint. For instance, Xing (2014) addressed the necessity for tax incentives from the 
+perspective of tax competition reform for public welfare. Additional academics have explored ways to further reduce taxes and fees 
+from the perspectives of statutory taxation, government functions, social security, and fiscal and taxation systems (Yang, 2017), and 
+also proposed ways to improve tax incentives from the supply side, i.e., the aspects of the labor force, system creation, and innovation 
+(Pang and Zhang, 2013; Cai, 2016; Liu et al., 2016). 
+Reviewing the above two groups of literature, we find that there may be the following defects: First, there is minimal research on 
+tax incentive itself, with most studies focusing on its economic implications and ramifications. Second, although many academics have 
+advanced the theory of China’s supply-side reform, there has never been any actual testing of its effectiveness for the current round of 
+tax-policy reform. Third, China’s tax incentives regime has distinct regional traits. Future tax incentive legislation will be heavily 
+influenced by how well this round of the governance of tax incentives standardizes the market and accounts for regional variations. 
+Due to the shortcomings of the existing literature, this paper attempts to measure the impact of the new round of tax-policy governance 
+to further examine the mechanism of its role and better understand the local government’s subjective willingness to overhaul and the 
+progress of implementation. 
+2.2. Research hypotheses 
+China’s current round of tax reform makes sense in light of its supply-side reform philosophy since it prioritizes stabilizing the tax 
+burden before optimizing through structural adjustment. The so-called supply-side structural reform is to improve the quality of supply 
+Z. Huang et al.

@@ -1,0 +1,86 @@
+Vol:.(1234567890)
+Chinese Political Science Review (2019) 4:28–51
+https://doi.org/10.1007/s41111-018-0112-4
+1 3
+ORIGINAL ARTICLE
+Chinese State‑Owned Companies, Misallocation 
+and the Reform Policy
+Jianzhi Zhao1
+Received: 17 June 2018 / Accepted: 20 August 2018 / Published online: 24 August 2018 
+© Fudan University and Springer Nature Singapore Pte Ltd. 2018
+Abstract
+This paper attempts to quantify the resource misallocation arising from firm own-
+ership and to evaluate the SOE reform policy in China. State-owned enterprises 
+(SOEs) in China typically enjoy preferred policies such as better access to financial 
+system, reflecting the connections between these firms and various levels of gov-
+ernment. This, however, leads to potential important distortions, with implications 
+for resource allocation, productivity, and thus long-term growth. The SOE reform 
+policy that seeks to “Grasp the Large, Let Go of the Small” could further exacerbate 
+the distortions. By investigating a large firm-level data set with the methodology 
+of Foster et al. (Am Econ Rev 98(1): 394–425, 2008) and Olley and Pakes (Econo-
+metrica 64(6):1263–1297, 1996), we show that SOEs are significantly less likely to 
+have efficient resource allocation than firms not controlled by the various levels of 
+China’s government. Industries with dominant state-owned firms likewise have less 
+efficiency, suggesting the impact China’s SOE policy that has especially favored the 
+largest of the state-owned firms. The results have important policy implications in 
+suggesting that reforms that allow for greater market forces among firms would lead 
+to potential economic growth in China.
+Keywords  State-owned companies · Misallocation · SOE reform policy
+JEL Classification  H79 · G31 · L38
+I am grateful to Peter Reuter, Takeo Hoshi, Albert “Pete” Kyle, Anton Korinek, Vojislav 
+Maksimovic, Susan Schwab and participants of the University of Maryland Tuesday Policy Forum 
+and The US Congressional Budget Office (CBO) for their helpful comments. All errors are ours.
+ * Jianzhi Zhao 
+ 
+jianzhizhao@fudan.edu.cn
+1 
+School of International Relations and Public Affairs, Fudan University, Handan Road 220, 
+Yangpu, Shanghai 200433, China
+
+29
+1 3
+Chinese Political Science Review (2019) 4:28–51 
+1  Introduction
+The main driver of China’s spectacular economic growth over the past 30 years 
+has been the reallocation of labor and capital from a planned economy consisting 
+of mainly state-owned enterprises (SOEs) to a somewhat market-oriented econ-
+omy with booming private manufacturing firms that have achieved huge produc-
+tivity gains (Song et al. 2011). However, this process is still far from finished. 
+The heterogeneity between domestic private firms and SOEs is still marked in 
+many dimensions. For instance, an important such difference is in terms of access 
+to credit, where SOEs typically have access to financing at favorable terms com-
+pared to privately owned companies. This situation reflects the incomplete state 
+of reform of both the industrial sector and the Chinese financial system, which 
+potentially lead to resource allocation.
+A large body of the literature emphasizes the importance of resource alloca-
+tion to economic growth. The hypothesis that the misallocation of resources such 
+as land, entrepreneurship, labor, or capital accounts for a significant difference in 
+economic performance between rich and poor countries has been supported by 
+much research (Banerjee and Moll 2010; Banerjee and Duflo 2005; Hsieh and 
+Klenow 2009; Bartelsman et al. 2013; Alfaro et al. 2008). Policy measures that 
+allow resources to be reallocated from low productivity firms to high productivity 
+ones would contribute to stronger economic growth.
+Reforms are taking place in China’s economy. China introduced a program 
+for SOE reform in 1996, focused on actions following the rubric of “Grasp the 
+Large, Let Go of the Small”. Under this approach, the state would maintain its 
+ownership of, and support for, giant SOEs with dominant market positions in 
+their industries, while smaller or less successful state-owned firms would grad-
+ually be made to face private competition and even eventually be sold off into 
+private ownership such as with a management-led buyout. For the first category 
+of firms, however, large SOEs could well enjoy phenomenal profitability, while 
+private competition is effectively squelched by, for example, the relatively disad-
+vantageous access to financing. Therefore, if large SOEs turn out to be less effi-
+cient than their private counterparts, reforms that allow for competition and for 
+resources to be reallocated to the private sector could have meaningful positive 
+implications for productivity and growth. As such, this paper assesses the extent 
+to which the misallocation of resources enjoyed by state-owned firms translates 
+into slower productivity growth. If this is the case, then further liberalization that 
+moves the Chinese industrial sector to be driven by market incentives could have 
+immense potential to generate continued income gains.
+While researchers have reached a consensus on the importance of resource mis-
+allocation for productivity and economic growth, there are differences in reason-
+ing for the channel by which resource misallocation affects productivity growth. 
+The focus of research has been on the underlying cause for different track records 
+among similar and different types of firms (formally, one could say that there are 
+heterogeneous production functions among firms). Perhaps, the largest body of 
+the literature attributes production shortcomings to the misallocation of resources

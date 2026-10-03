@@ -1,0 +1,117 @@
+International Review of Economics and Finance 85 (2023) 1–20
+Available online 28 December 2022
+1059-0560/© 2022 Elsevier Inc. All rights reserved.
+Contents lists available at ScienceDirect
+International Review of Economics and Finance
+journal homepage: www.elsevier.com/locate/iref
+SOEs reform and capital efficiency in China: A structural analysis✩
+Le Tang
+Department of Economics, Suffolk University, Boston, MA, 02108, United States of America
+A R T I C L E
+I N F O
+JEL classification:
+D24
+O10
+P31
+Keywords:
+Capital adjustment cost
+SOEs reform
+China
+A B S T R A C T
+This paper investigates the effect of state-owned enterprises reform, a policy phrased as
+‘‘grasping the large, letting the small go’’, on firms’ capital efficiency in Chinese industries from
+1998–2007. First, we present several stylized facts on investment rates in state and private
+firms. Second, a dynamic programming problem is proposed and key structural parameters are
+recovered through simulated moment matching method, so the estimated dynamic model is
+able to replicate the stylized facts that are directly observable from the firm-level data. Our
+quantitative analysis shows that the conversion of state firms into private ones reduces capital
+adjustment costs. Particularly, state firms’ quadratic adjustment cost declines significantly
+almost by half, and the fixed cost decreases slightly. These findings are robust in various
+specifications. Hence, the reform in state firms leads to increased capital efficiency. Last, the
+counterfactual analysis suggests that state and private firm’s output would increase about 9.60%
+and 1.87% if the capital adjustment costs in state firms were lowered to the same levels in
+private firms.
+1. Introduction
+One distinctive feature of Chinese economy is the existence of state-owned enterprises (SOEs). Over the past decades, reforms
+in SOEs has drawn close attention to the public and policy makers. The share of state-owned firms’ industrial output declined from
+59% in 1998 to 38% in 2007, and continue to fall to about 25% in 2018 (China Statistical Yearbook 2019). Starting in late 1990s,
+China’s leadership initiated a series reforms in SOEs. One policy is phrased as ‘‘grasping the large, letting the small go’’, meaning
+that large state firms are corporatized and merged into larger state-owned conglomerates, and small state-owned firms were to be
+privatized, closed or sold. According to Gan et al. (2008), between 1995 and 2005, nearly 1 000,000 firms with 11.4 trillion RMB
+worth of assets were privatized. Together these comprised two-thirds of China’s SOEs and state assets, ‘‘making China’s privatization
+by far the largest in human history’’ (Gan et al., 2008).
+The privatization or conversion of state firms may have raised their productivity because such firms may have a closer alignment
+of control rights, clarified system of incentives and rewards for mangers and workers, and better corporate governance. Lots of
+research has provided empirical evidence that conversion of state firms increases firm’s efficiency and productivity, using reduced-
+form regression analysis. In this paper, we employ a structural approach to investigate the impact of SOEs reform and construct
+several counterfactuals, which are not available using regression techniques. Our analysis also sheds some light on through what
+channels the converted state firms achieve efficiency.
+In this paper, we evaluates the effect of SOEs reforms in terms of capital adjustment cost, which is closely related to capital
+efficiency. Using the Chinese manufacturing firms data from 1998–2007, we first summarize salient features (such as distribution
+✩I would like to thank the two anonymous referees for their constructive suggestions. The financial support from the Rosenberg Institute for Asian Studies
+at Suffolk University, United States of America is gratefully acknowledged.
+E-mail address:
+ltang7@suffolk.edu.
+https://doi.org/10.1016/j.iref.2022.12.005
+Received 30 March 2021; Received in revised form 7 July 2022; Accepted 4 December 2022
+
+International Review of Economics and Finance 85 (2023) 1–20
+2
+L. Tang
+and second moments) in investment for state and private firms. Then a dynamic optimization problem that characterizes firm’s
+investment decision and transitions of firm’s ownership types is proposed, and key structural parameters are recovered so the
+dynamic model is able to reproduce the salient features directly observable from the firm-level data. Our structural estimations
+show that the privatization of state firms increases firm’s capital efficiency, by lowering their capital adjustment costs. In particular,
+when a state firm is privatized, the quadratic or convex adjustment cost declines significantly, with slightly decrease in fixed cost.
+The prominent reduction in quadratic cost indicates that the converted state firms become more flexible in adjusting their capital
+stock, or more quickly respond to changes in external market conditions. This could be a reflection of increased organizational
+efficiency, streamlined decision-making process and improved corporate government within firms. Last, based on the structural
+estimations, we find that state and private firms’ output would increase by 9.60% and 1.87% if the capital adjustment costs in state
+firms are lowered to the same levels in private firms, as Chinese government determines to push reforms in state sector.
+This paper contributes to three strands of literature. First, our research contributes to the literature on SOEs reform and conversion
+of state firms in China by employing a structural approach. Using the firm-level data, Jefferson and Su (2006) find that the conversion
+of SOEs contribute to overall increases in current productivity and innovation effort. Bai et al. (2009) present evidence that the
+privatization of SOEs leads to increasing sales and higher labor productivity. Jefferson et al. (2008)’s analysis shows that the SOEs
+reform yields productivity gains during 1998 to 2005 for both state and private firms. Brandt et al. (2012) conclude that over
+1998–2007 approximately one-half of total TFP growth resulting from the restructuring and exit-entry dynamics of China’s
+manufacturing sector, both SOEs and non-SOEs. Hsieh and Song (2015) find that the surge in SOE-firm productivity resulting in
+significant part due to the fact that the existing firms were typically smaller, exhibiting lower productivity than surviving SOEs.
+The existing literature relies heavily on the reduced-form regression analysis. The deep structural parameters, such as parameters
+in capital adjustment costs that dictate firms’ behavior, cannot be obtained in regressions. Because the adjustment costs are usually
+implicit opportunity cost, not directly observable from firm-level data. Instead, we recover the parameters in adjustment costs using
+simulated moment matching (SMM). The key structural parameters are recovered so the model is able to reproduce the salient
+features directly observable from the firm-level data. Following the structural approach in Asker et al. (2014) and Bloom (2009),
+this research provides further evidence that state firms exhibit higher capital adjustment costs, in comparison to private counterparts,
+and the most distinctive difference lies in the quadratic adjustment cost.
+Second, this paper also complements the literature on the structural estimation of capital adjustment costs in Chinese indus-
+tries. David and Venkateswaran (2019) and Wu (2015) provide structural estimates of capital adjustment cost in Chinese industrial
+firms, the authors pooled all industrial firms together, and do not focus on the distinctions between state and private firms. Cooper,
+Gong et al. (2015) and Tang (2021)’s work provide estimates of capital adjustment costs in state and private firms, however the
+authors estimate the adjustment costs for state and private firms separately. A key difference from the existing studies is that we
+estimate the state and private firms’ adjustment costs simultaneously from a dynamic model. Cooper, Gong et al. (2015) and Tang
+(2021) estimate state and private firms’ adjustment costs separately because they do not take into account the transition of firms’
+ownership types, thus their results are potentially biased. In our paper, the transition of firm’s ownership is embedded in the dynamic
+model, so we are able to estimate the structural parameters in state and private firms’ adjustment costs simultaneously. This approach
+circumvents the potential biasedness originated from separate estimations.
+Third, our research is closely related to the analysis on capital and investment efficiency in state and private firms. Lots of
+literature document the empirical evidence to support that state firms tend to be less efficient in investment comparing to private
+firms, based on regression analysis (see the survey by Megginson, 2017). The explanations range from organizational efficiency (Lin
+& Germain, 2003), internal governance structure (Shen et al., 2020), allocating investment across different business unit (Ljungqvist
+et al., 2015), etc. Our structural estimations corroborate previous reduced-form regression analysis (see Brandt et al., 2012; Cevik,
+2020 and Hsieh & Song, 2015 and Ljungqvist et al., 2015 among many). Further, we are able to construct counterfactuals and
+conduct several policy experiments. We find that reducing quadratic adjustment cost in capital is the most effective way to improve
+state firm’s output, investment and employment. Moreover, if Chinese authority is determined to push the reform in SOEs, the
+adjustment costs in state firm would be lower to the ones in private firms, then the outputs in state and private firms are expected
+to increase by 9.60% and 1.87%, respectively.
+The rest of the paper is organized as follows. In Section 2, we present the stylized facts on investment rates in state and private
+firms. A dynamic optimization problem is laid out in Section 3. Section 4 presents the estimates of key structural parameters
+recovered through simulated moment matching method, along with several policy experiments. Robustness check of our estimates
+is reported in Section 5. Conclusions are drawn in Section 6.
+2. Stylized facts
+This section first describes the institutional background on the SOEs reform that began in the late 1990s. Then it introduces the
+data set used in this analysis. It further uses the data to create certain “stylized facts”, such as moments and correlations, which are
+then used for structural estimation in Section 4.
+2.1. Institutional background
+The Chinese economy was centrally planned prior to 1978. That year, China’s leader Deng Xiaoping introduced a series of reforms
+that gradually opened the economy, implemented market-oriented policies, and allowed non-state ownership to exist and develop. In
+the early 1980s, an enterprise responsibility system was implemented. After fulfilling state plans and output quota, state enterprises

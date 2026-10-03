@@ -1,0 +1,92 @@
+American Economic Journal: Economic Policy 2023, 15(1): 174–195 
+https://doi.org/10.1257/pol.20200873
+174
+SOEs and Soft Incentive Constraints 
+in State Bank Lending†
+By Yiming Cao, Raymond Fisman, Hui Lin, and Yongxiang Wang*
+We study how Chinese state bank managers’ lending incentives impact 
+lending to ­state-owned enterprises (SOEs). We show lending quantity 
+increases and quality decreases at month’s end, indicating monthly 
+lending targets that decrease lending standards. Increased quantity 
+comes from both SOEs and private lending, whereas decreased qual-
+ity is from only SOEs, which continue to receive loans even after prior 
+defaults (particularly at month’s end). We suggest that SOE lending 
+may thus be beneficial for state bank managers, who lend to delinquent 
+state enterprises to meet targets, which in turn may exacerbate SOEs’ 
+soft budget constraints. (JEL G21, G28, L32, O16, P34).
+­S
+tate-owned enterprises in many economies are supported financially by govern-
+ments. It may be hard for policymakers to force SOEs to adhere to a fixed bud-
+get, leading to bailouts via government transfers or ­write-offs of bad debt owed to 
+state banks—what Kornai (1979) famously referred to as the soft budget constraint. 
+A large literature documents, both theoretically and empirically, the reasons that a 
+government may wish to prop up SOEs as well as the social ­cost-benefit trade-offs 
+from doing so.1 Less ­well studied are the motivations and incentives of organiza-
+tions and agents—most notably state banks and the loan officers they employ—that 
+provide the financial support that enables the soft budget constraint. That is, it is 
+straightforward to see how easy access to capital benefits managers of ­badly run 
+SOEs, but little work looks at why those running state banks willingly provide credit 
+to these troubled firms.
+Conventional wisdom is that state banks lend to SOEs because they are compelled 
+to do so by the government, and loan officers happily oblige because the government 
+takes eventual responsibility for any SOE defaults (see, for example, Lu, Thangavelu, 
+and Hu 2005; Tian 2004; Lou 2000, among others). We show, however, that bank 
+1 See, among many examples, Dewatripont and Maskin (1995); Maskin (1999); and Kornai, Maskin, and Roland 
+(2003) for early theoretical contributions; Estrin et al. (2009) on government ownership and privatization in tran-
+sition economies; Guriev (2018) for a recent discussion of soft budget constraints and the failure to privatize; and 
+Caballero, Hoshi, and Kashyap (2008) on lending to insolvent firms in Japan, a market economy.
+* Cao: Boston University (email: yiming@bu.edu); Fisman: Boston University and NBER (email: rfisman@
+bu.edu); Lin: Nanjing University (email: linhui@nju.edu.cn); Wang: Chinese University of Hong Kong, Shenzhen 
+and Shanghai Jiao Tong University (email: benbenqingzi@hotmail.com). Dan Silverman was coeditor for this arti-
+cle. Authors contributed equally and are listed in alphabetical order. Wang would like to thank National Natural 
+Science Foundation of China (grant 72172090) for financial support. We thank various seminar audiences for their 
+suggestions and two anonymous reviewers for their very constructive feedback.
+† Go to https://doi.org/10.1257/pol.20200873 to visit the article page for additional materials and author 
+disclosure statement(s) or to comment in the online discussion forum.
+
+VOL. 15 NO. 1
+175
+CAO ET AL.: SOES AND SOFT INCENTIVE CONSTRAINTS IN STATE BANK LENDING
+managers may have their own incentives to lend to SOEs, as such lending provides 
+an easy way for them to meet lending targets that are also common in banking—
+state or otherwise. That is, the opportunity to lend to SOEs provides bank managers 
+facing loan targets with what we call a “soft incentive constraint” since it can easily 
+be managed by lending to SOEs, with lesser concern for their creditworthiness.
+We study the loan portfolio of a large Chinese state bank during the period 
+1997–2010, with the ultimate goal of understanding what motivates their lending to 
+SOEs versus private firms. Specifically, we examine how branch managers respond 
+to month- and ­quarter-end loan quotas that Chinese banks (both ­state-owned and 
+private) were reported to use to motivate them during the period we study.2
+We begin by discussing and presenting evidence of lending targets for bank 
+branch managers. We show that these incentives led to very strong monthly cycles 
+in both the quantity and quality of lending in our data. Specifically, both the number 
+and size of loans increase as the final day of the month approaches, consistent with 
+branch managers’ need to hit ­month-end targets. Our intensive and extensive mar-
+gin estimates combined imply an overall ­end-of-month lending increase of about 
+92 percent. This pattern is distinct from any ­day-of-week or ­month-of-year effects 
+and is invariant to a wide range of robustness tests, including branch ​×​ month fixed 
+effects. Consistent with Oyer (1998), we also find a lower rate of lending at the 
+beginning of each month, though the shortfall does not come close to offsetting the 
+­end-of-period increase. Consistent with a ­month-end lowering of lending standards, 
+we also show that a ­month-end loan is more than 1.1 percentage points (8 percent) 
+more likely to be classified eventually as a bad loan. These findings echo those of 
+Tzioumis and Gee (2013), which finds similar patterns for US mortgage lending for 
+loan officers motivated by ­month-end targets.
+We next turn to exploring the composition of lending over the monthly cycle, 
+focusing on two main features of borrowing firms: SOE status and past borrowing 
+history. We document several drivers of the overall monthly cycles in loan quan-
+tity and quality that may be useful for understanding bank managers’ incentives to 
+lend to SOEs. First, we find that, while the ­end-of-month increase in bank lending 
+appears for both SOE and private borrowers, the quality decline is driven primarily 
+by loans to SOEs. If banks were driven to lend to SOEs simply via government fiat, 
+we would not expect to see this monthly cycle. Rather, SOEs would simply have 
+higher default rates over the entire month, rather than a pronounced increase at 
+month’s end when lending quotas become more of an immediate concern.
+When we further disaggregate both SOEs and private firms into those with clean 
+borrowing records versus those with past default, we see a much starker contrast: 
+first, ­non-SOEs with past defaults receive almost no loans whatsoever from the bank, 
+accounting for just 1.5 percent of overall lending on average. SOE borrowers with 
+past defaults, by contrast, constitute 30 percent of the bank’s new lending during the 
+period we study, and the monthly cycle of lending to SOEs is comparable for those 
+2 Such incentives are pervasive in the banking industry. See Tzioumis and Gee (2013) for evidence on ­short-term 
+lending quotas in US mortgage lending, also discussed further below.

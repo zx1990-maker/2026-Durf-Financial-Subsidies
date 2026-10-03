@@ -1,0 +1,70 @@
+Industry and Innovation
+ISSN: 1366-2716 (Print) 1469-8390 (Online) Journal homepage: www.tandfonline.com/journals/ciai20
+When do state-owned enterprises innovate? The
+moderating role of pro-market institutions
+Christopher John Boudreaux
+To cite this article: Christopher John Boudreaux (2025) When do state-owned enterprises
+innovate? The moderating role of pro-market institutions, Industry and Innovation, 32:4,
+383-412, DOI: 10.1080/13662716.2024.2364696
+To link to this article: https://doi.org/10.1080/13662716.2024.2364696
+View supplementary material 
+Published online: 12 Jun 2024.
+Submit your article to this journal 
+Article views: 471
+View related articles 
+View Crossmark data
+Citing articles: 9 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=ciai20
+
+RESEARCH ARTICLE
+When do state-owned enterprises innovate? The moderating 
+role of pro-market institutions
+Christopher John Boudreaux
+Department of Economics, College of Business, Florida Atlantic University, Boca Raton, FL, USA
+ABSTRACT
+I explore how pro-market institutions moderate the relationship 
+between private or state ownership and innovation. Due to political 
+and social connections, state-owned enterprises (SOEs) have sev­
+eral advantages over private-owned enterprises (POEs) in China, 
+but I hypothesise that these advantages wane when institutional 
+environments prioritise market competition, rule of law, and the 
+rewards to profitable enterprise. Using data from the World Bank’s 
+Enterprise Survey in China, the results suggest that POEs are more 
+innovative than SOEs but only in market-oriented provinces. In 
+provinces that are not market-oriented, SOEs are more innovative 
+than POEs.
+KEYWORDS 
+China; entrepreneurship; 
+innovation; market 
+institutions; private 
+enterprise; state enterprise
+JEL CLASSIFICATION 
+L26; M13; O31; P16
+1. Introduction
+Why are some countries more prosperous than others? This question dates back to the 
+18th century with Adam Smith’s An Inquiry into the Nature and Causes of the Wealth of 
+Nations (Smith 1776). Most scholars now recognise the importance of institutions in 
+promoting prosperity (Acemoglu et al. 2005; North 1990; Williamson 2000) – especially 
+through the channels of entrepreneurship and innovation (Bennett 2019, 2020; 
+Bjørnskov and Foss 2016; Bradley and Klein 2016; Coomes, Fernandez, and Gohmann 
+2013; Gohmann 2012; Gohmann, Hobbs, and McCrickard 2008). China presents 
+a puzzle, however. Despite many obstacles to markets and private enterprise, entrepre­
+neurship has flourished in China (Zhou 2013, 2014; Zhou and Hall 2019). If market 
+institutional environments encourage innovation and entrepreneurship and their 
+absence inhibits innovation and entrepreneurship, why then has entrepreneurship in 
+China thrived despite an overall absence of market institutions?
+We now know that the success or failure of an emerging market depends largely on the 
+performance of entrepreneurs (McMillan and Woodruff 2002). However, the success of 
+private enterprises has varied in economies like Russia, China, Poland, and Vietnam. In 
+some countries, the government impeded the development of private enterprises. Yet, in 
+others, the government fostered an environment conducive to entrepreneurship 
+CONTACT Christopher John Boudreaux 
+cboudreaux@fau.edu 
+Department of Economics, College of Business, 
+Florida Atlantic University, 777 Glades Road, OD 201B, Boca Raton, FL 33431, USA
+Supplemental data for this article can be accessed online at https://doi.org/10.1080/13662716.2024.2364696.
+INDUSTRY AND INNOVATION 
+2025, VOL. 32, NO. 4, 383–412 
+https://doi.org/10.1080/13662716.2024.2364696
+© 2024 Informa UK Limited, trading as Taylor & Francis Group

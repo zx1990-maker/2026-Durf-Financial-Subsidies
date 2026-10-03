@@ -1,0 +1,85 @@
+OWNERSHIP AND PERFORMANCE IN 
+COMPETITIVE ENVIRONMENTS: 
+A COMPARISON OF THE PERFORMANCE 
+OF PRIVATE, MIXED, 
+AND STATE-OWNED ENTERPRISES* 
+ANTHONY E. BOARDMAN 
+and 
+AIDAN R. VINING 
+University of British Columbia 
+Simon Fraser University 
+I. 
+INTRODUCTION 
+THE property rights theory of the firm suggests that public enterprises 
+should perform less efficiently and less profitably than private enterprises. 
+However, the existing empirical evidence actually provides weak support 
+for this hypothesis. Most of the evidence is based upon North American 
+"firms" and has compared the performance of matched public and private 
+firms where at least one of the following limitations applies: (1) firms have 
+a natural (spatial) monopoly (namely, electric and water utilities, nonrail 
+transit, fire services, and refuse collection); (2) there is a regulated duop- 
+oly (for example, airlines, railroads, nonrail transit, financial institutions); 
+or (3) output is not or cannot be priced by competitive forces (this applies 
+to all of the above plus health-related services). Almost no empirical 
+research has tested the effect of ownership in a competitive environment. 
+In fact, with the exception of two studies that examine Indonesia and 
+Tanzania,' no study has explicitly compared the effect of ownership while 
+controlling for relevant factors. 
+* Earlier drafts of this article were presented at the Symposium on Industrial Policy in the 
+European Economic Community and Spain, in Barcelona, June 1987, and at the Association 
+for Public Policy Analysis and Management, Austin, Texas, November 1986. This research 
+was supported by grants from the Centre of International Business Studies (University of 
+British Columbia), and the Social Sciences and Humanities Research Council (Canada). We 
+thank Yuming Fu, David Ing, and Karl Wong for research assistance. 
+1 See Richard Funkhouser & Paul W. MacAvoy, A Sample of Observations on Compara- 
+tive Prices in Public and Private Enterprises, 11 J. Pub. Econ. 353 (1979); and Kwan S. Kim, 
+[Journal of Law & Economics, vol. XXXII (April 1989)] 
+? 1989 by The University of Chicago. All rights reserved. 0022-2186/89/3201-0002$01.50 
+I 
+
+THE JOURNAL OF LAW AND ECONOMICS 
+The most convincing test of the property rights theory would be based 
+on a comparison of industrial state-owned enterprises (SOEs), mixed en- 
+terprises (MEs),2 and private corporations (PCs) in competitive environ- 
+ments. To address this issue we compare the performance of PCs, SOEs, 
+and MEs among the 500 largest non-U.S. industrial firms. Of these 500 
+corporations, 419 are PCs, 58 are SOEs, and 23 are MEs. Results of this 
+analysis are by no means of purely theoretical interest. Large industrial 
+public corporations play a major role in the economies of many countries 
+around the world.3 
+Section II reviews both the economic theory and the empirical evidence 
+on the performance of public, private, and mixed enterprises. Section III 
+discusses the problem of evaluating the performance of SOEs and MEs 
+given the existence of sociopolitical goals. Section IV presents the model 
+and the data. Section V discusses the estimation methodology and the 
+empirical results. Section VI presents brief conclusions. 
+II. 
+THEORY AND EVIDENCE ON PUBLIC, PRIVATE, 
+AND MIXED CORPORATIONS 
+A. 
+Theoretical Framework 
+The dominant positive model of the effect of ownership is the public 
+choice, or property rights, model. Alchian suggested that property rights 
+are more attenuated in the public corporation than in the private corpora- 
+Enterprise Performance in the Public and Private Sectors: Tanzanian Experience, 1970-75, 
+15 J. Develop. Areas 471 (1981). 
+2 When one deals with data on corporations based outside the U.S. it is inadequate to 
+classify corporations as public or private because some of them are mixed, that is, part of 
+their stock is in private hands and part of it is in public hands. For a survey of recent 
+research pertaining specifically to mixed enterprises, see Anthony Boardman, Catherine 
+Eckel, & Aidan Vining, The Advantages and Disadvantages of Mixed Enterprises, in Multi- 
+national Corporations and State-Owned Enterprises: A New Challenge in International 
+Business (Research in International Business and International Relations, Vol. I) 221 (Anant 
+R. Negandhi, Howard Thomas, & K. L. K. Rao eds. 1986). 
+3 For example, speaking of Europe, R. Joseph Monsen & Kenneth D. Walters, 
+Nationalized Companies: A Threat to American Business 1 (1983), note: "As recently as 
+1970 not a single manufacturing industry in which state-owned firms held an important share 
+of industrial output could be found in Western Europe. That has now changed radically. In a 
+number of industries, state-owned firms have gained a dominant, or significant, position in 
+European markets. The list includes some of the most important industrial sectors, including 
+aerospace, steel, aluminum, shipbuilding, and automobiles. 
+"Today state-owned firms can be found in virtually all industries in Europe. New state 
+firms in the 1970's were created or nationalized in pharmaceuticals, electronics, computers, 
+office equipment, oil, microelectronics, chemicals, petrochemicals, pulp and paper, and 
+telecommunications. Each year more firms are drawn into the state-owned sector." 
+2

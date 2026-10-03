@@ -1,0 +1,116 @@
+Contents lists available at ScienceDirect
+Research in International Business and Finance
+journal homepage: www.elsevier.com/locate/ribaf
+State ownership and the cost of debt: Evidence from corporate
+bond issuances in China
+Yao Ge, Yangshu Liu*,1, Zheng Qiao*,2, Zhe Shen*
+School of Management, Xiamen University, Siming South Road 422, Xiamen, 361005, PR China
+A R T I C L E I N F O
+JEL classification:
+G12
+G31
+Keywords:
+State ownership
+Implicit guarantee
+Bond issuance
+A B S T R A C T
+Corporate credit risk can be reduced through implicit government guarantees. State-owned en-
+terprises (SOEs) in China provide a distinctive setting to investigate government roles in cor-
+porate debt financing. We find that non-SOEs’ corporate bond issuance costs are significantly
+higher than those of SOEs. We also observe relatively lower bond issuance costs for firms con-
+trolled by the central government (CSOEs) than those controlled by local governments (LSOEs).
+In addition, we demonstrate that compared with SOEs, non-SOEs’ financial constraints are mi-
+tigated to a larger extent after the bond issuances. Overall, we show that state ownership plays an
+important role in determining corporate bond issuance costs.
+1. Introduction
+According to Merton (1974), the corporate cost of debt is largely determined by a firm’s credit risk. There are extensive studies on
+risk and bond pricing (Leland, 1994, 1998; Duffie and Lando, 2001; Collin-Dufresne et al., 2001; Longstaff et al., 2005; Huang and
+Huang, 2012). Debt holders require risk premiums for different levels of credit risk. Among the various factors affecting credit risk,
+government involvement, which can potentially provide implicit guarantees, significantly affects investors’ expectations of a firm’s
+prospect and risk evaluation.3 Implicit guarantees by the government could convert to monetary benefit by affecting financing costs.
+Starting in 2007, there had been no default case in firms with state ownership until April 21, 2015. The government always interferes
+when holding firms are close to default, making the debt repayment seem compulsory. This phenomenon in China is usually called
+“nonelastic payment” and is arranged by the government. As a result, investors in China have strong beliefs of implicit guarantees by
+the government to bail out its connected firms, and corporate credit risk premiums are adjusted accordingly.
+How exactly does the government affect the credit risk of a firm? The government discriminates its support to firms of different
+political backgrounds. Obviously, SOEs in China are able to obtain more support from the government than non-SOEs, both explicitly
+and implicitly. With respect to the cost of financing, the differentiation in support between them will lead to different levels of credit
+risk and corporate bond issuing cost. According to the study by Li. et al. (2008), private entrepreneurs are subject not only to certain
+https://doi.org/10.1016/j.ribaf.2019.101164
+Received 13 August 2019; Received in revised form 2 December 2019; Accepted 18 December 2019
+⁎ Corresponding authors.
+E-mail addresses: yge57@outlook.com (Y. Ge), ysliu@xmu.edu.cn (Y. Liu), zqiao@xmu.edu.cn (Z. Qiao), z.shen@xmu.edu.cn (Z. Shen).
+1 Liu acknowledges the financial support from the National Natural Science Foundation of China (71401144).
+2 Qiao acknowledges the financial support from the National Natural Science Foundation of China (71802171). All errors are ours.
+3 Faccio et al. (2006) find international evidence that politically connected firms are more likely to be bailed out by the governments. For example,
+the bail-out of the Wall Street giants by the U.S. government led to extensive discussion on topics such as ‘too big to fail’ (Sorkin, 2009), which
+significantly changes market risk perspectives when the government is involved. Merton and Tsesmelidakis, 2014 argue that the “too big to fail”
+(TBTF) firms benefit by obtaining financing at lower costs, especially the indirect effect of government bailouts, which is incorporated into public
+belief.
+Research in International Business and Finance 52 (2020) 101164
+Available online 02 January 2020
+0275-5319/ © 2019 Elsevier B.V. All rights reserved.
+T
+
+forms of social and political discrimination in the reform process but also to an unfavorable economic environment. In other words,
+SOEs always obtain more favorable terms from the government than non-SOEs do. This discrimination may also hold for corporate
+bonds; there are two ways for the government to alter a firm’s credit risk, ex-ante support and ex-post support, which are described in
+detail in the next paragraph.
+On the one hand, the government may provide ex-ante operational support to keep firms from facing financial difficulty. We call
+this support “precautionary support.” One way of doing so is by providing direct economic support, such as placing more government
+orders to boost a firm’s revenue, making favorable industrial policies to suppress its competitors, and providing financial subsidies
+directly, such as tax deductions. Another form of support is by helping firms gain easier access to financing, such as bank loans,
+especially when both the firm and the bank are SOEs at the same time in China (Claessens et al., 2008). In economic terms, firms such
+as SOEs are subject to soft budget constraints, as described by Kornai et al. (2003). Borisava et al. (2015) also find that firms with
+higher government ownership are able to obtain a lower cost of debt during a financial crisis or when they are facing higher
+likelihood of financial distress.
+On the other hand, the government could offer implicit guarantees to bail out the firm when the firm is already in distress. We call
+this support “protection support.” The firm’s credit risk decreases when its recovery rate increases. As a result, corporate bond pricing
+and yield-to-maturity are altered accordingly. For example, on March 7, 2014, the corporate bond issued by Shanghai Chaori Solar
+Energy Science & Technology Co., Ltd. made default announcements on the coupon payment of its bond. Nevertheless, with the help
+of the local government, the payments to investors were fulfilled 7 months later. In addition to this semi default event, in March 2015,
+the National Development and Reform Commission (NDRC) required local governments to exclude corporate bonds with potential
+default risk, which strengthened the expectation of the implicit guarantee from the government.
+We find that the issuance cost of corporate bonds is significantly lower for SOEs than for non-SOEs. The main finding is most
+concentrated in high-profitability firms. Furthermore, we find partial evidence that among the SOEs, those held by the central
+government obtain relatively cheaper corporate bond financing than those held by local governments. To explore the financial
+consequences of this bond pricing differentiation, we show that the cash holding and financial constraints are reduced to a larger
+extent for non-SOEs; this demonstrates that the marginal contribution of the bond issuances in corporate financing is higher for non-
+SOEs, which face more stringent financial constraints in China.
+This paper adds to the literature on political connectedness. There have been extensive studies on firms’ political connections and
+corporate decisions. Facio (2006) uses a unique personnel dataset to measure corporate political connectedness and finds that po-
+litically connected firms receive preferential support from the government. One related paper by Fan et al. (2007) studies politically
+connected firms and their post-IPO stock performance. They find that politically connected firms underperform in the long run after
+stock issuances. Using data from Brazil, Claessens et al. (2008) find that firms making campaign contributions to elected politicians
+obtain easier access to bank financing and demonstrate higher stock returns. Li et al. (2008) adopt a special measure of CEO identity:
+whether he or she is a member of the China Communist Party. They find that those forms whose CEOs are affiliated with the Party
+have better performance, especially in regions with weaker market institutions and legal systems. Chaney et al. (2011) argue that
+politically connected firms are opaquer and have relatively poorer reported earnings quality. One related paper by Bliss and Gul
+(2012) finds in Malaysia that politically connected firms maintain a lower cost of debt. Xu et al. (2015) demonstrate that in Chinese
+family firms, politically connected founders are more likely to appoint a second-generation family member as its chair. They also
+show that this arrangement helps improve firm performance, making political connection an important factor in corporate decisions.
+Having SOEs as one of the dominant market participants is a unique phenomenon in China. Instead of using inference from
+personal connections to measure political connections indirectly, explicit government ownership is a more direct form of political
+connections. This clear setting provides us with a rare opportunity to study political influence in financing. Moreover, differentiation
+between SOEs and non-SOEs is not subjective to data availability problems as small samples in personal connection samples. We take
+the corporate bond universe as our target sample with a clear label of CSOE/LSOE/non-SOE.
+The remainder of this paper is organized as follows. Section 2 describes the institutional backgrounds of Chinese SOEs and
+corporate bond market development. Section 3 depicts the data and methodology used in this paper. Section 4 presents a series of
+empirical results of the analysis. Section 5 concludes the paper.
+2. Institutional background
+As a transition economy from a previously plan-oriented system to a market-oriented one, China has a large proportion of firms
+with clearly identifiable government ownership, i.e., state-owned enterprises (SOEs). The government acts as the controlling
+shareholder for SOEs. Consequently, SOEs are closely tied to the government by nature. In the meantime, firms with private own-
+ership, i.e., non-SOEs have prospered during the dramatic reform process since the early 1990s. The comparison between SOEs and
+non-SOEs in the corporate bond market provides us with a clear setting to test how state ownership affects corporate financing.
+Moreover, SOEs in China can be further divided into two types: those controlled by the central government (CSOEs) and those
+controlled by local governments (LSOEs). Comparisons between the two types of SOEs are also conducted in this study.
+There have been extensive studies on firm’s political connectedness and corporate financing. Most of them find that politically
+connected firms gain favorable support, such as easier access to equity financing and bank loans. Borisova and Megginson (2011)
+study how privatization affects the corporate cost of debt in European SOEs. Borisova et al. (2015) examine the relation between
+government ownership and bond credit spread of the data of 43 countries. However, to the best of our knowledge, we are the first to
+study how political connectedness affects corporate bond issuance specifically. Corporate bond issuance is an important financing
+tool for public firms. Regarding issuance costs in the secondary market, focusing on corporate bond enables us to investigate the
+Y. Ge, et al.
+Research in International Business and Finance 52 (2020) 101164
+2

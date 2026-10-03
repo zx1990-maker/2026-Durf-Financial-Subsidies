@@ -1,0 +1,205 @@
+[
+  {
+    "id": 1,
+    "source": "ref1/reference 1/1-s2.0-S0275531919308888-main.pdf",
+    "txt": "01_1-s2.0-S0275531919308888-main.pdf.txt",
+    "pages": 2,
+    "chars": 11447
+  },
+  {
+    "id": 2,
+    "source": "ref1/reference 1/1-s2.0-S0305750X24000780-main.pdf",
+    "txt": "02_1-s2.0-S0305750X24000780-main.pdf.txt",
+    "pages": 2,
+    "chars": 13857
+  },
+  {
+    "id": 3,
+    "source": "ref1/reference 1/1-s2.0-S154461232301228X-main.pdf",
+    "txt": "03_1-s2.0-S154461232301228X-main.pdf.txt",
+    "pages": 2,
+    "chars": 10500
+  },
+  {
+    "id": 4,
+    "source": "ref1/reference 1/EBSCO-FullText-08_14_2026.pdf",
+    "txt": "04_EBSCO-FullText-08_14_2026.pdf.txt",
+    "pages": 2,
+    "chars": 10583
+  },
+  {
+    "id": 5,
+    "source": "ref1/reference 1/Economic functions and soft budget constraint of SOEs  evidence from China.pdf",
+    "txt": "05_Economic_functions_and_soft_budget_constraint_of_SOEs_evidence_from_China.pdf.txt",
+    "pages": 2,
+    "chars": 5199
+  },
+  {
+    "id": 6,
+    "source": "ref1/reference 1/Government_20subsidies_20_20ownership_20structure_20and_20operating_20performance_20of_20state-owned_20enterprises_20_20evidence_20from_20China.pdf",
+    "txt": "06_Government_20subsidies_20_20ownership_20structure_20and_20operating_20performance_20of_20state-owned_20enterprises_20_20evidence_20from_20China.pdf.txt",
+    "pages": 2,
+    "chars": 5069
+  },
+  {
+    "id": 7,
+    "source": "ref1/reference 1/cao-et-al-2023-soes-and-soft-incentive-constraints-in-state-bank-lending.pdf",
+    "txt": "07_cao-et-al-2023-soes-and-soft-incentive-constraints-in-state-bank-lending.pdf.txt",
+    "pages": 2,
+    "chars": 7047
+  },
+  {
+    "id": 8,
+    "source": "ref1/reference 1/gvab014.pdf",
+    "txt": "08_gvab014.pdf.txt",
+    "pages": 2,
+    "chars": 9631
+  },
+  {
+    "id": 9,
+    "source": "ref1/reference 1/s11127-020-00834-1.pdf",
+    "txt": "09_s11127-020-00834-1.pdf.txt",
+    "pages": 2,
+    "chars": 6645
+  },
+  {
+    "id": 10,
+    "source": "ref2/reference 2/1-s2.0-S0929119921000407-main.pdf",
+    "txt": "10_1-s2.0-S0929119921000407-main.pdf.txt",
+    "pages": 2,
+    "chars": 11116
+  },
+  {
+    "id": 11,
+    "source": "ref2/reference 2/1-s2.0-S1059056022003197-main.pdf",
+    "txt": "11_1-s2.0-S1059056022003197-main.pdf.txt",
+    "pages": 2,
+    "chars": 11003
+  },
+  {
+    "id": 12,
+    "source": "ref2/reference 2/20240327180346.pdf",
+    "txt": "12_20240327180346.pdf.txt",
+    "pages": 2,
+    "chars": 9822
+  },
+  {
+    "id": 13,
+    "source": "ref2/reference 2/Corporate Governance - 2018 - Lazzarini - State ownership reinvented  Explaining performance differences between.pdf",
+    "txt": "13_Corporate_Governance_-_2018_-_Lazzarini_-_State_ownership_reinvented_Explaining_performance_differences_between.pdf.txt",
+    "pages": 2,
+    "chars": 11260
+  },
+  {
+    "id": 14,
+    "source": "ref2/reference 2/Corporate Governance - 2023 - Hu - Unification of power and responsibilities for state‐owned enterprises  A quasi‐natural.pdf",
+    "txt": "14_Corporate_Governance_-_2023_-_Hu_-_Unification_of_power_and_responsibilities_for_state_owned_enterprises_A_quasi_natural.pdf.txt",
+    "pages": 2,
+    "chars": 10781
+  },
+  {
+    "id": 15,
+    "source": "ref2/reference 2/FBEM-15-1-14-18.pdf",
+    "txt": "15_FBEM-15-1-14-18.pdf.txt",
+    "pages": 2,
+    "chars": 13111
+  },
+  {
+    "id": 16,
+    "source": "ref2/reference 2/Mixed-Ownership_Reform_and_Innovation_An_Examination_of_State-Owned_Enterprises.pdf",
+    "txt": "16_Mixed-Ownership_Reform_and_Innovation_An_Examination_of_State-Owned_Enterprises.pdf.txt",
+    "pages": 2,
+    "chars": 11205
+  },
+  {
+    "id": 17,
+    "source": "ref2/reference 2/PPM_2022_01_Morales.pdf",
+    "txt": "17_PPM_2022_01_Morales.pdf.txt",
+    "pages": 2,
+    "chars": 4656
+  },
+  {
+    "id": 18,
+    "source": "ref2/reference 2/digital-divide-how-do-central-and-local-soes-respond-differently-to-digitalization-in-china.pdf",
+    "txt": "18_digital-divide-how-do-central-and-local-soes-respond-differently-to-digitalization-in-china.pdf.txt",
+    "pages": 2,
+    "chars": 8493
+  },
+  {
+    "id": 19,
+    "source": "ref2/reference 2/rifqi,+234020122.pdf",
+    "txt": "19_rifqi_234020122.pdf.txt",
+    "pages": 2,
+    "chars": 5501
+  },
+  {
+    "id": 20,
+    "source": "ref2/reference 2/s41111-018-0112-4.pdf",
+    "txt": "20_s41111-018-0112-4.pdf.txt",
+    "pages": 2,
+    "chars": 5667
+  },
+  {
+    "id": 21,
+    "source": "ref2/reference 2/zhou-et-al-2016-state-ownership-and-firm-innovation-in-china-an-integrated-view-of-institutional-and-efficiency-logics.pdf",
+    "txt": "21_zhou-et-al-2016-state-ownership-and-firm-innovation-in-china-an-integrated-view-of-institutional-and-efficiency-logics.pdf.txt",
+    "pages": 2,
+    "chars": 5869
+  },
+  {
+    "id": 22,
+    "source": "ref3/reference 3/1-s2.0-S1059056021001556-main.pdf",
+    "txt": "22_1-s2.0-S1059056021001556-main.pdf.txt",
+    "pages": 2,
+    "chars": 9939
+  },
+  {
+    "id": 23,
+    "source": "ref3/reference 3/467167.link.pdf",
+    "txt": "23_467167.link.pdf.txt",
+    "pages": 2,
+    "chars": 5322
+  },
+  {
+    "id": 24,
+    "source": "ref3/reference 3/IDU0e7057cdf09fa8044eb09d8a058ea7dfe2831.pdf",
+    "txt": "24_IDU0e7057cdf09fa8044eb09d8a058ea7dfe2831.pdf.txt",
+    "pages": 2,
+    "chars": 3516
+  },
+  {
+    "id": 25,
+    "source": "ref3/reference 3/J Management Studies - 2008 - Goldeng - The Performance Differential between Private and State Owned Enterprises  The Roles.pdf",
+    "txt": "25_J_Management_Studies_-_2008_-_Goldeng_-_The_Performance_Differential_between_Private_and_State_Owned_Enterprises_The_Roles.pdf.txt",
+    "pages": 2,
+    "chars": 6837
+  },
+  {
+    "id": 26,
+    "source": "ref3/reference 3/Performance in Strategic Sectors_ A Comparison of Profitability a.pdf",
+    "txt": "26_Performance_in_Strategic_Sectors__A_Comparison_of_Profitability_a.pdf.txt",
+    "pages": 2,
+    "chars": 4235
+  },
+  {
+    "id": 27,
+    "source": "ref3/reference 3/When do state-owned enterprises innovate  The moderating role of pro-market institutions.pdf",
+    "txt": "27_When_do_state-owned_enterprises_innovate_The_moderating_role_of_pro-market_institutions.pdf.txt",
+    "pages": 2,
+    "chars": 3789
+  },
+  {
+    "id": 28,
+    "source": "ref3/reference 3/reforms-opportunities-challenges-state-owned-enterprises.pdf",
+    "txt": "28_reforms-opportunities-challenges-state-owned-enterprises.pdf.txt",
+    "pages": 2,
+    "chars": 143
+  },
+  {
+    "id": 29,
+    "source": "ref3/reference 3/w32795.pdf",
+    "txt": "29_w32795.pdf.txt",
+    "pages": 2,
+    "chars": 2543
+  }
+]

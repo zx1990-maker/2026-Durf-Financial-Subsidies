@@ -1,0 +1,95 @@
+Administrative Science Quarterly
+2017, Vol. 62(2)375–404
+ The Author(s) 2016
+Reprints and permissions:
+sagepub.com/
+journalsPermissions.nav
+DOI: 10.1177/0001839216674457
+journals.sagepub.com/home/asq
+State Ownership and
+Firm Innovation in
+China: An Integrated
+View of Institutional
+and Efficiency Logics
+Kevin Zheng Zhou,1 Gerald Yong Gao,2 and
+Hongxin Zhao3
+Abstract
+Using two longitudinal panel datasets of Chinese manufacturing firms, we
+assess whether state ownership benefits or impedes firms’ innovation. We
+show that state ownership in an emerging economy enables a firm to obtain
+crucial R&D resources but makes the firm less efficient in using those
+resources to generate innovation, and we find that a minority state ownership
+is an optimal structure for innovation development in this context. Moreover,
+the inefficiency of state ownership in transforming R&D input into innovation
+output decreases when industrial competition is high, as well as for start-up
+firms. Our findings integrate the efficiency logic (agency theory), which views
+state ownership as detrimental to innovation, and institutional logic, which
+notes that governments in emerging economies have critical influences on reg-
+ulatory policies and control over scarce resources. We discuss the implications
+of these findings for research on state ownership and firm innovation in emer-
+ging economies.
+Keywords: state ownership, innovation, agency theory, institutional theory,
+industrial competition, state start-up, emerging economies, Chinese
+manufacturing
+Innovation is a key driver of sustainable competitive advantage and economic
+growth, and the rise of emerging economies has fueled a growing interest in
+how factors unique to those markets affect innovation development (Chen
+et al., 2014; Lee, O¨ zsomer, and Zhou, 2015). Because governments in emer-
+ging economies such as Brazil, China, and Russia play critical roles in affecting
+firms’ behavior, researchers have recently revisited state capitalism, focusing
+on whether government control may stimulate innovation and competitive
+1 Faculty of Business and Economics, University of Hong Kong
+2 College of Business Administration, University of Missouri–St. Louis
+3 John Cook School of Business, Saint Louis University
+
+advantage (Lazzarini, 2015; Mazzucato, 2015) and how various forms of state
+ownership foster firms’ performance (Inoue, Lazzarini, and Musacchio, 2013;
+Musacchio, Lazzarini, and Aguilera, 2015). But how different levels of state
+ownership affect firms’ innovation has received less attention (Musacchio,
+Lazzarini, and Aguilera, 2015).
+According to the conventional, efficiency-based economic view, mostly
+rooted in agency theory, state ownership plays a minor role in spurring firms’
+innovation and performance. Because state-owned enterprises (SOEs) are gov-
+erned by administrative rather than economic imperatives, government inter-
+vention is unavoidable, and political tasks hinder firms’ development (Shleifer
+and Vishny, 1994; Shleifer, 1998; Ramaswamy, 2001). Managers in SOEs often
+lack incentives to pursue market-driven, efficiency-based innovative activities
+and instead just fulfill their administrative mandates (Ramamurti, 2000; Freund,
+2001). According to this view, SOEs should gradually lose their innovativeness
+and competitiveness over time.
+In reality, however, many SOEs in emerging economies have evolved into
+dynamic dynamos, rather than the predicted dying dinosaurs (Ralston et al.,
+2006; Musacchio and Lazzarini, 2014; Stan, Peng, and Bruton, 2014). China
+now has 106 companies in the 2015 Fortune Global 500—four times more than
+in 2006—about two-thirds of which are SOEs. An institutional perspective
+helps to explain this growth. According to the institutional view (North, 2005;
+Peng, Wang, and Jiang, 2008), governments are among the most salient insti-
+tutions in emerging economies, with critical influences on regulatory policies
+and control over scarce resources, so they profoundly shape firms’ competitive
+environment (Gao et al., 2010; Nee and Opper, 2012). Because SOEs have
+access to policy information, government support, and valuable resources
+(Chen et al., 2014; Musacchio and Lazzarini, 2014), these advantages presum-
+ably could foster innovation.
+Whereas prior studies generally show that SOEs perform worse than their
+private counterparts (see Megginson and Netter, 2001, for a review), empirical
+evidence is mixed on the effects of state ownership on innovation. Some stud-
+ies report that state ownership has negative effects on new product sales, pat-
+ent applications, firms’ adoption of product innovation, and revenue from
+innovation projects in China (Jefferson et al., 2003; Xu and Zhang, 2008; Guan
+et al., 2009), and Ayyagari, Demirgu¨c-Kunt, and Maksimovic (2011) showed
+that SOEs are less innovative than private firms across 47 emerging markets.
+In contrast, other studies have shown that SOEs produce more patent registra-
+tions or new products than non-SOEs in China (Li and Xia, 2008; Choi, Lee, and
+Williams, 2011). Meanwhile, Choi, Park and Hong (2012) found that state own-
+ership has no significant bearing on Korean firms’ technological innovation
+performance.
+To resolve the theoretical and empirical inconsistencies about the effects of
+state ownership, we theorize in this paper that the institutional and efficiency
+logics pertain to different facets of state ownership: the institutional logic
+focuses on resource allocation, and the efficiency logic refers to resource utili-
+zation, so they are intertwined in explaining the impact of state ownership on
+innovation. Whereas state ownership could enable a firm to obtain more
+resources for innovation (i.e., more R&D input), it may also decrease the firm’s
+ability to convert its R&D input into innovation output (i.e., to have lower
+376
+Administrative Science Quarterly 62 (2017)

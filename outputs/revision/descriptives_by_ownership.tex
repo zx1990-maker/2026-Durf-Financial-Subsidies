@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\caption{描述性统计（2025 预测期，特征年 $t=2024$，完整案例）}
+\label{tab:descriptives}
+\small
+\begin{tabular}{llcccc}
+\toprule
+变量 & 定义 & \multicolumn{2}{c}{民营企业} & \multicolumn{2}{c}{SOE} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+& & 均值 & SD & 均值 & SD \\
+\midrule
+FirmSize & 企业规模（$\ln$ 总资产） & 21.891 & 1.121 & 23.121 & 1.537 \\
+AssetTurnover & 资产周转率 & 0.566 & 0.455 & 0.577 & 0.506 \\
+FinancialLeverage & 资产负债率 & 0.374 & 0.193 & 0.479 & 0.208 \\
+FixedAssetsRatio & 固定资产比率 & 0.208 & 0.141 & 0.238 & 0.186 \\
+CurrentRatio & 流动比率 & 3.089 & 3.318 & 2.053 & 2.166 \\
+CapexRatio & 资本支出比率 & 0.050 & 0.046 & 0.037 & 0.039 \\
+WorkingCapitalRatio & 营运资本比率 & 0.301 & 0.238 & 0.176 & 0.240 \\
+MarketShare & 市场份额 & 0.004 & 0.012 & 0.013 & 0.035 \\
+HHI & 行业集中度 HHI & 0.046 & 0.037 & 0.056 & 0.049 \\
+EBI_A & $EBI/A_{t+1}$ & 0.026 & 0.063 & 0.019 & 0.051 \\
+\bottomrule
+\end{tabular}
+
+\begin{tablenotes}\footnotesize\raggedright注：样本为 2025 预测期（特征年 $t=2024$）完整案例，民营企业 $n=3314$ 家、SOE $n=1336$ 家；民营企业训练样本为全年份共 26,464 个 firm-year、3,344 家。各特征的双样本标准化均值差（SMD）与共同支撑域诊断见\textcolor{black}{表~\ref{tab:cs}}。\end{tablenotes}
+\end{table}

@@ -1,0 +1,100 @@
+ARTICLE
+‘Digital Divide’: How Do Central and Local SOEs Respond
+Differently to Digitalization in China
+Xiaowei Rose Luo1, Jun Wang2, Shuangying Chen2, and Boyi Chen2
+1INSEAD, France, and 2University of Electronic Science and Technology of China, China
+Corresponding author: Shuangying Chen (shychen@uestc.edu.cn)
+(Received 30 March 2023; accepted 4 August 2024; first published online 7 January 2025)
+Abstract
+Despite the important role of state-owned enterprises (SOEs) in government policy implementation, there is
+a lack of research on how SOEs owned by different government entities differ. We draw on an attention-based
+view (ABV) to understand how central government-owned (called central SOEs) and local government-
+owned enterprises (called local SOEs) differ in their response to digitalization, a major state objective in
+China in recent years. The two types of SOEs differ in the foundational feature of attention structure –
+the rules of the game (as embodied in their different goals, identities, and evaluation of top executives) –
+as well as important features such as governance structures and resources. These features can trigger more
+attention in central SOEs to digitalization. Given the interdependence of these features in shaping the struc-
+tural distribution of attention, we further propose how governance structures and resources can influence
+strategic attention differently in SOEs with different rules of the game. The arguments are tested using
+data from all Chinese-listed manufacturing SOEs between 2009 and 2020. The study reveals different
+responses to national strategy between central and local SOEs due to their distinct attention structures
+designed by the state. It also extends the ABV and research on corporate digital transformation.
+摘要
+国有企业在政府政策实施过程中发挥着重要作用，但现有文献对所属不同层级政府的国有企业的差
+异，却缺乏研究。本文基于注意力基础观，研究所属中央政府的国有企业（称为中央国企）和所属
+地方政府的国有企业（称为地方国企）对中国的国家战略，即数字化战略的不同反应。中央国企和
+地方国企在注意力结构的基础特征——“游戏”规则（包括目标、身份和对高管的考核机制），以及
+治理结构和资源等方面存在差异，这些差异使得中央国企对数字化战略的关注比地方国企更多。鉴
+于这些特征在塑造注意力结构上的相互依存关系，本文进一步提出治理结构和资源，如何影响不同
+“游戏”规则中的中央国企和地方国企的战略注意力。我们运用2009 年至2020 年中国的国有上市制
+造企业的数据进行实证，研究结论揭示出中央国企和地方国企的注意力结构不同，对国家战略的反
+应存在差异。本研究拓展了注意力基础观和企业数字化转型的研究。
+Keywords: attention-based view; digitalization; national strategy; state-owned enterprises
+关键词: 国有企业; 注意力基础观; 数字化转型; 国家战略
+Introduction
+Research on state-owned enterprises (SOEs) has established that state ownership gives these firms dis-
+tinct governance mechanisms and goals that orient them to carry out state missions and strategies
+(Huang & Yu, 2006). However, the state is not a monolithic entity, as revealed in a growing number
+of studies. For instance, the central and local governments can have divergent interests and goals (Luo,
+Wang, & Zhang, 2017). Examining such differences is critical for understanding the implementation of
+national strategies concerning the economy and corporations. To better understand the state’s role in
+© The Author(s), 2025. Published by Cambridge University Press on behalf of International Association for Chinese Management Research. This
+is an Open Access article, distributed under the terms of the Creative Commons Attribution licence (http://creativecommons.org/licenses/by/4.0/),
+which permits unrestricted re-use, distribution and reproduction, provided the original article is properly cited.
+Management and Organization Review (2024), 20, 748–772
+doi:10.1017/mor.2024.29
+https://doi.org/10.1017/mor.2024.29 Published online by Cambridge University Press
+
+corporate change, prior research has started to analyze administrative capacity and state fragmentation
+(e.g., Chung, Luo, & Zheng, 2024; Guillén & Capron, 2016). However, research lacks on whether and
+why SOEs owned by different government entities respond differently to national policies.
+To fill this research gap, this study draws on the attention-based view (ABV) to examine how cen-
+tral SOEs and local SOEs differ in their strategic attention to digitalization, a major national strategy of
+the government in China in recent years. The ABV proposes how various features of attention structure
+in organizations can jointly regulate and channel managerial attention (Barreto & Patient, 2013; Fu,
+Tang, & Chen, 2020). We extend the original analysis of attention structure (Ocasio, 1997) to the context
+of SOEs. One of the most important players for SOEs, the Chinese state, designs the foundational feature
+of attention structure, the rules of the game, and two other important features – governance structures
+and resources (Joseph & Ocasio, 2012; Ocasio, 1997). The rules of the game are embodied in SOEs’ goals,
+identities, and evaluation criteria of top executives. We propose how the different attention structures in
+central versus local SOEs channel central SOEs to allocate higher value to issues of digitalization and pay
+more strategic attention than local SOEs. Moreover, we propose that the specific features of governance
+structures and resources – pyramid structure and government subsidies – interact with the rules of the
+game to regulate decision-makers’ attention. Given the game rule difference – primacy of national policy
+implementation in central SOEs versus the balanced goals in local SOEs, the pyramid structure weakens
+attention to digitalization in local SOEs but not in central SOEs, and government subsidies channel
+attention to digitalization in central SOEs but not in local SOEs.
+This study investigates SOEs’ focus on digitalization because, in China, such a change initiative has
+been mainly driven by the Chinese government. The government made digitalization a national strat-
+egy and called upon companies to fulfill this plan. However, digitalization, especially at the core of the
+business, can be highly risky, and not all firms see the immediate need to take such a risk without
+strong competitive or survival pressures (Girod & Whittington, 2017; Liu, Yan, Zhang, & Lin,
+2021). Moreover, digitalization is a long-term strategy that takes a long time to bear fruit and may
+have an adverse impact on a firm’s short-term performance (Liu et al., 2021). Considering that top
+leaders of SOEs need to show their achievements during their tenures of office, usually three to five
+years, they are more inclined to invest in projects with shorter income cycles and less risk (Wu,
+2012). Thus, SOEs are generally less likely to take the initiative to engage in digitalization, and the pres-
+sure from the state becomes a significant driving force. Therefore, digitalization offers an ideal context
+to observe whether and how central versus local SOEs attend differently to the government’s national
+strategy. We test the arguments using all publicly listed state-owned manufacturing firms in China
+between 2009 and 2020 and find empirical support.
+This study contributes to research on how the state influences policy implementation by understanding
+the differential responses of central versus local SOEs to national policy. While the literature on strong state
+andstatecapacityhasfocusedon the role ofthe stateinpolicyformulationandimplementation foreconomic
+growth (Evans & Rauch, 1999; Guillén & Capron, 2016; Skocpol, 1985), it has not considered the structural
+reasons for heterogeneous national policy implementation. Local SOEs attend lessto the central government
+pressures despite receiving government resources, especially when they are located at the far end of the con-
+trol chain. In addition, this study extends the ABV by understanding the important characteristics of atten-
+tion structure in different types of SOEs and how they regulate attention. Lastly, this study contributes to
+research on corporate digital transformation by revealing the important role of the government. The state
+has been promoting digitalization in many countries globally, but this burgeoning research has mainly
+focused on market competition and firms’ internal factors to explain adoption. Our study is among the
+first to demonstrate how the state has channeled firms’ strategic attention to digitalization in SOEs.
+Theoretical Background
+Attention-Based View
+Ocasio (1997) proposed the ABV to understand what drives corporate decision-making. He defines
+attention as ‘the noticing, encoding, interpreting and focusing of time and effort by organizational
+decision makers’. The ABV emphasizes that the focus of decision makers’ attention affects the strategic
+Management and Organization Review
+749
+https://doi.org/10.1017/mor.2024.29 Published online by Cambridge University Press

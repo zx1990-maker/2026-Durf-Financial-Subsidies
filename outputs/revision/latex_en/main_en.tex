@@ -1,0 +1,865 @@
+% !TEX program = xelatex
+% =============================================================================
+%  The Counterfactual Return-on-Assets Gap of State-Owned Enterprises in China
+%  Compile: xelatex main_en.tex (twice, to resolve cross-references)
+%  This is the English version of main.tex. All numbers are identical to the
+%  Chinese original; the prose is a full English rewrite, not a literal
+%  translation.
+% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Page and fonts ----------
+\usepackage[margin=1in]{geometry}
+
+% ---------- Math ----------
+\usepackage{amsmath,amssymb,amsthm}
+
+% ---------- Tables ----------
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{makecell}
+\renewcommand{\theadfont}{\bfseries}
+
+% ---------- Figures and captions ----------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+
+% ---------- Other ----------
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{setspace}
+
+% ---------- Hyperlinks (load last) ----------
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{
+  pdftitle={The Counterfactual Return-on-Assets Gap of State-Owned Enterprises in China},
+  pdfauthor={Author name},
+  pdfsubject={Working Paper},
+}
+
+% ---------- Figure path and numbering ----------
+\graphicspath{{figures/}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{3em}
+
+% ---------- Title and author (TODO: replace with real information) ----------
+\title{\bfseries The Counterfactual Return-on-Assets Gap of State-Owned Enterprises in China:\\ Machine-Learning Estimates against a Private-Enterprise Benchmark}
+\author{Zixuan Xin\thanks{Affiliation, corresponding address, and funding acknowledgements to be filled in here.}}
+\date{August 2026}
+
+\begin{document}
+
+\maketitle
+
+% =============================================================================
+%  Abstract
+% =============================================================================
+\begin{abstract}
+\noindent This paper estimates the counterfactual return on assets ($EBI/A$, the ratio of earnings before interest to total assets) of listed state-owned enterprises (SOEs) in China under a private-enterprise earnings-generating process. We train machine-learning models on the full sample of A-share private (non-SOE) listed firms over 2014--2024 and apply the fitted model to SOEs, measuring the gap as $\text{Gap}=\hat f(X_i)-Y_i$, the difference between the counterfactual prediction and the realized value. We use gradient boosting (GBM) as the main model and ridge regression (Ridge) and random forests (RF) as robustness checks. Four findings emerge. \textbf{First}, the counterfactual gap of the full A-share SOE sample is persistently positive and statistically significant over 2019--2025; the GBM firm-level mean is about $+1.4$ to $+2.3$ percentage points (pp), and the asset-weighted amount gap totals about \textbf{RMB 597.9 billion} in 2025 and \textbf{RMB 4.1 trillion} cumulatively over the seven years. \textbf{Second}, the gap exhibits a clear \textbf{size gradient}: the gap of large-cap SOEs (CSI 300 constituents) turns negative or close to zero after 2021, whereas small- and mid-cap SOEs show positive gaps that widen as size declines (CSI 1000 is robustly significant, while CSI 500 is more sensitive to model choice). \textbf{Third}, the gap is highly concentrated across industries---the largest gaps occur in capital-intensive and cyclical industries such as steel, coal, real estate, and home appliances, while natural-monopoly or administratively priced industries such as transportation and utilities show near-zero gaps. \textbf{Fourth}, there is no significant difference between central and local SOEs. These findings are robust to trimming extreme observations, restricting to the common support, replacing the model class, and clustered inference. The paper provides a reproducible counterfactual benchmark for quantifying the efficiency gap of SOEs and for understanding resource allocation.
+
+\medskip
+\noindent\textbf{Keywords}: state-owned enterprises; return on assets; counterfactual prediction; machine learning; efficiency gap
+
+\noindent\textbf{JEL classification}: G32; L32; P31; C53
+\end{abstract}
+
+% =============================================================================
+%  1. Introduction
+% =============================================================================
+\section{Introduction}
+
+The efficiency of state-owned enterprises (SOEs) is a central question in transition economics and in the study of the Chinese economy. A widely discussed yet difficult-to-measure question is: \textbf{what return on assets would SOEs earn if they operated according to a private-enterprise earnings-generating process?} Equivalently, how large is the ``return-on-assets gap'' of SOEs relative to private enterprises, and how does this gap vary across SOEs of different size, industry, and administrative affiliation?
+
+Answering this question poses a methodological challenge. Traditional approaches measure the ownership premium (or discount) through regression coefficients that condition on observable characteristics, but these require a pre-specified functional form and cannot deliver a separable estimate of the counterfactual outcome---what the same firm would earn under different ownership. This paper adopts a machine-learning counterfactual approach. We train on the full sample of A-share private enterprises to estimate return on assets ($EBI/A$, earnings before interest over total assets) as a function of financial characteristics and the industry environment, and then apply the fitted model to SOEs to obtain the counterfactual return they \emph{would} earn if they operated like private enterprises. The difference between the realized value and the counterfactual prediction is the ``counterfactual return-on-assets gap'' (hereafter, the \emph{gap}).
+
+Our identification rests on an \emph{analog-based counterfactual}: the financial-characteristics--return relation estimated on private enterprises provides a benchmark for the return that SOEs ``should'' earn given identical characteristics. The approach imposes no functional-form assumption on the effect of ownership, allows nonlinear interactions between financial characteristics and returns, and uses grouped cross-validation to avoid in-sample overfitting and information leakage.
+
+Our main findings can be summarized in four points. \textbf{First}, the counterfactual gap of the full A-share SOE sample is persistently positive over 2019--2025, with a GBM firm-level mean of about $+1.4$ to $+2.3$ pp that is statistically significant (clustered robust $t$-statistic of about 12.4); the asset-weighted amount gap totals about RMB 597.9 billion in 2025 and RMB 4.1 trillion cumulatively over seven years. \textbf{Second}, the gap exhibits a pronounced size gradient: large-cap SOEs (CSI 300 constituents) show a gap that turns negative after 2021, whereas small- and mid-cap SOEs show positive gaps, with CSI 1000 robustly significant and CSI 500 more sensitive to model choice. \textbf{Third}, the gap is highly concentrated across industries---the largest gaps occur in capital-intensive and strongly cyclical industries such as steel, coal, real estate, and home appliances, while natural-monopoly or administratively priced industries such as transportation and utilities show near-zero gaps. \textbf{Fourth}, there is no significant difference between central and local SOEs.
+
+This paper makes three contributions. First, on \textbf{method}, we bring machine-learning counterfactual prediction to the measurement of SOE efficiency, providing a reproducible, assumption-light quantitative benchmark for the ``ownership efficiency gap,'' and we explicitly characterize the risk of counterfactual extrapolation through a common-support diagnostic. Second, on \textbf{findings}, we systematically document the heterogeneity of the gap across three dimensions---size, industry, and administrative affiliation---and uncover a previously under-quantified gradient: \emph{large-cap SOEs show no gap, whereas small- and mid-cap SOEs show a substantial gap}. Third, on \textbf{robustness}, we provide cross-validation along four dimensions---sample screening, common support, model class, and clustered inference---so that no single sample or model drives the conclusions.
+
+The rest of the paper is organized as follows. Section~2 reviews the related literature and institutional background. Section~3 describes the data, sample construction, and variable definitions. Section~4 lays out the counterfactual methodology and model specification. Section~5 reports the empirical results and robustness checks. Section~6 concludes.
+
+% =============================================================================
+%  2. Background and Literature
+% =============================================================================
+\section{Background and Literature}
+
+\subsection{Institutional Background: SOE Reform and the Efficiency Question in China}
+
+State-owned enterprises play a dual role in the Chinese economy: they are both providers of key infrastructure and basic industries and, over the long run, bearers of policy burdens such as employment and social stability. Since 1978, Chinese SOE reform has moved through successive stages---``delegating power and sharing profits,'' the contract responsibility system, the modern enterprise system, ``grasping the large and letting the small go,'' and, most recently, mixed-ownership reform---with the enduring goal of raising efficiency and hardening budget constraints \cite{ginting2020}. The problems that arise in this reform process---the combination of policy burdens and insider control, weak incentives, and the risk of state-asset erosion---are discussed systematically in the recent literature \cite{wu2024}. A survey of the state-ownership literature confirms that existing studies generally find SOEs to be less efficient in productivity and innovation \cite{asri2022}.
+
+Despite ongoing reform, SOE efficiency remains a focal point of academic and policy debate. A recurring empirical regularity is that, after controlling for size and industry, SOEs systematically underperform private enterprises in profitability and return on assets. Whether this ``efficiency gap'' stems from ownership itself (agency problems, soft budget constraints), from the additional policy burdens borne by SOEs, or from differences in their operating environment (monopoly position, financing advantages) is a question that requires careful identification.
+
+\subsection{Theoretical Literature: Soft Budget Constraints, Policy Burdens, and Political Connections}
+
+Theoretical explanations for SOE underperformance fall roughly into three strands.
+
+\textbf{First, soft budget constraints.} A soft budget constraint refers to the situation in which loss-making enterprises can rely on government bailouts, subsidies, or continued credit, thereby weakening the incentive to improve operations. Cao, Fisman, Lin, and Wang (2023) find that state-bank managers, seeking to meet monthly lending targets, tend to keep lending to previously defaulting SOEs, and that the deterioration in loan quality comes almost entirely from SOE lending---evidence of ``soft incentive constraints'' on the credit side. Maurel and Pernet (2021) use environmental regulation as a wedge and find that cities with a higher SOE share reduce sulfur dioxide emissions by less under the same regulatory intensity, providing new evidence of the soft budget constraint. Jin, Wang, and Zhang (2023) show that after an SOE bond default weakens the implicit government guarantee, investment contracts sharply for SOEs lacking alternative financing channels, indicating an intrinsic link between implicit guarantees and soft budget constraints.
+
+\textbf{Second, policy burdens and economic functions.} The policy-burden view holds that SOEs shoulder capital-intensive strategic industries as well as social functions such as employment and pensions; these ``burdens'' make their operating performance difficult to compare with that of purely commercial firms and endogenously generate soft budget constraints. Wu, An, and Wang (2026) provide evidence from the ``economic function'' angle: an increase in the share of profits that SOEs remit to the government leads to a significant increase in government subsidies (a 10\% rise in the profit-remittance rate is associated with about a 19\% increase in subsidies), indicating an exchange of benefits between government and SOEs and two-way causality between policy burdens and soft budget constraints.
+
+\textbf{Third, political connections and agency problems.} Lazzarini and Musacchio (2018), using cross-country evidence on 477 large listed SOEs from 66 economies, find that listed SOEs do not on average underperform comparable private firms, and underperform only under shocks---such as severe recessions---that push them to prioritize social and political goals, suggesting that SOE efficiency losses are ``state-dependent.'' Morales (2022) uses the Venezuelan national oil company as a case study of how political objectives (especially during election periods) distort SOE efficiency when ownership and management are concentrated in government hands. Hu, Yu, Cao, Guo, and Wang (2023), exploiting the establishment of local State-owned Assets Supervision and Administration Commissions as a quasi-natural experiment, find that unifying authority and responsibility in the regulator significantly raises the total factor productivity of supervised SOEs. In addition, state ownership confers a financing-cost advantage---SOEs issue corporate bonds at significantly lower cost than non-SOEs, with central SOEs below local SOEs (Ge, Liu, Qiao, and Shen, 2020).
+
+Taken together, this literature points to an empirical proposition---\textbf{there is a systematic association between ownership and return on assets}---but the direction, magnitude, and heterogeneity of this association remain highly dependent on the identification strategy and the sample.
+
+\subsection{Empirical Literature: Performance Differences between State and Private Enterprises}
+
+The empirical literature that directly measures the performance difference between state and private enterprises offers the closest comparison for this paper. Boardman and Vining (1989) compare the 500 largest non-U.S. industrial firms in competitive environments and find that state-owned and mixed-ownership firms underperform private firms in both profitability and efficiency, with the gap more pronounced in competitive industries. Goldeng, Gr\"unfeld, and Benito (2008), using a panel of all registered Norwegian firms in the 1990s with return on assets as the core metric, find that private firms outperform SOEs overall and that the ``competition promotes learning by SOEs'' mechanism receives only weak support. Jakob (2017), after controlling for market structure, similarly finds that SOEs in strategic sectors are less profitable and less efficient than private firms.
+
+Evidence from China points in the same direction. Zhao (2019) quantifies ownership-related resource misallocation and finds that the resource-allocation efficiency of SOEs is significantly below that of non-government-controlled firms. Cheng, Christensen, Ma, and Yu (2021) use the capacity-reduction policy to show that SOEs are less likely than private firms to cut excess capacity. Herrera Dappe, Musacchio, Turkgulu, Pan, Barboza, and Semikolenova (2024), exploiting an oil-price shock as a quasi-experiment, find that SOEs do not act as countercyclical instruments but instead demand fiscal injections and cut capital expenditure after the shock. Notably, the SOE performance disadvantage need not exist in all industries---Dall'Olio et al.\ (2022) propose an efficiency-based taxonomy that partitions industries into ``competitive,'' ``natural monopoly,'' and ``partially contestable'' categories, suggesting that SOE performance is closely tied to the degree of competition in its industry.
+
+\subsection{Reform, Subsidies, and Innovation: A Complementary View}
+
+Beyond the efficiency gap, the literature also examines SOE performance through subsidies, privatization, and innovation. Li and Wu (2022) find that government subsidies improve SOE operating performance by easing financing constraints and promoting R\&D investment, but that an excessively high state-ownership share weakens the positive effect of subsidies; the crowding-in versus crowding-out mechanism of subsidies is debated in the broader literature (Reichert, Hudon, Szafarz, and Christensen, 2021). Wang, Wang, Xu, and Zha (2024) estimate the differential effects of privatization on ``zombie'' versus healthy SOEs, finding that privatizing zombie SOEs significantly raises productivity and lowers subsidies and leverage. Tang (2023), using a structural model of the ``grasping the large and letting the small go'' reform, finds that converting SOEs to private ownership lowers capital-adjustment costs and raises capital efficiency. On innovation, Zhou, Gao, and Zhao (2017) find that state ownership simultaneously brings key R\&D resources and lowers the efficiency of R\&D commercialization; Lin, Fu, and Fu (2021) distinguish different forms of state ownership and find that central-government-controlled SOEs innovate the most; Fu, Zeng, Sun, and Lin (2024) find that mixed-ownership reform raises the frequency and impact of SOE innovation; and Boudreaux (2025) finds that the SOE innovation advantage exists only in provinces with a low degree of marketization. On central--local heterogeneity, Luo, Wang, Chen, and Chen (2024) find that central and local SOEs respond differently to digitalization strategies. In addition, the difficulties of mixed-ownership reform (unreasonable ownership structure, insufficient incentives for participants, and difficulties in adjusting employee shareholding) are especially pronounced at the local-SOE level (Zhou, Pan, He, Wang, and Sun, 2024), and the governance effect of tax incentives declines from SOEs to local SOEs to private enterprises (Huang, Lv, and Yang, 2024).
+
+\subsection{Positioning of This Study}
+
+Taken together, the existing literature documents, both theoretically and empirically, systematic differences between SOEs and private firms, but suffers from three limitations. First, most studies focus on specific industries, specific shocks, or specific performance measures, and lack a systematic, market-wide, multi-year estimate benchmarked uniformly on private enterprises. Second, identification typically relies on functional-form regressions or on specific natural experiments, making it difficult to deliver a separable counterfactual for ``the same SOE if it operated like a private firm.'' Third, the characterization of heterogeneity usually stays within a single dimension. Methodologically, the work closest to ours is the asset-return-based framework for measuring financial subsidies to SOEs proposed by Lucas, Garcia, and Solberg (2026), which shifts attention to the asset side of the balance sheet and relies on accounting data to estimate SOE financing subsidies relative to private firms; our counterfactual gap is complementary in spirit but focuses on the return differential itself rather than on a subsidy valuation. In this paper we train on the full sample of A-share private enterprises to estimate the mapping from financial characteristics and the industry environment to return on assets, and apply the fitted model to SOEs to construct the counterfactual return under a private-enterprise earnings-generating process. This approach imposes no functional-form assumption on the ownership effect, allows nonlinear interactions between financial characteristics and returns, and explicitly delineates the boundary of counterfactual extrapolation through grouped cross-validation and common-support diagnostics. We then characterize the heterogeneity of the SOE return-on-assets gap across three dimensions---size, industry, and administrative affiliation---thereby addressing the three limitations above.
+
+% =============================================================================
+%  3. Data
+% =============================================================================
+\section{Data}
+
+\subsection{Data Sources}
+
+The data come from the Wind financial terminal (extracted in August 2026) and cover the full A-share listed-company financial data over the 11 years 2014--2024, forming a prediction sample spanning 2019--2025. Table~\ref{tab:datasource} provides an overview of the data sources.
+
+\begin{table}[htbp]
+\centering
+\caption{Overview of Data Sources}
+\label{tab:datasource}
+\begin{threeparttable}
+\small
+\begin{tabularx}{\linewidth}{l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+Data & Source & Coverage \\
+\midrule
+A-share listed-company financial data & \texttt{0803/A\_2014\_origin.xlsx} to \texttt{A\_2024\_origin.xlsx} & 11-year panel, 5{,}535 firms \\
+Index constituents and membership & \texttt{input\_index\_weight/} & CSI 300 / CSI 500 / CSI 1000 (2019--2025) \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}
+
+\textbf{Prediction-period convention}: we use year-$t$ financial characteristics to predict year-$(t+1)$ $EBI/A$, that is, ``feature year $=t$, target year $=t+1$.'' For example, 2024 characteristics predict 2025 returns. The sample spans the 2014--2024 feature period, corresponding to the 2019--2025 target period (the first four years are used to build up the training sample under the expanding-window design).
+
+\subsection{Sample Construction and Screening}
+
+Table~\ref{tab:sample} reports the sample-construction pipeline. Starting from the raw 5{,}535 firms and 60{,}896 firm-year observations, we sequentially drop the financial sector, missing returns, extreme returns, and unclassifiable ownership, retaining 3{,}471 private enterprises and 34{,}462 firm-year observations as the training pool; after a complete-case screen (no missing features), we obtain a baseline training sample of \textbf{27{,}722 firm-years from 3{,}471 private enterprises}.
+
+On top of this, we impose three robustness screens designed to remove ``abnormal firms'': (1)~\textbf{drop ST stocks} (firm name containing ``ST''; 127 private and 58 state-owned firms); (2)~\textbf{drop insolvent firms} ($\text{FinancialLeverage}>1$, i.e., negative net assets, as a proxy for distress risk); and (3)~\textbf{drop extreme profit or loss} ($|EBI/A|>0.5$, i.e., earnings before interest exceeding half of total assets).
+
+After screening, the \textbf{final training sample is 26{,}464 firm-years from 3{,}344 private enterprises}; the 2025 prediction-period complete-case sample of full A-share SOEs is \textbf{1{,}336 firms} (436 central and 900 local SOEs).
+
+\begin{table}[htbp]
+\centering
+\caption{Sample Construction Pipeline}
+\label{tab:sample}
+\begin{threeparttable}
+\footnotesize
+\begin{tabularx}{\linewidth}{c >{\raggedright\arraybackslash}X c c c c}
+\toprule
+\thead{Step} & \thead{Operation} & \thead{Firms} & \thead{Firm-\\years} & \thead{Firms\\dropped} & \thead{Firm-years\\dropped} \\
+\midrule
+0 & Parse 11 Wind raw files & 5{,}535 & 60{,}896 & --- & --- \\
+1 & Drop observations without $t+1$ total assets (cannot compute $EBI/A$) & 5{,}535 & 57{,}701 & 0 & 3{,}195 \\
+2 & Backfill missing 2014 ownership (100\% recovered) & 5{,}535 & 57{,}701 & 0 & 0 \\
+3 & Drop the financial sector & 5{,}416 & 56{,}392 & 119 & 1{,}309 \\
+4 & Drop missing $EBI/A$ (missing $t+1$ net income or interest expense) & 5{,}416 & 54{,}741 & 0 & 1{,}651 \\
+5 & Drop $EBI/A\notin(-1,+1)$ & 5{,}416 & 54{,}671 & 0 & 70 \\
+6 & Drop unclassifiable ownership & 5{,}416 & 54{,}671 & 0 & 0 \\
+7 & Keep private enterprises only (training pool) & 3{,}471 & 34{,}462 & 1{,}945 & 20{,}209 \\
+8 & Complete cases (drop missing features; FixedAssetsRatio missing 19.3\%) & 3{,}471 & 27{,}722 & 0 & 6{,}740 \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\footnotesize\raggedright
+\item Note: The three screens (ST, insolvency, and extreme profit/loss) are applied after step~8, yielding a final training sample of 26{,}464 firm-years from 3{,}344 private enterprises.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\textbf{Data limitations}: in the raw data, the \texttt{list\_date} (listing date) and \texttt{listing\_status} (listing status) fields are entirely empty, and no stock-price data are available, so the ``newly listed'' and ``low-price'' screens \textbf{cannot be implemented}. These two screens are skipped for lack of data, constituting a known limitation of the sample construction.
+
+\subsection{Variable Definitions}
+
+\textbf{Target variable} (year $t+1$):
+
+\begin{equation}
+EBI/A_{t+1} = \frac{\text{Net profit attributable to parent}_{t+1} + \text{Interest expense}_{t+1}}{\text{Total assets}_{t+1}}
+\end{equation}
+
+We use earnings before interest (EBI, approximated by ``net profit attributable to the parent plus interest expense'') rather than net profit, in order to strip out the effect of capital structure (interest expense) and focus on operating returns on assets. Note that net profit attributable to the parent is an after-tax measure, so this metric does not add back income tax and is not a strict ``earnings before interest and taxes'' (EBIT); it measures after-tax, pre-interest operating returns.
+
+\textbf{Predictor features} (all measured in year $t$; nine financial ratios plus industry fixed effects; Table~\ref{tab:features}):
+
+\begin{table}[htbp]
+\centering
+\caption{Predictor Features and Their Economic Meaning}
+\label{tab:features}
+\begin{threeparttable}
+\small
+\begin{tabularx}{\linewidth}{l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+Feature & Definition & Economic meaning \\
+\midrule
+FirmSize & $\ln(\text{total assets})$ & Firm size \\
+AssetTurnover & Revenue / total assets & Asset turnover efficiency \\
+FinancialLeverage & Total liabilities / total assets & Leverage \\
+FixedAssetsRatio & Net fixed assets / total assets & Asset structure (capital intensity) \\
+CurrentRatio & Current assets / current liabilities & Short-term liquidity \\
+CapexRatio & Capital expenditure / total assets & Investment intensity \\
+WorkingCapitalRatio & (Current assets $-$ current liabilities) / total assets & Working-capital intensity \\
+MarketShare & Revenue / market-wide industry revenue & Industry market share \\
+HHI & $\sum \text{MarketShare}^2$ (within industry--year) & Industry concentration \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}
+
+\textbf{Key data convention}: the denominator of MarketShare and HHI \textbf{must be the market-wide (full A-share) industry revenue}, not the index subsample. An earlier version computed market share within the index sub-file, which systematically understated the denominator and inflated market share, distorting the gap estimates (for example, the CSI 500 gap was inflated from the correct $+0.10$~pp to $+2.73$~pp). All analyses in this paper use the market-wide convention uniformly.
+
+\subsection{Descriptive Statistics and Between-Group Differences}
+
+Table~\ref{tab:descriptives} reports the means and standard deviations of the nine features and the target variable for private enterprises and SOEs in the 2025 prediction period (feature year $t=2024$), on a complete-case basis. The two groups differ systematically on several dimensions: SOEs are larger ($\ln$ total assets mean $23.12$ vs.\ $21.89$), more levered ($0.48$ vs.\ $0.37$), and have lower working capital and current ratios. This is consistent with the typical picture of ``larger, more levered, and less liquid'' SOEs, and foreshadows the common-support finding below that \emph{firm size is the primary obstacle}.
+
+\begin{table}[htbp]
+\centering
+\caption{Descriptive Statistics (2025 Prediction Period, Feature Year $t=2024$, Complete Cases)}
+\label{tab:descriptives}
+\begin{threeparttable}
+\small
+\begin{tabularx}{\linewidth}{l >{\raggedright\arraybackslash}X c c c c}
+\toprule
+\thead{Variable} & \thead{Definition} & \multicolumn{2}{c}{\thead{Private}} & \multicolumn{2}{c}{\thead{SOE}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+& & \thead{Mean} & \thead{SD} & \thead{Mean} & \thead{SD} \\
+\midrule
+FirmSize & Firm size ($\ln$ total assets) & 21.891 & 1.121 & 23.121 & 1.537 \\
+AssetTurnover & Asset turnover & 0.566 & 0.455 & 0.577 & 0.506 \\
+FinancialLeverage & Debt-to-assets ratio & 0.374 & 0.193 & 0.479 & 0.208 \\
+FixedAssetsRatio & Fixed-assets ratio & 0.208 & 0.141 & 0.238 & 0.186 \\
+CurrentRatio & Current ratio & 3.089 & 3.318 & 2.053 & 2.166 \\
+CapexRatio & Capital-expenditure ratio & 0.050 & 0.046 & 0.037 & 0.039 \\
+WorkingCapitalRatio & Working-capital ratio & 0.301 & 0.238 & 0.176 & 0.240 \\
+MarketShare & Market share & 0.004 & 0.012 & 0.013 & 0.035 \\
+HHI & Industry concentration (HHI) & 0.046 & 0.037 & 0.056 & 0.049 \\
+$EBI/A_{t+1}$ & Target variable (2025) & 0.026 & 0.063 & 0.019 & 0.051 \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\footnotesize\raggedright
+\item Note: Sample is the 2025 prediction period (feature year $t=2024$) complete cases, with $n=3{,}314$ private firms and $n=1{,}336$ SOEs; the private training sample is 26{,}464 firm-years from 3{,}344 firms over all years. Two-sample standardized mean differences (SMD) and common-support diagnostics are reported in Table~\ref{tab:cs}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{Ownership Classification}
+
+\begin{itemize}[leftmargin=2em,itemsep=0pt]
+\item \textbf{State-owned enterprises (SOEs)} $=\{\text{central state-owned},\ \text{local state-owned}\}$
+\item \textbf{Private enterprises} $=\{\text{private}\}$
+\item All other ownership types (public, foreign, collective, and other) are dropped in the baseline specification.
+\end{itemize}
+
+The ownership field is taken from Wind's ``enterprise ownership nature [trading date] latest close,'' which is a \textbf{static snapshot} (reflecting the most recent ownership status rather than the status at year $t$), creating potential look-ahead bias---if an enterprise changes ownership within the sample period, its early observations may be misclassified into a later ownership category. An audit shows that ownership switchers within the sample period are very rare (about 95 firm-years), so this bias has limited influence on the conclusions but should be borne in mind when interpreting results.
+
+% =============================================================================
+%  4. Methodology
+% =============================================================================
+\section{Methodology}
+
+\subsection{Counterfactual Framework}
+
+Our objective is to estimate the counterfactual return on assets of SOEs ``if they operated according to a private-enterprise earnings-generating process.'' Let $f(\cdot)$ denote the mapping from financial characteristics and the industry environment to return on assets, estimated as $\hat f$ on the private-enterprise sample. Then, for each SOE $i$:
+
+\begin{equation}
+\text{Gap}_i = \hat f(X_i) - Y_i
+\end{equation}
+
+where $\hat f(X_i)$ is the counterfactual prediction (the return a private enterprise ``should'' earn at characteristics $X_i$) and $Y_i$ is the SOE's realized return. Hence:
+
+\begin{itemize}[leftmargin=2em,itemsep=0pt]
+\item \textbf{Gap $>0$}: the SOE's realized $EBI/A$ is below the private-enterprise counterfactual (a positive ``relative gap'');
+\item \textbf{Gap $<0$}: the SOE's realized $EBI/A$ is above the private-enterprise counterfactual (the SOE outperforms the private benchmark).
+\end{itemize}
+
+It is important to emphasize that our gap measures ``the return-on-assets differential relative to a private-enterprise benchmark'' and \textbf{is not directly equivalent to the amount of government subsidies or policy burdens} (for a systematic asset-return-based framework for measuring financial subsidies to SOEs, see Lucas, Garcia, and Solberg, 2026). It is the net effect of multiple factors---managerial efficiency, agency costs, financing conditions, market power, and policy functions.
+
+\subsection{Model Specification}
+
+We estimate $f$ on private enterprises, with $EBI/A_{t+1}$ as a function of nine financial ratios and industry fixed effects. We use three models with different functional forms (Table~\ref{tab:models}):
+
+\begin{table}[htbp]
+\centering
+\caption{Model Specification and Hyperparameters}
+\label{tab:models}
+\begin{threeparttable}
+\small
+\begin{tabularx}{\linewidth}{l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+Model & Hyperparameters & Role \\
+\midrule
+Gradient boosting (GBM) & $n=200$, depth $=4$, lr $=0.05$, min\_samples\_leaf $=10$ & \textbf{Main model} (best overall fit and calibration) \\
+Ridge regression & $\alpha=10$ & Robustness (linear, interpretable benchmark) \\
+Random forest (RF) & $n=300$, depth $=8$, min\_samples\_leaf $=10$ & Robustness (nonlinear comparison) \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}
+
+Model selection follows an \emph{a priori} principle (not based on which SOE results look better), using two criteria: (1) out-of-sample fit on the private-enterprise sample (OOF $R^2$, RMSE); and (2) \textbf{calibration}, i.e., whether $\beta$ in ``actual $=\alpha+\beta\times$ predicted'' is close to 1. As shown below, GBM fits best (highest OOF $R^2$) and is well calibrated ($\beta\approx1.04$, close to 1); Ridge is best calibrated ($\beta\approx0.98$) but fits less well; RF fits well but is severely miscalibrated ($\beta\approx1.46$, i.e., predictions are systematically compressed toward the mean). Balancing fit and calibration, we use GBM as the main model and Ridge and RF as robustness checks.
+
+\textbf{Preprocessing pipeline}: the nine numeric features are winsorized (P5--P95) $\to$ median-imputed $\to$ standardized (StandardScaler) $\to$ one-hot-encoded at the (second-level) industry level as fixed effects. All transformations are fitted on the private-enterprise training set and then applied to the SOE prediction sample, avoiding information leakage.
+
+\subsection{Cross-Validation and Inference}
+
+\textbf{Out-of-sample prediction}: the main model's fit is measured with GroupKFold grouped cross-validation (5 folds by firm\_id). All year observations of a given firm are placed in the same fold, avoiding the information leakage that would arise if the same firm appeared in both training and validation sets. The model in each fold is trained only on firms outside that fold.
+
+\textbf{Counterfactual prediction}: we use an expanding-window design---the model is trained on all private enterprises up to year $t$ and used to predict year-$(t+1)$ SOE returns---ensuring that predictions are strictly out-of-sample in time.
+
+\textbf{Statistical inference}: because year observations of the same firm are not independent, standard errors are clustered at the \textbf{firm level}:
+
+\begin{equation}
+\text{SE} = \frac{\text{sd}(\text{firm means})}{\sqrt{n_{\text{firms}}}}
+\end{equation}
+
+supplemented by a \textbf{500-draw cluster bootstrap} (resampling by firm\_id, retraining and repredicting) as a nonparametric robustness check. All 95\% confidence intervals are constructed accordingly.
+
+\subsection{Common-Support Diagnostics}
+
+The validity of counterfactual prediction requires that SOEs lie within the support of the private-enterprise sample in the covariate space. We use four diagnostics:
+
+\begin{enumerate}[leftmargin=2em,itemsep=0pt]
+\item \textbf{Univariate standardized mean difference (SMD)}: $(\bar X_{\text{SOE}}-\bar X_{\text{priv}})/\sigma_{\text{pooled}}$, with $|\text{SMD}|>0.25$ considered non-negligible;
+\item \textbf{Propensity score}: a logistic regression (private $=0$, SOE $=1$) whose 5-fold OOF probabilities measure covariate separability (ROC-AUC) and the overlap fraction;
+\item \textbf{Multidimensional nearest-neighbor distance (5-NN)}: the 5-NN distance from each SOE to private enterprises in the standardized 9-dimensional feature space, compared with the P90 (0.772) of the within-private 1-NN distance, partitioned into ``well supported'' ($\le$P90), ``boundary'' (P90--P95), and ``extrapolation risk'' ($>$P95);
+\item \textbf{Mahalanobis distance} (top-5 PCA components) as a cross-check.
+\end{enumerate}
+
+Figure~\ref{fig:overlap} visualizes this support obstacle through the kernel-density distribution of firm size ($\ln$ total assets): the private-enterprise distribution is centered at $\ln(\text{assets})\approx21.7$, the full A-share SOE distribution shifts right to $\approx23.0$, and the CSI 300 SOE distribution is centered as high as $\approx25.7$---93\% of these firms have firm size exceeding the P95 of the private-enterprise distribution, almost non-overlapping with the private benchmark. CSI 500 is next (63\% exceed), while CSI 1000 and the full sample are relatively close (25--28\% exceed). \textbf{Firm size is the primary common-support obstacle}, consistent with its univariate SMD (reaching $+3.19$ for CSI 300).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figA1_firm_size_overlap.pdf}
+\caption{Firm-size distribution: private enterprises and index SOEs (2025, screened)}
+\label{fig:overlap}
+\end{figure}
+
+On this basis, we compare the gap between the ``full sample'' and the ``within common support'' groups to confirm whether the results are driven by extrapolation.
+
+% =============================================================================
+%  5. Results
+% =============================================================================
+\section{Results}
+
+\subsection{Model Fit and Calibration}
+
+Table~\ref{tab:perf} reports the out-of-sample performance of the three models on the private-enterprise sample (GroupKFold by firm, 5 folds, 2025 prediction period).
+
+\begin{table}[htbp]
+\centering
+\caption{Out-of-Sample Predictive Performance on Private Enterprises (GroupKFold by Firm)}
+\label{tab:perf}
+\begin{threeparttable}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Model & OOF $R^2$ & OOF RMSE & OOF MAE & Calibration $\beta$ \\
+\midrule
+Ridge regression & $+0.197$ & $0.0474$ & $0.0378$ & $0.98$ \\
+Random forest (RF) & $+0.245$ & $0.0460$ & $0.0361$ & \textbf{1.46} \\
+\textbf{Gradient boosting (GBM)} & \textbf{+0.303} & \textbf{0.0442} & \textbf{0.0337} & \textbf{1.04} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize\raggedright
+\item Note: The calibration regression is ``actual $=\alpha+\beta\times$ predicted.'' A $\beta$ closer to 1 indicates less biased predictions. RF's $\beta=1.46$ indicates that its predictions are systematically compressed toward the mean (underestimating high values and overestimating low values), making it unsuitable as the main model for counterfactual point estimates.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+All three models have positive out-of-sample explanatory power ($R^2=0.20$--$0.30$). GBM fits best ($R^2=+0.303$, RMSE $=0.0442$) and is well calibrated ($\beta=1.04$, close to 1); Ridge is best calibrated ($\beta=0.98$) but fits slightly worse; RF fits in between but is severely miscalibrated ($\beta=1.46$). Accordingly, we use GBM as the main model below and Ridge and RF as directional robustness checks.
+
+\subsection{Baseline Results: The Counterfactual Gap of the Full A-share SOE Sample}
+
+Figure~\ref{fig:summary} and Table~\ref{tab:gap_year} report the year-by-year gap of the four samples under the GBM main model.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{fig1_summary_7year.pdf}
+\caption{Year-by-year counterfactual gap (4 samples $\times$ 3 models)}
+\label{fig:summary}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{Year-by-Year Counterfactual Gap of the Full A-share SOE Sample (GBM Main Model)}
+\label{tab:gap_year}
+\begin{threeparttable}
+\small
+\begin{tabular}{crrrrr}
+\toprule
+Year & $n$ (firms) & GBM gap & 95\% CI & Ridge gap & RF gap \\
+\midrule
+2019 & 1{,}188 & \textbf{+1.90pp}$^{*}$ & $[+1.58,+2.22]$ & $+1.51$pp & $+2.02$pp \\
+2020 & 1{,}241 & \textbf{+2.33pp}$^{*}$ & $[+1.98,+2.67]$ & $+2.01$pp & $+2.53$pp \\
+2021 & 1{,}301 & \textbf{+1.55pp}$^{*}$ & $[+1.25,+1.85]$ & $+1.14$pp & $+1.72$pp \\
+2022 & 1{,}331 & \textbf{+1.45pp}$^{*}$ & $[+1.15,+1.75]$ & $+1.23$pp & $+1.82$pp \\
+2023 & 1{,}342 & \textbf{+1.35pp}$^{*}$ & $[+1.09,+1.62]$ & $+1.18$pp & $+1.76$pp \\
+2024 & 1{,}339 & \textbf{+1.76pp}$^{*}$ & $[+1.48,+2.04]$ & $+1.55$pp & $+2.17$pp \\
+2025 & 1{,}336 & \textbf{+1.59pp}$^{*}$ & $[+1.34,+1.84]$ & $+1.42$pp & $+2.01$pp \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize\raggedright
+\item Note: $^{*}$ denotes a 95\% confidence interval (firm-level clustered robust) that excludes zero.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\medskip
+\noindent\textbf{Finding 1}: the counterfactual gap of the full A-share SOE sample is persistently positive and statistically significant over the seven years, with a GBM firm-level mean of about $+1.35$ to $+2.33$ pp and a seven-year mean of about \textbf{$+1.70$~pp}. This means that, under identical financial characteristics and industry environment, SOEs systematically earn a return on assets below the ``warranted'' return implied by the private-enterprise benchmark. The three models agree in direction (Ridge $+1.1$--$2.0$~pp, RF $+1.7$--$2.5$~pp), ruling out the possibility that a particular functional form drives the conclusion.
+
+\subsection{Size Heterogeneity: A Sharp Divide between Large- and Small/Mid-Cap SOEs}
+
+Table~\ref{tab:size_gradient} reports the gap of the four samples defined by index membership, and Figure~\ref{fig:summary} also displays this gradient.
+
+\begin{table}[htbp]
+\centering
+\caption{Size Gradient (GBM, Year-by-Year Gap 2019--2025, in pp)}
+\label{tab:size_gradient}
+\begin{threeparttable}
+\small
+\begin{tabular}{lccccccc}
+\toprule
+Sample & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 \\
+\midrule
+CSI 300 SOE & $+1.05^{*}$ & $+0.87^{*}$ & $-0.36$ & $-1.03$ & $-0.73$ & $-0.68$ & $-0.36$ \\
+CSI 500 SOE & $+1.69^{*}$ & $+1.85^{*}$ & $+0.94^{*}$ & $+1.07^{*}$ & $+1.47^{*}$ & $+1.51^{*}$ & $+0.93^{*}$ \\
+CSI 1000 SOE & $+2.39^{*}$ & $+2.26^{*}$ & $+1.26^{*}$ & $+1.41^{*}$ & $+1.39^{*}$ & $+1.02^{*}$ & $+1.18^{*}$ \\
+Non-index SOE & --- & --- & --- & --- & --- & --- & $+2.31^{*}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize\raggedright
+\item Note: $^{*}$ denotes a 95\% confidence interval that excludes zero; non-index SOEs are reported only for 2025.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\medskip
+\noindent\textbf{Finding 2}: the gap exhibits a clear \textbf{size gradient}. The gap of large-cap SOEs (CSI 300 constituents) turns negative after 2021 (about $-0.4$ to $-1.0$~pp, mostly insignificant or only marginally significant), whereas small- and mid-cap SOEs show significantly positive and larger gaps---about $+0.9$ to $+1.9$~pp for CSI 500 and $+1.0$ to $+2.4$~pp for CSI 1000. It is worth noting that the CSI 500 gap is significant year by year under GBM, but under a Ridge cluster bootstrap (500 draws) the point estimate falls to $+0.13$~pp with a confidence interval that includes zero (Table~\ref{tab:inference}); CSI 500 is thus more sensitive to model choice than CSI 1000 (which is significant under both models). This divide has a clear economic meaning: \textbf{the return-on-assets gap resides mainly in small- and mid-cap SOEs, whereas large-cap SOEs do not show a significant return discount relative to private enterprises}.
+
+A natural interpretation is that large-cap SOEs tend to operate in industries with economies of scale, market power, or resource-monopoly advantages (energy, telecommunications, large infrastructure, and so on), so their realized returns are not below the private benchmark; by contrast, small- and mid-cap SOEs in competitive industries suffer a more pronounced operating-efficiency disadvantage.
+
+\subsection{Industry Heterogeneity: The Largest Gaps in Capital-Intensive and Cyclical Industries}
+
+Figure~\ref{fig:heatmap} reports the industry $\times$ year gap heatmap, Figure~\ref{fig:trend} the time trends of the top-6 and bottom-6 industries, and Table~\ref{tab:industry} the industries with the highest and lowest 2025 gaps.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{fig2_industry_heatmap.pdf}
+\caption{Industry $\times$ year gap heatmap}
+\label{fig:heatmap}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{fig3_topbottom_trend.pdf}
+\caption{Time trends of the top-6 and bottom-6 industries by gap}
+\label{fig:trend}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{Industries with the Highest and Lowest 2025 Gaps (GBM, Full A-share SOEs)}
+\label{tab:industry}
+\begin{threeparttable}
+\small
+\begin{tabularx}{\linewidth}{r >{\raggedright\arraybackslash}X l >{\raggedright\arraybackslash}X l}
+\toprule
+Rank & Industry (highest gap) & Mean gap ($n$) & Industry (lowest gap) & Mean gap ($n$) \\
+\midrule
+1 & Steel II & $+4.68$pp (25) & Transportation & $-0.19$pp (74) \\
+2 & Real estate II & $+4.40$pp (52) & Telecommunication services & $-0.61$pp (4) \\
+3 & Coal II & $+3.38$pp (29) & Utilities II & $+0.40$pp (98) \\
+4 & Home appliances II & $+3.14$pp (13) & Semiconductors & $+0.69$pp (26) \\
+5 & Paper \& packaging & $+3.11$pp (15) & Software \& services & $+0.78$pp (47) \\
+6 & Building materials II & $+2.63$pp (20) & Nonferrous metals & $+0.32$pp (70) \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\footnotesize\raggedright
+\item Note: ``II'' denotes the second-level (Shenwan) industry classification.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\medskip
+\noindent\textbf{Finding 3}: the gap is highly concentrated across industries and \textbf{highly stable over time}. Capital-intensive and strongly cyclical industries such as steel, coal, real estate, home appliances, and building materials remain in the highest-gap group throughout the seven years (about $+3$ to $+7$~pp), while natural-monopoly or administratively priced industries such as transportation, utilities, and telecommunication services remain near zero or even negative. This pattern indicates that the gap is not a global ``ownership discount'' but is concentrated in specific industries---precisely the sectors with a high SOE presence, severe overcapacity pressure, and relatively weak marketization.
+
+\subsection{Central versus Local SOEs: No Significant Difference}
+
+Table~\ref{tab:central} reports the 2025 decomposition into central and local SOEs.
+
+\begin{table}[htbp]
+\centering
+\caption{Central versus Local SOEs (GBM, 2025)}
+\label{tab:central}
+\begin{threeparttable}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Group & $n$ (firms) & Actual $EBI/A$ & Predicted $EBI/A$ & Gap & SE & 95\% CI \\
+\midrule
+Central SOE & 436 & $+2.22\%$ & $+3.78\%$ & \textbf{$+1.56$pp} & $0.21$pp & $[+1.14,+1.98]$ \\
+Local SOE & 900 & $+1.68\%$ & $+3.28\%$ & \textbf{$+1.60$pp} & $0.16$pp & $[+1.29,+1.91]$ \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{table}
+
+\medskip
+\noindent\textbf{Finding 4}: the gaps of central and local SOEs are nearly identical ($+1.56$~pp vs.\ $+1.60$~pp; a difference of only $0.04$~pp, far smaller than the standard error), with no statistically significant difference. This indicates that the heterogeneity of the gap lies \textbf{not in the administrative-affiliation dimension but in the size and industry dimensions}---that is, ``large versus small'' explains the distribution of the gap better than ``central versus local.''
+
+\subsection{Amount Interpretation: The Asset-Weighted Economic Magnitude}
+
+The gap discussed so far is the firm-level unweighted mean of ratios (in pp). To characterize its \textbf{economic magnitude}, we further compute the amount gap:
+
+\begin{equation}
+\text{Amount gap} = \sum_i \text{gap}_i \times \text{Total assets}_i
+\end{equation}
+
+that is, multiplying each firm's gap by its total assets and summing, giving ``the amount by which SOE earnings before interest could increase if SOEs reached the private-enterprise benchmark return'' (in RMB 100 million). Figure~\ref{fig:amount} reports the year-by-year decomposition of the amount gap, Figure~\ref{fig:ratio_amount} compares the ratio and amount measures, and Table~\ref{tab:amount} reports the amount gap by year.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{fig4_amount_gap_by_year.pdf}
+\caption{Amount gap (RMB 100 million) decomposed by year, mutually exclusive}
+\label{fig:amount}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{fig5_ratio_vs_amount.pdf}
+\caption{Ratio gap versus amount gap, side by side (4 samples)}
+\label{fig:ratio_amount}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{Amount Gap (RMB 100 million), 2019--2025}
+\label{tab:amount}
+\begin{threeparttable}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Year & All SOE & CSI 300 & CSI 500 & CSI 1000 & Non-index \\
+\midrule
+2019 & 6{,}963 & 4{,}104 & 1{,}326 & 583 & 949 \\
+2020 & 8{,}683 & 4{,}561 & 1{,}890 & 733 & 1{,}499 \\
+2021 & 4{,}649 & 1{,}499 & 1{,}583 & 627 & 941 \\
+2022 & 4{,}308 & 1{,}724 & 1{,}535 & 843 & 205 \\
+2023 & 5{,}051 & 1{,}482 & 2{,}028 & 1{,}101 & 441 \\
+2024 & 4{,}960 & 133 & 1{,}911 & 852 & 2{,}064 \\
+2025 & \textbf{5{,}979} & 1{,}307 & 1{,}525 & 1{,}006 & 2{,}141 \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{table}
+
+\medskip
+\noindent\textbf{Finding 5}: the amount gap of the full A-share SOE sample totals about \textbf{RMB 597.9 billion} in 2025 and about \textbf{RMB 4.1 trillion} cumulatively over 2019--2025. The distribution of the amount gap across samples is \textbf{not fully consistent} with that of the ratio gap: although the CSI 300 SOE ratio gap is negative ($-0.36$~pp), its amount gap is still positive ($+1{,}307$ RMB 100 million). The reason is that the amount gap is asset-weighted---CSI 300 firms have enormous assets, so even when the average ratio gap is negative, a few high-asset, positive-gap firms can dominate the asset-weighted sum. Moreover, the CSI 300 gap distribution is left-skewed (a few firms with large negative gaps pull down the mean: the median is positive at $+0.41$~pp while the mean is negative at $-0.36$~pp), further indicating that the amount and ratio measures capture different sides of the gap and should be interpreted together.
+
+\subsection{Robustness Checks}
+
+\subsubsection{Sample Screening: Trimming Extreme Firms Does Not Change the Conclusion}
+
+Table~\ref{tab:screening} compares the full A-share SOE gap before and after dropping ST/insolvent/extreme profit-and-loss firms.
+
+\begin{table}[htbp]
+\centering
+\caption{Before-versus-After Screening (Full A-share SOEs, GBM)}
+\label{tab:screening}
+\begin{threeparttable}
+\small
+\begin{tabular}{lccc}
+\toprule
+Year & Before screening & After screening & $\Delta$ \\
+\midrule
+2019 & $+1.96$pp & $+1.90$pp & $-0.06$ \\
+2020 & $+2.10$pp & $+2.33$pp & $+0.23$ \\
+2021 & $+1.37$pp & $+1.55$pp & $+0.18$ \\
+2022 & $+1.48$pp & $+1.45$pp & $-0.03$ \\
+2023 & $+1.18$pp & $+1.35$pp & $+0.17$ \\
+2024 & $+1.80$pp & $+1.76$pp & $-0.04$ \\
+2025 & $+1.58$pp & $+1.59$pp & $+0.01$ \\
+\midrule
+Mean & $+1.64$pp & $+1.70$pp & $+0.06$ \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{table}
+
+The gap barely changes after screening (the mean even rises slightly by $+0.06$~pp), demonstrating that the conclusion is \textbf{not driven by a few extreme firms}---the median gaps of steel, coal, and other industries remain significantly positive after screening.
+
+\subsubsection{Common Support: Extrapolation Does Not Drive the Core Conclusions}
+
+Table~\ref{tab:cs} reports the key results of the common-support diagnostics.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of Common-Support Diagnostics (2025)}
+\label{tab:cs}
+\begin{threeparttable}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\thead{Sample} & \thead{Well\\supported \%} & \thead{Extrap.\\risk \%} & \thead{ROC\\AUC} & \thead{FirmSize\\SMD} & \thead{Full-sample\\gap} & \thead{Within-CS\\gap} \\
+\midrule
+All SOE & 60.9\% & 26.7\% & 0.828 & $+1.14$ & $+1.59$pp & $+1.53$pp \\
+CSI 300 SOE & \textbf{13.7\%} & \textbf{74.4\%} & \textbf{0.991} & \textbf{$+3.19$} & $-0.36$pp & $-1.66$pp \\
+CSI 500 SOE & 41.3\% & 42.9\% & 0.960 & $+2.42$ & $+0.93$pp & $+0.74$pp \\
+CSI 1000 SOE & 62.7\% & 23.3\% & 0.873 & $+1.62$ & $+1.18$pp & $+1.03$pp \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize\raggedright
+\item Note: ``Well-supported / extrapolation risk'' refers to the partition based on the 5-NN distance relative to the P90 of the within-private 1-NN distance; the within-CS gap is the gap restricted to the common support.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+The diagnostics reveal important identification boundaries:
+
+\begin{itemize}[leftmargin=2em,itemsep=2pt]
+\item \textbf{Full A-share SOEs and CSI 1000} have a relatively adequate common support (60--63\% well supported, ROC-AUC 0.83--0.87), and restricting to the common support barely changes the gap ($+1.59\to+1.53$~pp; $+1.18\to+1.03$~pp), indicating that the core conclusions of these two groups are \textbf{not driven by extrapolation};
+\item \textbf{CSI 500} is in a moderate-extrapolation regime (41\% well supported), and its within-CS gap declines slightly ($+0.93\to+0.74$~pp) but keeps the same direction;
+\item \textbf{CSI 300} has a severely inadequate common support (only 13.7\% well supported, 74.4\% extrapolation, ROC-AUC as high as 0.991), so its gap estimates rely essentially on extrapolation and must be interpreted with great caution. \textbf{FirmSize is the largest support obstacle} (SMD $+1.6$ to $+3.2$): large-cap SOEs lack comparable counterfactual peers in the private-enterprise sample.
+\end{itemize}
+
+Accordingly, our robust statement of the ``size gradient'' result is: \textbf{the gap conclusions for the full market and CSI 1000 are robust (relatively adequate common support); CSI 500 has moderate extrapolation and its within-CS gap declines slightly but keeps direction; although the negative gap of CSI 300 is consistent across models, its precise magnitude should be treated with caution because its common support is severely inadequate.}
+
+\subsubsection{Model Class: The Functional Form Does Not Drive the Conclusion}
+
+Three models with markedly different functional forms (linear Ridge, piecewise-constant RF, and smooth nonlinear GBM) give \textbf{fully consistent directions} of the gap across the four samples (positive for the full A-share sample, CSI 500, and CSI 1000; negative or near zero for CSI 300). Magnitudes differ somewhat---Ridge (linear) is more conservative, RF more aggressive, and GBM in between; for example, the 2025 full A-share gap ranges from $+1.42$~pp to $+2.01$~pp (about $0.60$~pp) across models. If the gap were an artifact of a particular functional form, we would expect larger, or even opposite-signed, disagreement between linear and nonlinear models; instead, the disagreement appears only in magnitude, not in direction. This supports the view that ``the qualitative conclusion on the gap is not a product of the functional-form assumption.''
+
+\subsubsection{Inference Robustness: Clustered Standard Errors and Bootstrap Agree}
+
+Table~\ref{tab:inference} reports the 2025 inference results.
+
+\begin{table}[htbp]
+\centering
+\caption{Inference Statistics (2025)}
+\label{tab:inference}
+\begin{threeparttable}
+\small
+\begin{tabular}{llcccc}
+\toprule
+\thead{Method} & \thead{Sample} & \thead{Point\\estimate} & \thead{SE} & \thead{95\% CI} & \thead{Conclusion} \\
+\midrule
+Clustered SE (GBM) & All SOE & $+1.59$pp & $0.13$pp & $[+1.34,+1.84]$ & Significant \\
+Clustered SE (GBM) & Central SOE & $+1.56$pp & $0.21$pp & $[+1.14,+1.98]$ & Significant \\
+Clustered SE (GBM) & Local SOE & $+1.60$pp & $0.16$pp & $[+1.29,+1.91]$ & Significant \\
+Bootstrap (Ridge, 500) & All SOE & $+1.42$pp & $0.14$pp & $[+1.14,+1.69]$ & Significant \\
+Bootstrap (Ridge, 500) & CSI 1000 & $+0.65$pp & $0.19$pp & $[+0.29,+1.01]$ & Significant \\
+Bootstrap (Ridge, 500) & CSI 300 & $-0.54$pp & $0.38$pp & $[-1.28,+0.23]$ & Not significant \\
+Bootstrap (Ridge, 500) & CSI 500 & $+0.13$pp & $0.21$pp & $[-0.26,+0.53]$ & Not significant \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize\raggedright
+\item Note: The bootstrap uses the computationally faster Ridge, whose point estimate ($+1.42$~pp) is slightly below GBM ($+1.59$~pp) but agrees in direction. The firm-level clustered standard error and the 500-draw cluster bootstrap SE are nearly identical ($0.13$ vs.\ $0.14$~pp).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+The firm-level clustered standard error and the 500-draw cluster bootstrap SE are nearly identical ($0.13$ vs.\ $0.14$~pp), and both confidence intervals exclude zero, so the gap conclusion for the full-market SOE sample is robust.
+
+% =============================================================================
+%  6. Conclusion
+% =============================================================================
+\section{Conclusion}
+
+Using the full A-share private-enterprise sample as a benchmark, this paper applies a machine-learning counterfactual approach to estimate the return-on-assets gap of listed Chinese SOEs. The main conclusions are as follows.
+
+\textbf{First}, the counterfactual return-on-assets gap of the full A-share SOE sample is persistently positive and statistically significant over 2019--2025, with a GBM firm-level mean of about $+1.4$ to $+2.3$ pp; the asset-weighted amount gap is about \textbf{RMB 597.9 billion} in 2025 and \textbf{RMB 4.1 trillion} cumulatively over seven years. This means that, under identical financial characteristics and industry environment, SOEs systematically earn a return on assets below the private-enterprise benchmark.
+
+\textbf{Second}, the gap exhibits a significant size gradient: large-cap SOEs (CSI 300 constituents) show a gap that turns negative or close to zero after 2021, whereas small- and mid-cap SOEs show positive gaps, with CSI 1000 robustly significant and CSI 500 more sensitive to model choice. This indicates that the return-on-assets gap is concentrated mainly in small- and mid-cap SOEs.
+
+\textbf{Third}, the gap is highly concentrated across industries and stable over time: capital-intensive and cyclical industries such as steel, coal, real estate, and home appliances show the largest gaps, while natural-monopoly or administratively priced industries such as transportation and utilities show near-zero gaps.
+
+\textbf{Fourth}, there is no significant difference between central and local SOEs.
+
+These conclusions are robust to trimming extreme observations, restricting to the common support, replacing the model class, and clustered inference.
+
+\textbf{Policy implications}: our findings suggest that, if the objective is to raise return on assets, reform should focus on \textbf{small- and mid-cap SOEs in competitive industries}---where the return-on-assets gap relative to private enterprises is largest---while the returns of large-cap, natural-monopoly SOEs are not significantly below the private benchmark. Moreover, the fact that the gap is heterogeneous along the size rather than the administrative-affiliation dimension suggests that a size-based stratification of the ``grasping the large and letting the small go'' type may characterize SOE efficiency differences better than a central/local stratification.
+
+\textbf{Limitations and outlook}: this paper has several limitations. First, the ownership field is a static snapshot, creating potential look-ahead bias. Second, the newly listed and low-price screens cannot be implemented for lack of data. Third, the common support of large-cap CSI 300 SOEs is severely inadequate (only 13.7\% well supported), so their gap estimates rely on extrapolation. Fourth, the sample is limited to the single A-share market. In addition, our gap measures a return differential relative to a private-enterprise benchmark and \textbf{is not directly equivalent to the amount of government subsidies or policy burdens}---it is the net effect of multiple factors, including managerial efficiency, agency costs, financing conditions, market power, and policy functions. Future research could obtain time-varying ownership, stock-price, and listing-date data; incorporate more markets; and combine causal identification methods (such as difference-in-differences and regression discontinuity) to further decompose the sources of the gap.
+
+% =============================================================================
+%  References
+% =============================================================================
+\begin{thebibliography}{99}
+\setlength{\itemsep}{0pt}
+
+\bibitem{asri2022} Asri, C. P. (2022). State ownership: A literature review. \emph{Social Science Studies}, 2(1), 15--29.
+
+\bibitem{boardman1989} Boardman, A. E., \& Vining, A. R. (1989). Ownership and performance in competitive environments: A comparison of the performance of private, mixed, and state-owned enterprises. \emph{The Journal of Law and Economics}, 32(1), 1--33.
+
+\bibitem{boudreaux2025} Boudreaux, C. J. (2025). When do state-owned enterprises innovate? The moderating role of pro-market institutions. \emph{Industry and Innovation}, 32(4), 383--412.
+
+\bibitem{cao2023} Cao, Y., Fisman, R., Lin, H., \& Wang, Y. (2023). SOEs and soft incentive constraints in state bank lending. \emph{American Economic Journal: Economic Policy}, 15(1), 174--195.
+
+\bibitem{cheng2021} Cheng, B., Christensen, T., Ma, L., \& Yu, J. (2021). Does public money drive out private? Evidence from government regulations of industrial overcapacity governance in urban China. \emph{International Review of Economics and Finance}, 76, 767--780.
+
+\bibitem{dallolio2022} Dall'Olio, A., Goodwin, T., Martinez Licetti, M., Alonso Soria, A. C., Drozd, M., Orlowski, J., Pati\~no Pe\~na, F., \& Sanchez-Navarro, D. (2022). \emph{Are all state-owned enterprises equal? A taxonomy of economic activities to assess SOE presence in the economy}. World Bank Policy Research Working Paper No.~10262.
+
+\bibitem{fu2024} Fu, H., Zeng, S., Sun, D., \& Lin, J. (2024). Mixed-ownership reform and innovation: An examination of state-owned enterprises. \emph{IEEE Transactions on Engineering Management}, 71, 14450.
+
+\bibitem{ge2020} Ge, Y., Liu, Y., Qiao, Z., \& Shen, Z. (2020). State ownership and the cost of debt: Evidence from corporate bond issuances in China. \emph{Research in International Business and Finance}, 52, 101164.
+
+\bibitem{ginting2020} Ginting, E., \& Naqvi, K. (Eds.). (2020). \emph{Reforms, opportunities, and challenges for state-owned enterprises}. Asian Development Bank.
+
+\bibitem{goldeng2008} Goldeng, E., Gr\"unfeld, L. A., \& Benito, G. R. G. (2008). The performance differential between private and state owned enterprises: The roles of ownership, management and market structure. \emph{Journal of Management Studies}, 45(7), 1245--1273.
+
+\bibitem{herreradappe2024} Herrera Dappe, M., Musacchio, A., Turkgulu, B., Pan, C., Barboza, J., \& Semikolenova, Y. (2024). State-owned enterprises as countercyclical instruments: Quasi-experimental evidence from the infrastructure sector. \emph{World Development}, 179, 106608.
+
+\bibitem{hu2023} Hu, N., Yu, S., Cao, Y., Guo, S. Y., \& Wang, Y. (2023). Unification of power and responsibilities for state-owned enterprises: A quasi-natural experiment. \emph{Corporate Governance: An International Review}, 31, 971--993.
+
+\bibitem{huang2024} Huang, Z., Lv, L., \& Yang, M. (2024). Governance of tax incentives: An effectiveness and differential analysis based on the Chinese context. \emph{Finance Research Letters}, 60, 104856.
+
+\bibitem{jakob2017} Jakob, B. (2017). Performance in strategic sectors: A comparison of profitability and efficiency of state-owned enterprises and private corporations. \emph{The Park Place Economist}, 25(1), Article 8.
+
+\bibitem{jin2023} Jin, S., Wang, W., \& Zhang, Z. (2023). The real effects of implicit government guarantee: Evidence from Chinese state-owned enterprise defaults. \emph{Management Science}, 69(6), 3650--3674.
+
+\bibitem{lazzarini2018} Lazzarini, S. G., \& Musacchio, A. (2018). State ownership reinvented? Explaining performance differences between state-owned and private firms. \emph{Corporate Governance: An International Review}, 26, 255--272.
+
+\bibitem{li2022} Li, S., \& Wu, Y. (2022). Government subsidies, ownership structure and operating performance of state-owned enterprises: Evidence from China. \emph{Applied Economics}, 54(56), 6480--6496.
+
+\bibitem{lin2021} Lin, Y., Fu, X., \& Fu, X. (2021). Varieties in state capitalism and corporate innovation: Evidence from an emerging economy. \emph{Journal of Corporate Finance}, 67, 101919.
+
+\bibitem{lucas2026} Lucas, D., Garcia, M. G. P., \& Solberg, T. C. C. (2026). \emph{Measuring financial subsidies to SOEs: A new asset return-based framework}. Working paper (January 2026 revision).
+
+\bibitem{luo2024} Luo, X. R., Wang, J., Chen, S., \& Chen, B. (2024). Digital divide: How do central and local SOEs respond differently to digitalization in China. \emph{Management and Organization Review}, 20, 748--772.
+
+\bibitem{maurel2021} Maurel, M., \& Pernet, T. (2021). New evidence on the soft budget constraint: Chinese environmental policy effectiveness in SOE-dominated cities. \emph{Public Choice}, 187, 111--142.
+
+\bibitem{morales2022} Morales, J. (2022). State-owned enterprises as a political tool: The case of a Venezuelan oil company. \emph{Problems and Perspectives in Management}, 20(1), 473--487.
+
+\bibitem{reichert2021} Reichert, P., Hudon, M., Szafarz, A., \& Christensen, R. K. (2021). Crowding-in or crowding-out? How subsidies signal the path to financial independence of social enterprises. \emph{Perspectives on Public Management and Governance}, 4(3), 291--308.
+
+\bibitem{tang2023} Tang, L. (2023). SOEs reform and capital efficiency in China: A structural analysis. \emph{International Review of Economics and Finance}, 85, 1--20.
+
+\bibitem{wang2024} Wang, R., Wang, X., Xu, G., \& Zha, T. (2024). \emph{Privatization's impacts on state-owned enterprises: A tale of zombie versus healthy firms}. NBER Working Paper No.~32795, National Bureau of Economic Research.
+
+\bibitem{wu2026} Wu, W., An, Y., \& Wang, H. (2026). Economic functions and soft budget constraint of SOEs: Evidence from China. \emph{Applied Economics}, 58(10), 1898--1911.
+
+\bibitem{wu2024} Wu, Z. (2024). Analysis and discussion of the problems in the process of state-owned enterprise reform. \emph{Journal of Humanities, Arts and Social Science}, 8(2), 345--349.
+
+\bibitem{zhao2019} Zhao, J. (2019). Chinese state-owned companies, misallocation and the reform policy. \emph{Chinese Political Science Review}, 4, 28--51.
+
+\bibitem{zhou2017} Zhou, K. Z., Gao, G. Y., \& Zhao, H. (2017). State ownership and firm innovation in China: An integrated view of institutional and efficiency logics. \emph{Administrative Science Quarterly}, 62(2), 375--404.
+
+\bibitem{zhou2024} Zhou, Y., Pan, P., He, W., Wang, J., \& Sun, J. (2024). Dilemmas and optimisation countermeasures of mixed ownership reform of local state-owned enterprises. \emph{Frontiers in Business, Economics and Management}, 15(1), 14--18.
+
+\end{thebibliography}
+
+\smallskip
+\noindent\footnotesize Note: This list is compiled from the 29 reference PDFs provided by the author (plus Lucas, Garcia, and Solberg, 2026). For a few journals (e.g., \emph{Corporate Governance}, \emph{Public Choice}, \emph{Management and Organization Review}), the issue number is not shown on the title page, so the entries cite volume and pages only; please verify volume, issue, pages, and DOI before submission.
+
+% =============================================================================
+%  Appendix
+% =============================================================================
+\appendix
+
+\section{Supplementary Figures}
+
+Figure~\ref{fig:size_gap_calib} reports the size--gap bins and the predicted-versus-actual calibration scatter; Figures~\ref{fig:cs_heatmap} and~\ref{fig:cs_trend} report the industry heterogeneity within the common support (All SOE + CSI 1000).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figA2_size_gap_calibration.pdf}
+\caption{Size--gap bins + predicted-versus-actual calibration scatter (GBM, 2025). The left panel divides the full A-share SOEs into deciles of firm size ($\ln$ total assets) and plots each bin's mean gap with its 95\% confidence interval; the right panel scatters predicted against actual values (dashed line is the $45^\circ$ line).}
+\label{fig:size_gap_calib}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figA3_cs_heatmap.pdf}
+\caption{Common-support industry $\times$ year gap heatmap (All SOE + CSI 1000). Restricting to the common support leaves the industry pattern unchanged---steel and coal remain in the highest-gap group and transportation and utilities remain near zero---indicating that the industry results are not driven by extrapolation.}
+\label{fig:cs_heatmap}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figA4_cs_trend.pdf}
+\caption{Common-support time trends of the top-6 and bottom-6 industries by gap (All SOE + CSI 1000). The industry ordering is highly stable over time.}
+\label{fig:cs_trend}
+\end{figure}
+
+\section{Key Result Files}
+
+Table~\ref{tab:files} lists the key result files of this paper.
+
+\begin{table}[htbp]
+\centering
+\caption{Key Result Files}
+\label{tab:files}
+\begin{threeparttable}
+\small
+\begin{tabularx}{\linewidth}{l >{\raggedright\arraybackslash}X}
+\toprule
+File & Content \\
+\midrule
+\texttt{firm\_level\_gap\_all\_years.csv} & Firm-year gap (ratio + amount, all years) \\
+\texttt{firm\_level\_gap\_2025.csv} & Firm-level gap (2025) \\
+\texttt{summary\_by\_sample\_year.csv} & Summary by sample and year (ratio + amount gap) \\
+\texttt{summary\_by\_industry\_year.csv} & Summary by industry and year \\
+\texttt{summary\_by\_industry\_2025.csv} & Summary by industry, 2025 \\
+\texttt{inference\_stats\_2025.csv} & Clustered-SE inference \\
+\texttt{bootstrap\_inference\_2025.csv} & Bootstrap inference \\
+\texttt{central\_vs\_local\_2025.csv} & Central/local decomposition \\
+\texttt{private\_oof\_predictions.csv} & Private-enterprise OOF predictions (firm-year level) \\
+\texttt{common\_support\_report.md} & Full common-support diagnostics \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}
+
+\section{Replication Code}
+
+Table~\ref{tab:code} lists the replication code of this paper.
+
+\begin{table}[htbp]
+\centering
+\caption{Replication Code}
+\label{tab:code}
+\begin{threeparttable}
+\small
+\begin{tabularx}{\linewidth}{l >{\raggedright\arraybackslash}X}
+\toprule
+Script & Purpose \\
+\midrule
+\texttt{run\_counterfactual.py} & Data loading + feature construction \\
+\texttt{src/01\_main\_pipeline.py} & Main pipeline (unified A-share panel) \\
+\texttt{outputs/revision/rerun\_filtered.py} & Re-run after screening \\
+\texttt{outputs/revision/industry\_screened.py} & Industry-level visualization \\
+\texttt{outputs/revision/common\_support\_full.py} & Common-support diagnostics \\
+\texttt{outputs/revision/inference\_and\_heterogeneity.py} & Inference + central/local decomposition \\
+\texttt{outputs/revision/cluster\_bootstrap.py} & Cluster bootstrap \\
+\texttt{outputs/revision/fig\_amount\_gap.py} & Amount-gap figure \\
+\texttt{outputs/revision/fig\_firm\_size\_overlap\_screened.py} & Firm-size overlap figure (screened) \\
+\texttt{outputs/revision/export\_descriptives.py} & Descriptive-statistics table (Table~\ref{tab:descriptives}) \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}
+
+\end{document}

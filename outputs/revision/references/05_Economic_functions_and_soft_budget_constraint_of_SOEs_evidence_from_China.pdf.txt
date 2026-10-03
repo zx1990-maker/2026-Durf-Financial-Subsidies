@@ -1,0 +1,98 @@
+Applied Economics
+ISSN: 0003-6846 (Print) 1466-4283 (Online) Journal homepage: www.tandfonline.com/journals/raec20
+Economic functions and soft budget constraint of
+SOEs: evidence from China
+Wenzhi Wu, Yuanyuan An & Huiqiang Wang
+To cite this article: Wenzhi Wu, Yuanyuan An & Huiqiang Wang (2026) Economic functions and
+soft budget constraint of SOEs: evidence from China, Applied Economics, 58:10, 1898-1911,
+DOI: 10.1080/00036846.2025.2471591
+To link to this article: https://doi.org/10.1080/00036846.2025.2471591
+View supplementary material 
+Published online: 03 Mar 2025.
+Submit your article to this journal 
+Article views: 226
+View related articles 
+View Crossmark data
+Citing articles: 2 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=raec20
+
+Economic functions and soft budget constraint of SOEs: evidence from China
+Wenzhi Wua, Yuanyuan Anb and Huiqiang Wangc
+aInstitute of Emerging Industry Development Studies, Shenzhen University, Shenzhen, Guangdong, China; bSchool of Marxism, South China 
+University of Technology, Guangzhou, Guangdong, China; cBusiness School, Soochow University, Suzhou, Jiangsu, China
+ABSTRACT
+Existing literature has extensively explored the evolution of soft budget constraints in State-Owned 
+Enterprises (SOEs) from strategic and socio-functional perspectives. However, there is a notable 
+dearth of studies investigating these constraints from an economic-functional standpoint. Our 
+study bridges this gap by analysing the impact of the increasing profit remittance ratio by SOEs to 
+the government, using the Difference-in-Differences (DID) method. We reveal several critical 
+insights: (1) As the economic function of SOEs progressively strengthens, there is a significant 
+increase in government subsidies to these enterprises. Specifically, a 10% increase in the profit 
+contribution ratio leads to an 18.96% increase in government subsidies. (2) Mechanistic analysis 
+suggests that compensatory benefits from the government are likely the primary driver of the 
+increased subsidies received by SOEs. Empirical data indicate that mandatory profit remittances 
+adversely affect the profitability and growth of SOEs, with more severe effects resulting in greater 
+government subsidies. (3) The reciprocal exchange of interests between governments and SOEs 
+may exacerbate the principal-agent dilemmas inherent in such relationships.
+KEYWORDS 
+Economic functions; soft 
+budget constraints; interest 
+compensation
+JEL CLASSIFICATION 
+P35; G28
+I. Introduction
+The concept of soft budget constraints, initially 
+introduced by Kornai in 1980, characterizes 
+a common phenomenon in transition economies 
+where governments support state-owned enterprises 
+(SOEs) through methods like subsidies. This 
+approach distorts pricing dynamics in the credit 
+market, channels excessive capital into inefficient 
+SOEs, and amplifies the hidden debt risks faced by 
+local governments (Allen et al. 2023; Dong, Hou, 
+and Ni 2021; Jin, Wang, and Zhang 2023; Maskin 
+and Xu 2001; Wang, Fang, and Luo 2022). Tackling 
+the issue of soft budget constraints on SOEs and 
+transitioning them towards market-oriented opera­
+tions is critically important, attracting widespread 
+focus across both theoretical and practical domains.
+Numerous studies have explored the origins of 
+soft budget constraints, examining them from 
+diverse perspectives such as government patern­
+alism (Kornai 1980, 1986), time inconsistency 
+dilemmas (Dewatripont and Maskin 1995), fiscal 
+federalism (Qian and Roland 1998), the property 
+characteristics of SOEs (Li 1992), and the societal 
+roles fulfilled by SOEs (Lin, Cai, and Li 1998; Lin 
+and Li 2008; Lin and Tan 1999). However, 
+a significant gap remains in the literature regard­
+ing how the economic functions of SOEs – parti­
+cularly their remittance of funds to the 
+government – impact soft budget constraints.
+This paper exploit the State Capital Operation 
+Program (hereafter the programme) in China, to 
+determine whether the economic functions of 
+SOEs exacerbate soft budget constraints. The pro­
+gramme intends to form a fiscal fund by requiring 
+state-owned enterprises groups, which are 100% 
+owned by the central government, to contribute 
+a portion of their consolidated after-tax income in 
+the form of mandated dividends. Utilizing data 
+from 2004 to 2014 and employing a Difference-in- 
+Differences (DID) model, the findings reveal that 
+SOEs affected by the programme received signifi­
+cantly higher subsidies compared to unaffected 
+entities. Specifically, for every 10% increase in the 
+profit contribution ratio, there was an average 
+increase of 18.96% in government subsidies allo­
+cated to these enterprises.
+CONTACT Huiqiang Wang 
+wanghuiqiang1125@163.com 
+Business School, 50 Donghuan Road.Soochow University No, Gusu District, Suzhou 215006, 
+P. R. China
+Supplemental data for this article can be accessed online at https://doi.org/10.1080/00036846.2025.2471591.
+APPLIED ECONOMICS 
+2026, VOL. 58, NO. 10, 1898–1911 
+https://doi.org/10.1080/00036846.2025.2471591
+© 2025 Informa UK Limited, trading as Taylor & Francis Group
