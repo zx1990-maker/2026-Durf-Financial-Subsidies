@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this research or code, please cite the paper and repository."
+title: "Measuring Financial Subsidies to Chinese State-Owned Enterprises: Machine-Learning Estimation"
+type: software
+authors:
+  - family-names: Xin
+    given-names: Zixuan
+  - family-names: Xu
+    given-names: Jiayu
+date-released: 2026-08-31
+repository-code: "https://github.com/zx1990-maker/2026-Durf-Financial-Subsidies"
+url: "https://github.com/zx1990-maker/2026-Durf-Financial-Subsidies"
+keywords:
+  - state-owned enterprises
+  - financial subsidies
+  - machine learning
+  - common support
+  - China
